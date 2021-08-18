@@ -56,7 +56,7 @@ function generarCobro(){
         DATOS DEL TUTOR (3)
     */
     let settings = {
-        "url": "http://localhost/server/DevOps/escuela/Escuela-API/index.php/dbcolegiaturasdinero/updatedata" + '?type=updatedata',
+        "url": urlDbColegiaturasPagosU + '?type=updatedata',
         "method": "POST",
         "timeout": 0,
         "headers": {

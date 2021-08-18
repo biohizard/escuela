@@ -62,9 +62,8 @@ function loadingAlumnos() {
         //--->  
 }
 function loadingHistorial(){
-   //http://localhost/server/DevOps/escuela/Escuela-API/index.php/dbcolegiaturas/allreadedata?type=one&token=Aqt8CkbGXTBrEU9ayQoM
     let x = $("#token").val()
-    let jqxhr = $.getJSON("http://localhost/server/DevOps/escuela/Escuela-API/index.php/dbcolegiaturas/allreadedata?type=one&token=" + x, function(data) {})
+    let jqxhr = $.getJSON(urlDbColegiaturasR + "?type=one&token=" + x, function(data) {})
         .done(function(data) {
             //--->
             $.each(data, function(i, val) {
@@ -100,7 +99,7 @@ function loadingcolegiaturas(){
 }
 function loadingpagos(){
     let x = $("#token").val()
-    let jqxhr = $.getJSON("http://localhost/server/DevOps/escuela/Escuela-API/index.php/dbpagos/allreadedata?type=all&token=" + x, function(data) {})
+    let jqxhr = $.getJSON(urlDbPagosR + "?type=all&token=" + x, function(data) {})
     .done(function(data) {
         $.each(data, function(i, val) {
             /*

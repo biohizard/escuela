@@ -46,7 +46,7 @@ function generarCobro(){
         //alert(ticket_fecha + "-----" +ticket_idUsuario + "-----" + ticket_cobroId + "-----" + ticket_cobroIdadvance + "-----" +ticket_cobroNombre + "-----" + ticket_cobroSerpro + "-----" + ticket_cobroIdAdvanceSerpro + "-----" + ticket_precio_costo + "-----" + ticket_val_precio_total)
 
         let settings = {
-            "url": "http://localhost/server/DevOps/escuela/Escuela-API/index.php/dbcolegiaturasdinero/updatedata" + '?type=updatedatados',
+            "url": urlDbColegiaturasPagosU + '?type=updatedatados',
             "method": "POST",
             "timeout": 0,
             "headers": {

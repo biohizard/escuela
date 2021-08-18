@@ -117,3 +117,11 @@ urlDbConfigU = url_api;
 urlDbConfigD = url_api;
 
 urlDbConfigA = url_api + "Dbcofigcol/allreadedata";
+
+//-------------------------------------------------------------->
+urlDbPagosR             = url_api + "dbpagos/allreadedata";
+
+urlDbColegiaturasPagosU = url_api + "dbcolegiaturasdinero/updatedata";
+
+urlDbColegiaturasR      = url_api + "dbcolegiaturas/allreadedata";
+
