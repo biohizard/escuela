@@ -74,7 +74,7 @@ if (ZONA == "local") {
   define("PASSWORD", '12345aeiou');
   define("DATABASE", 'escuela');
   */
-  define("HOSTNAME", 'labs26.com:3306');
+  define("HOSTNAME", 'labs26.com');
   define("USERNAME", 'escuela');
   define("PASSWORD", '12345aeiou');
   define("DATABASE", 'escuela');
@@ -95,7 +95,7 @@ if (ZONA == "local") {
   define("INDEX_PAGE", APP_URL.'');
   define("DEFAULTROUTER", 'user/login');
 
-  define("HOSTNAME", 'labs26.com:3306');
+  define("HOSTNAME", 'labs26.com');
   define("USERNAME", 'escuela');
   define("PASSWORD", '12345aeiou');
   define("DATABASE", 'escuela');
