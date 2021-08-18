@@ -1,0 +1,33 @@
+
+                            
+/* TEAM */
+
+                            
+Your title: BIOHIZARD.                           
+Site: biohizard@gmail.com                           
+Twitter: your Twitter username.
+Location: Wakada City, Wakanda.				
+							
+/* THANKS */
+							
+Name: name or url
+
+						
+                 
+                        [...]
+                        
+
+                            
+/* SITE */
+
+                            
+Last update: YYYY/MM/DD 
+
+                            
+Standards: HTML5, CSS3,..
+
+                            
+Components: Modernizr, jQuery, etc.
+
+                            
+Software: Software used for the development
