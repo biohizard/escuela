@@ -12,10 +12,10 @@ if (local == true) {
     url_cdn = "//" + hostlocal + "escuela/Escuela-APP/";
 } else {
     var txtServe = "on the server web";
-    var hostweb = "luxza.com/escuela/";
-    url_base = "//" + hostweb + "Escuela-APP/";
-    url_api = "//" + hostweb + "Escuela-API/";
-    url_cdn = "//" + hostweb + "Escuela-CDN/Escuela-CDN-app/";
+    var hostweb = "//escuela.labs26.com/";
+    url_base = hostweb + "Escuela-APP/";
+    url_api  = hostweb + "Escuela-API/";
+    url_cdn  = hostweb + "Escuela-CDN/Escuela-CDN-app/";
 }
 console.log("%c Run JS: " + txtServe, "color:green; text-decoration: underline");
 //--->

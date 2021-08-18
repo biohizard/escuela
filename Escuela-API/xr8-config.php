@@ -45,61 +45,60 @@ $a_ngrok = explode(".", $_SERVER['HTTP_HOST']);
 
 //Local o Web
 if ($_SERVER['HTTP_HOST'] == 'localhost') {
-
   define("ZONA", 'local');
   define("PAGETITLE", 'Local : ');
-
-  }elseif ($a_ngrok['1'] == 'ngrok') {
-
-    define("ZONA", 'ngrok');
-    define("PAGETITLE", 'Local Ngrok: ');
-
-    }else{
-
-      define("ZONA", 'web');
-      define("PAGETITLE", 'Remote : ');
-
-      }
+}elseif ($a_ngrok['1'] == 'ngrok') {
+  define("ZONA", 'ngrok');
+  define("PAGETITLE", 'Local Ngrok: ');
+}else{
+  define("ZONA", 'web');
+  define("PAGETITLE", 'Remote : ');
+}
 
 //Config Local o Web
-      if (ZONA == "local") {
-        //----->
-          define("TITLE", PAGETITLE ."Escuela API- ");
+if (ZONA == "local") {
+  //----->
+  define("TITLE", PAGETITLE ."Escuela API- ");
 
-          define("BASE_URL", '//'.$_SERVER['HTTP_HOST'].'server/DevOps/escuela/');
+  define("BASE_URL", '//'.$_SERVER['HTTP_HOST'].'/server/DevOps/escuela/');
 
-            define("APP_URL",BASE_URL."Escuela-APP/");
-            define("API_URL",BASE_URL."Escuela-API/");
-            define("CDN_URL",BASE_URL."Escuela-CDN/Escuela-CDN-app/");
+  define("APP_URL",BASE_URL."Escuela-APP/");
+  define("API_URL",BASE_URL."Escuela-API/");
+  define("CDN_URL",BASE_URL."Escuela-CDN/Escuela-CDN-app/");
 
-            define("INDEX_PAGE", APP_URL.'index.php/');
-            define("DEFAULTROUTER", 'api');
+  define("INDEX_PAGE", APP_URL.'index.php/');
+  define("DEFAULTROUTER", 'user/login');
 
-            define("HOSTNAME", 'localhost');
-            define("USERNAME", 'root');
-            define("PASSWORD", '12345aeiou');
-            define("DATABASE", 'escuela');
-        //----->
-        }else if  (ZONA == "ngrok"){
-          //----->
+  /*
+  define("HOSTNAME", 'localhost');
+  define("USERNAME", 'root');
+  define("PASSWORD", '12345aeiou');
+  define("DATABASE", 'escuela');
+  */
+  define("HOSTNAME", 'labs26.com');
+  define("USERNAME", 'escuela');
+  define("PASSWORD", '12345aeiou');
+  define("DATABASE", 'escuela');
+  //----->
+}else if  (ZONA == "ngrok"){
+    //----->
+    //----->
+}else{
+  //----->
+  define("TITLE", PAGETITLE ." Money online - ");
 
-          //----->
-          }else{
-            //----->
-              define("TITLE", PAGETITLE ." Money online - ");
+  define("BASE_URL",'//escuela.labs26.com/');
 
-              define("BASE_URL", 'luxza.com/escuela/');
+  define("APP_URL",BASE_URL."Escuela-APP/");
+  define("API_URL",BASE_URL."Escuela-API/");
+  define("CDN_URL",BASE_URL."Escuela-CDN/Escuela-CDN-app/");
 
-                define("APP_URL","//".BASE_URL."/Escuela-APP/");
-                define("API_URL","//".BASE_URL."/Escuela-API/");
-                define("CDN_URL","//".BASE_URL."/Escuela-CDN/Escuela-CDN-app/");
+  define("INDEX_PAGE", APP_URL.'');
+  define("DEFAULTROUTER", 'user/login');
 
-                define("INDEX_PAGE", API_URL.'');
-                define("DEFAULTROUTER", 'api');
-
-                define("HOSTNAME", 'labs26.com');
-                define("USERNAME", 'escuela');
-                define("PASSWORD", '12345aeiou');
-                define("DATABASE", 'escuela');
-            //----->
-            }
+  define("HOSTNAME", 'labs26.com');
+  define("USERNAME", 'escuela');
+  define("PASSWORD", '12345aeiou');
+  define("DATABASE", 'escuela');
+  //----->
+}
