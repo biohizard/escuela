@@ -88,9 +88,9 @@ if (ZONA == "local") {
 
   define("BASE_URL",'//escuela.labs26.com/');
 
-  define("APP_URL","//".BASE_URL."Escuela-APP/");
-  define("API_URL","//".BASE_URL."Escuela-API/");
-  define("CDN_URL","//".BASE_URL."Escuela-CDN/");
+  define("APP_URL",BASE_URL."Escuela-APP/");
+  define("API_URL",BASE_URL."Escuela-API/");
+  define("CDN_URL",BASE_URL."Escuela-CDN/Escuela-CDN-app/");
 
   define("INDEX_PAGE", APP_URL.'');
   define("DEFAULTROUTER", 'user/login');
