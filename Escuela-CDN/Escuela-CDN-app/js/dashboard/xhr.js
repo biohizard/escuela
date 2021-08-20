@@ -8,46 +8,129 @@ console.log("%cLoad File : %cxhr", "color: cyan", "color: yellow");
 
 function saveDataInscripcion() {
     /*
-    S.fn.init(24) [
-        FICHA DE INSCRIPCION (4)
-        input#ins_nombremaestra.form-control,
-        input#inlineRadio1.form-check-input,
-        input#inlineRadio2.form-check-input,
+    FICHA DE INSCRIPCION
+    $("#ins_nombremaestra").val()
+    $("#ins_exalumno").val()
+    $("#ins_gradocursar").val()
+    $("#ins_tipopago").val()
 
-        DATOS DEL ALUMNO     (14)
-        input#ins_nombrealumno.form-control,
-        input#ins_apaternoalumno.form-control,
-        input#ins_amaternoalumno.form-control,
-        input#ins_fechanacimiento.form-control,
-        input#ins_edad.form-control,
-        input#ins_curp.form-control,
+    DATOS DEL ALUMNO
+    col-izq
+    $("#ins_nombrealumno").val()
+    $("#ins_apaternoalumno").val()
+    $("#ins_curp").val()
+    $("#ins_sexo").val()
+    $("#ins_direccion").val()
+    $("#ins_cp").val()
 
-        input#ins_estatura.form-control,
-        input#ins_peso.form-control,
-        input#ins_tiposanguineo.form-control,
-        input#ins_direccion.form-control,
-        input#ins_cp.form-control,
-        input#ins_telefono.form-control,
-        input#ins_recados.form-control,
+    col-der
+    $("#ins_fechanacimiento").val()
+    $("#ins_edad").val()
+    $("#ins_estatura").val()
+    $("#ins_peso").val()
+    $("#ins_tiposanguineo").val()
+    $("#ins_telefono").val()
+    $("#ins_recados").val()
 
-        PARA ALUMNOS DE 1ER GRADO (6)
-        input#ins_annoskinder.form-control,
-        input#ins_maestraausubel.form-control,
-        input#ins_procedencia.form-control,
+    PARA ALUMNOS DE 1ER GRADO
+    $("#ins_annoskinder").val()
+    $("#ins_maestraausubel").val()
+    $("#ins_procedencia").val()
+    $("#ins_lectoescritura").val()
+    $("#ins_lectoescriturapor").val()
+    $("#ins_problema").val()
 
-        input#ins_lectoescriturapor.form-control,
-        input#ins_problema.form-control,
-
-        DATOS DEL TUTOR (3)
-        input#tutor_tutor.form-control,
-        input#tutor_parentesco.form-control,
-        input#tutor_tutocurp.form-control,
-
-        prevObject: S.fn.init(1)]
+    DATOS DEL TUTOR
+    $("#tutor_tutor").val()
+    $("#tutor_parentesco").val()
+    $("#tutor_tutocurp").val()
     */
+   
+    console.log("let save form")
+    let alumno_nombremaestra     = $("#ins_nombremaestra").val()
+    let alumno_exalumno          = $("#ins_exalumno").val()
+    let alumno_gradocursar       = $("#ins_gradocursar").val()
+    let alumno_tipopago          = $("#ins_tipopago").val()
 
+    let alumno_nombrealumno      = $("#ins_nombrealumno").val()
+    let alumno_apaternoalumno    = $("#ins_apaternoalumno").val()
+    let alumno_amaternoalumno    = $("#ins_amaternoalumno").val()
+    let alumno_curp              = $("#ins_curp").val()
+    let alumno_sexo              = $("#ins_sexo").val()
+    let alumno_direccion         = $("#ins_direccion").val()
+    let alumno_cp                = $("#ins_cp").val()
 
+    let alumno_fechanacimiento   = $("#ins_fechanacimiento").val()
+    let alumno_edad              = $("#ins_edad").val()
+    let alumno_estatura          = $("#ins_estatura").val()
+    let alumno_peso              = $("#ins_peso").val()
+    let alumno_tiposanguineo     = $("#ins_tiposanguineo").val()
+    let alumno_telefono          = $("#ins_telefono").val()
+    let alumno_recados           = $("#ins_recados").val()
 
+    let alumno_annoskinder       = $("#ins_annoskinder").val()
+    let alumno_maestraausubel    = $("#ins_maestraausubel").val()
+    let alumno_procedencia       = $("#ins_procedencia").val()
+    let alumno_lectoescritura    = $("#ins_lectoescritura").val()
+    let alumno_lectoescriturapor = $("#ins_lectoescriturapor").val()
+    let alumno_problema          = $("#ins_problema").val()
+
+    let alumno_tutor             = $("#tutor_tutor").val()
+    let alumno_parentesco        = $("#tutor_parentesco").val()
+    let alumno_tutocurp          = $("#tutor_tutocurp").val()
+
+    let settings = {
+        "url": urlDbAlumnoC,
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+            /*"Authorization": "Basic cm9vdDphZG1pbg==",*/
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "data":{
+            'save_nombremaestra'    :alumno_nombremaestra,
+            'save_exalumno'         :alumno_exalumno,
+            'save_gradocursar'      :alumno_gradocursar,
+            'save_tipopago'         :alumno_tipopago,
+            'save_nombrealumno'     :alumno_nombrealumno,
+            'save_apaternoalumno'   :alumno_apaternoalumno,
+            'save_amaternoalumno'   :alumno_amaternoalumno,
+            'save_curp'             :alumno_curp,
+            'save_sexo'             :alumno_sexo,
+            'save_direccion'        :alumno_direccion,
+            'save_cp'               :alumno_cp,
+            'save_fechanacimiento'  :alumno_fechanacimiento,
+            'save_edad'             :alumno_edad,
+            'save_estatura'         :alumno_estatura,
+            'save_peso'             :alumno_peso,
+            'save_tiposanguineo'    :alumno_tiposanguineo,
+            'save_telefono'         :alumno_telefono,
+            'save_recados'          :alumno_recados,
+            'save_annoskinder'      :alumno_annoskinder,
+            'save_maestraausubel'   :alumno_maestraausubel,
+            'save_procedencia'      :alumno_procedencia,
+            'save_lectoescritura'   :alumno_lectoescritura,
+            'save_lectoescriturapor':alumno_lectoescriturapor,
+            'save_problema'         :alumno_problema,
+            'save_tutor'            :alumno_tutor,
+            'save_parentesco'       :alumno_parentesco,
+            'save_tutocurp'         :alumno_tutocurp
+                }
+    }
+
+    let jqxhr1 = $.ajax(settings)
+        .done(function(data) {
+            //$.each(data, function(i, val) {})
+        })
+        .fail(function(data, jqXHR, textStatus, errorThrown) {
+            console.info("Run: all user loading error");
+            xhrError(jqXHR, textStatus, errorThrown);
+        })
+        .always(function(data) {
+            console.info("Run: all user always");
+            $("#exampleModalToggle").modal("hide");
+        })
+    
 }
 //
 function readeDataInscripcion() {

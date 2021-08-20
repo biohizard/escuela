@@ -1,0 +1,143 @@
+ERROR - 2021-08-20 10:10:57 --> $config['composer_autoload'] is set to TRUE but D:\Server\DevOps\escuela\Escuela-APP\application\vendor/autoload.php was not found.
+INFO - 2021-08-20 10:10:58 --> Config Class Initialized
+INFO - 2021-08-20 10:10:58 --> Hooks Class Initialized
+INFO - 2021-08-20 10:11:00 --> UTF-8 Support Enabled
+INFO - 2021-08-20 10:11:00 --> Utf8 Class Initialized
+INFO - 2021-08-20 10:11:01 --> URI Class Initialized
+INFO - 2021-08-20 10:11:01 --> Router Class Initialized
+INFO - 2021-08-20 10:11:02 --> Output Class Initialized
+INFO - 2021-08-20 10:11:02 --> Security Class Initialized
+INFO - 2021-08-20 10:11:03 --> Input Class Initialized
+INFO - 2021-08-20 10:11:03 --> Language Class Initialized
+INFO - 2021-08-20 10:11:04 --> Loader Class Initialized
+INFO - 2021-08-20 10:11:04 --> Helper loaded: url_helper
+INFO - 2021-08-20 10:11:05 --> Helper loaded: string_helper
+INFO - 2021-08-20 10:11:05 --> Helper loaded: date_helper
+INFO - 2021-08-20 10:11:05 --> Helper loaded: array_helper
+INFO - 2021-08-20 10:11:06 --> Helper loaded: security_helper
+INFO - 2021-08-20 10:11:06 --> Helper loaded: text_helper
+INFO - 2021-08-20 10:11:07 --> Helper loaded: session_helper
+INFO - 2021-08-20 10:11:07 --> Controller Class Initialized
+INFO - 2021-08-20 10:11:07 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/header.php
+INFO - 2021-08-20 10:11:07 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/top.php
+INFO - 2021-08-20 10:11:08 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/admin-top.php
+INFO - 2021-08-20 10:11:08 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\dashboard/all.php
+INFO - 2021-08-20 10:11:08 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/admin-foot.php
+INFO - 2021-08-20 10:11:08 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/footer.php
+INFO - 2021-08-20 10:11:08 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\dashboard/modal.php
+INFO - 2021-08-20 10:11:08 --> Final output sent to browser
+INFO - 2021-08-20 10:11:08 --> Total execution time: 11.1365
+ERROR - 2021-08-20 10:24:04 --> $config['composer_autoload'] is set to TRUE but D:\Server\DevOps\escuela\Escuela-APP\application\vendor/autoload.php was not found.
+INFO - 2021-08-20 10:24:04 --> Config Class Initialized
+INFO - 2021-08-20 10:24:04 --> Hooks Class Initialized
+INFO - 2021-08-20 10:24:04 --> UTF-8 Support Enabled
+INFO - 2021-08-20 10:24:04 --> Utf8 Class Initialized
+INFO - 2021-08-20 10:24:04 --> URI Class Initialized
+INFO - 2021-08-20 10:24:04 --> Router Class Initialized
+INFO - 2021-08-20 10:24:04 --> Output Class Initialized
+INFO - 2021-08-20 10:24:04 --> Security Class Initialized
+INFO - 2021-08-20 10:24:04 --> Input Class Initialized
+INFO - 2021-08-20 10:24:04 --> Language Class Initialized
+INFO - 2021-08-20 10:24:04 --> Loader Class Initialized
+INFO - 2021-08-20 10:24:04 --> Helper loaded: url_helper
+INFO - 2021-08-20 10:24:04 --> Helper loaded: string_helper
+INFO - 2021-08-20 10:24:04 --> Helper loaded: date_helper
+INFO - 2021-08-20 10:24:04 --> Helper loaded: array_helper
+INFO - 2021-08-20 10:24:04 --> Helper loaded: security_helper
+INFO - 2021-08-20 10:24:04 --> Helper loaded: text_helper
+INFO - 2021-08-20 10:24:04 --> Helper loaded: session_helper
+INFO - 2021-08-20 10:24:04 --> Controller Class Initialized
+INFO - 2021-08-20 10:24:04 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/header.php
+INFO - 2021-08-20 10:24:04 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/top.php
+INFO - 2021-08-20 10:24:04 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/admin-top.php
+INFO - 2021-08-20 10:24:04 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\dashboard/all.php
+INFO - 2021-08-20 10:24:04 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/admin-foot.php
+INFO - 2021-08-20 10:24:04 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/footer.php
+INFO - 2021-08-20 10:24:04 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\dashboard/modal.php
+INFO - 2021-08-20 10:24:04 --> Final output sent to browser
+INFO - 2021-08-20 10:24:04 --> Total execution time: 0.1276
+ERROR - 2021-08-20 11:09:39 --> $config['composer_autoload'] is set to TRUE but D:\Server\DevOps\escuela\Escuela-APP\application\vendor/autoload.php was not found.
+INFO - 2021-08-20 11:09:39 --> Config Class Initialized
+INFO - 2021-08-20 11:09:39 --> Hooks Class Initialized
+INFO - 2021-08-20 11:09:39 --> UTF-8 Support Enabled
+INFO - 2021-08-20 11:09:39 --> Utf8 Class Initialized
+INFO - 2021-08-20 11:09:39 --> URI Class Initialized
+INFO - 2021-08-20 11:09:39 --> Router Class Initialized
+INFO - 2021-08-20 11:09:39 --> Output Class Initialized
+INFO - 2021-08-20 11:09:39 --> Security Class Initialized
+INFO - 2021-08-20 11:09:39 --> Input Class Initialized
+INFO - 2021-08-20 11:09:39 --> Language Class Initialized
+INFO - 2021-08-20 11:09:40 --> Loader Class Initialized
+INFO - 2021-08-20 11:09:40 --> Helper loaded: url_helper
+INFO - 2021-08-20 11:09:40 --> Helper loaded: string_helper
+INFO - 2021-08-20 11:09:40 --> Helper loaded: date_helper
+INFO - 2021-08-20 11:09:40 --> Helper loaded: array_helper
+INFO - 2021-08-20 11:09:40 --> Helper loaded: security_helper
+INFO - 2021-08-20 11:09:40 --> Helper loaded: text_helper
+INFO - 2021-08-20 11:09:40 --> Helper loaded: session_helper
+INFO - 2021-08-20 11:09:40 --> Controller Class Initialized
+INFO - 2021-08-20 11:09:40 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/header.php
+INFO - 2021-08-20 11:09:40 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/top.php
+INFO - 2021-08-20 11:09:40 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/all-top.php
+INFO - 2021-08-20 11:09:40 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\alumno/all.php
+INFO - 2021-08-20 11:09:40 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/admin-foot.php
+INFO - 2021-08-20 11:09:40 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/footer.php
+INFO - 2021-08-20 11:09:40 --> Final output sent to browser
+INFO - 2021-08-20 11:09:40 --> Total execution time: 0.5563
+ERROR - 2021-08-20 11:18:14 --> $config['composer_autoload'] is set to TRUE but D:\Server\DevOps\escuela\Escuela-APP\application\vendor/autoload.php was not found.
+INFO - 2021-08-20 11:18:14 --> Config Class Initialized
+INFO - 2021-08-20 11:18:14 --> Hooks Class Initialized
+INFO - 2021-08-20 11:18:14 --> UTF-8 Support Enabled
+INFO - 2021-08-20 11:18:14 --> Utf8 Class Initialized
+INFO - 2021-08-20 11:18:14 --> URI Class Initialized
+INFO - 2021-08-20 11:18:14 --> Router Class Initialized
+INFO - 2021-08-20 11:18:14 --> Output Class Initialized
+INFO - 2021-08-20 11:18:14 --> Security Class Initialized
+INFO - 2021-08-20 11:18:14 --> Input Class Initialized
+INFO - 2021-08-20 11:18:14 --> Language Class Initialized
+INFO - 2021-08-20 11:18:14 --> Loader Class Initialized
+INFO - 2021-08-20 11:18:14 --> Helper loaded: url_helper
+INFO - 2021-08-20 11:18:14 --> Helper loaded: string_helper
+INFO - 2021-08-20 11:18:14 --> Helper loaded: date_helper
+INFO - 2021-08-20 11:18:14 --> Helper loaded: array_helper
+INFO - 2021-08-20 11:18:14 --> Helper loaded: security_helper
+INFO - 2021-08-20 11:18:14 --> Helper loaded: text_helper
+INFO - 2021-08-20 11:18:14 --> Helper loaded: session_helper
+INFO - 2021-08-20 11:18:14 --> Controller Class Initialized
+INFO - 2021-08-20 11:18:14 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/header.php
+INFO - 2021-08-20 11:18:14 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/top.php
+INFO - 2021-08-20 11:18:14 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/all-top.php
+INFO - 2021-08-20 11:18:14 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\alumno/all.php
+INFO - 2021-08-20 11:18:14 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/admin-foot.php
+INFO - 2021-08-20 11:18:14 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/footer.php
+INFO - 2021-08-20 11:18:14 --> Final output sent to browser
+INFO - 2021-08-20 11:18:14 --> Total execution time: 0.0516
+ERROR - 2021-08-20 11:18:18 --> $config['composer_autoload'] is set to TRUE but D:\Server\DevOps\escuela\Escuela-APP\application\vendor/autoload.php was not found.
+INFO - 2021-08-20 11:18:18 --> Config Class Initialized
+INFO - 2021-08-20 11:18:18 --> Hooks Class Initialized
+INFO - 2021-08-20 11:18:18 --> UTF-8 Support Enabled
+INFO - 2021-08-20 11:18:18 --> Utf8 Class Initialized
+INFO - 2021-08-20 11:18:18 --> URI Class Initialized
+INFO - 2021-08-20 11:18:18 --> Router Class Initialized
+INFO - 2021-08-20 11:18:18 --> Output Class Initialized
+INFO - 2021-08-20 11:18:18 --> Security Class Initialized
+INFO - 2021-08-20 11:18:18 --> Input Class Initialized
+INFO - 2021-08-20 11:18:18 --> Language Class Initialized
+INFO - 2021-08-20 11:18:18 --> Loader Class Initialized
+INFO - 2021-08-20 11:18:18 --> Helper loaded: url_helper
+INFO - 2021-08-20 11:18:18 --> Helper loaded: string_helper
+INFO - 2021-08-20 11:18:18 --> Helper loaded: date_helper
+INFO - 2021-08-20 11:18:18 --> Helper loaded: array_helper
+INFO - 2021-08-20 11:18:18 --> Helper loaded: security_helper
+INFO - 2021-08-20 11:18:18 --> Helper loaded: text_helper
+INFO - 2021-08-20 11:18:18 --> Helper loaded: session_helper
+INFO - 2021-08-20 11:18:18 --> Controller Class Initialized
+INFO - 2021-08-20 11:18:18 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/header.php
+INFO - 2021-08-20 11:18:18 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/top.php
+INFO - 2021-08-20 11:18:18 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/admin-top.php
+INFO - 2021-08-20 11:18:18 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\dashboard/all.php
+INFO - 2021-08-20 11:18:18 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/admin-foot.php
+INFO - 2021-08-20 11:18:18 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\loop/footer.php
+INFO - 2021-08-20 11:18:18 --> File loaded: D:\Server\DevOps\escuela\Escuela-APP\application\views\dashboard/modal.php
+INFO - 2021-08-20 11:18:18 --> Final output sent to browser
+INFO - 2021-08-20 11:18:18 --> Total execution time: 0.0351

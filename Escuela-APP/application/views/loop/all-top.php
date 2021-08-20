@@ -10,10 +10,10 @@
 
             <ul class="nav nav-pills col-12 col-lg-auto me-lg-auto mb-2 justify-content-center text-capitalize mb-md-0">
               <li>                 <a href="<?php echo INDEX_PAGE; ?>alumno/?since=origin#top" class="nav-link px-2 link-secondary">alumnos</a></li>
-              <li>                 <a href="<?php echo INDEX_PAGE; ?>dashboard/admin/?since=origin#top" class="nav-link px-2 link-dark">cobros</a></li>
               <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">cobros</a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="<?php echo INDEX_PAGE; ?>cobros/colegiatura/?since=origin#top">colegiaturas</a></li>
+                    <li><a class="dropdown-item" href="<?php echo INDEX_PAGE; ?>cobros/productos/?since=origin#top">productos</a></li>
                   </ul>
               </li>
               <li>                 <a href="<?php echo INDEX_PAGE; ?>dashboard/admin/?since=origin#top" class="nav-link px-2 link-dark">reporte</a></li>            

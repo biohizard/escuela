@@ -87,7 +87,7 @@ class User extends CI_Controller
             $rememberme = False;
         }
         $data['data_user'] = $this->Querys->checkDatauser($LSf47vWou0wNVEsEuT1i, $PHt0gjv8TbmLTQCWVB81, $rememberme);
-
+        //                                       EMAIL                                   PASSWORD
         if ($data['data_user'][0]->user == $LSf47vWou0wNVEsEuT1i and password_verify($PHt0gjv8TbmLTQCWVB81, $data['data_user'][0]->password)) {
             session_start();
             session_destroy();

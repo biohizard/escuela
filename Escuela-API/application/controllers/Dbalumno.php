@@ -21,7 +21,9 @@ class Dbalumno extends CI_Controller
     
     //--->
     public function createdata()
-    {  
+    { 
+        $xr8_data = $this->Querys->alumnoCreate();
+        $this->output->set_content_type('application/json')->set_output(json_encode($xr8_data));
     }
     //--->
 

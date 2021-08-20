@@ -51,7 +51,7 @@
                                             <P class="text-capitalize"> efectivo </P>
                                             </option>
                                             <option value="deposito">
-                                            <P class="text-capitalize"> deposito </P>
+                                            <P class="text-capitalize"> banco </P>
                                             </option>
                                         </select>
                                         </div>

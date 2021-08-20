@@ -36,3 +36,8 @@
         BrowserMatch ^Mozilla/4\.0[678] no-gzip
         BrowserMatch \bMSIE !no-gzip !gzip-only-text/html 
     </IfModule>
+
+
+admin   12345aeiou  $2y$10$r8ga/RKg7FLez8xDBvGlO.21mmF8kR4p3xm8hTqKwoWPAbsrcpwLi
+tablet1 tablet12021 $2y$10$9qmM3RcMENFLBa8tCgKvI.9XEdYw4iPSXQAtzyH9xv9fDawv.jCQm
+tablet2 tablet22021 $2y$10$uSt5OVw3vrUHPlnLBtib2uzh1HD6DV3ee3dywtVYAg2wInq.U.oP.
