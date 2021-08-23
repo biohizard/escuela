@@ -3,45 +3,27 @@ class Querys extends CI_Model
 {
     //--->
     function allDataRead()
-    {
-		/*
-		SELECT
-					pagos.id,
-					pagos.id_advance,
-					pagos.time,
-					pagos.pago,
-					alumno.nombre,
-					alumno.paterno,
-					alumno.materno,
-					usuario.`user`,
-					usuario.email,
-					configsp.concepto,
-					configsp.precio
-		FROM  pagos
-		JOIN  alumno   ON pagos.id_advance_alumno = alumno.id_advance
-		JOIN  usuario  ON pagos.id_advance_usuario = usuario.id_advance
-		JOIN  configsp ON pagos.id_advance_programas = configsp.id_advance
-		WHERE pagos.id_advance_alumno = 'Aqt8CkbGXTBrEU9ayQoM'
-
-		*/        
-        $this->db->select('
-        	pagos.id,
-        	pagos.id_advance,
-        	pagos.time,
-        	pagos.pago,
-        	alumno.nombre,
-        	alumno.paterno,
-        	alumno.materno,
-        	usuario.`user`,
-        	usuario.email,
-        	configsp.concepto,
-        	configsp.precio
-        ');
+			{
+		    $this->db->select('
+		    	pagos.id,
+		    	pagos.id_advance,
+		    	pagos.time,
+		    	pagos.pago,
+		    	alumno.nombre,
+		    	alumno.paterno,
+		    	alumno.materno,
+		    	usuario.`user`,
+		    	usuario.email,
+		    	configsp.concepto,
+		    	configsp.precio
+		    ');
         $this->db->from('pagos');
-		$this->db->join('alumno'  ,'alumno.id_advance   = pagos.id_advance_alumno');
-		$this->db->join('usuario' ,'usuario.id_advance  = pagos.id_advance_usuario');
-		$this->db->join('configsp','configsp.id_advance = pagos.id_advance_programas');
-		$this->db->where('pagos.id_advance_alumno','Aqt8CkbGXTBrEU9ayQoM');
+				$this->db->join('alumno'  ,'alumno.id_advance   = pagos.id_advance_alumno');
+				$this->db->join('usuario' ,'usuario.id_advance  = pagos.id_advance_usuario');
+				$this->db->join('configsp','configsp.id_advance = pagos.id_advance_programas');
+				$this->db->where('pagos.id_advance_alumno',$_GET['token']);
+				$this->db->group_by('`pagos`.id');
+				$this->db->order_by('`pagos`.id', 'ASC');
 
               $query = $this->db->get();
               $row = $query->row_array();
@@ -65,7 +47,7 @@ class Querys extends CI_Model
               }
       
               return  $data;
-      
+     
     }
     //--->
   

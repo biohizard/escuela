@@ -183,46 +183,13 @@ function loadingcolegiaturas(){
     .always(function(data){})
 }
 function loadingpagos(){
-    let x = $("#token").val()
-    let jqxhr = $.getJSON(urlDbPagosR + "?type=all&token=" + x, function(data) {})
+    $.getJSON(urlDbPagosR + "?type=all&token=" + $("#token").val())
     .done(function(data) {
         $.each(data, function(i, val) {
-            /*
-            concepto: "1ª ½ de agosto"
-            email: "admin@escuela"
-            id: "66"
-            id_advance: "C-7wmTrSx2nbELhspF6o"
-            materno: "garibaldo"
-            nombre: "jorge francisco"
-            pago: "700"
-            paterno: "rodriguez"
-            precio: "700.00"
-            time: "2021-08-17 04:08:38"
-            user: "admin"
-                                <tr>
-                                <th scope="row">1</th>
-                                <td>2021-01-01</td>
-                                <td>colegiatura</td>
-                                <td>$1400.00</td>
-                                <td>0%</td>
-                                <td>0%</td>
-                                <td>$1400.00</td>
-                                </tr>
-            loadPagos
-            */
-            let z = '<tr>' +
-                    '<th scope=\"row\">' + val.id + '</th>' +
-                    '<td>' + val.time + '</td>' +
-                    '<td>' + val.concepto + '</td>' +
-                    '<td>$' + val.precio + '</td>' +
-                    '</tr>';
-
-            $("#loadPagos").append(z)
+            $("#loadPagos").append('<tr>' +'<th scope=\"row\">' + val.id + '</th>' +'<td>' + val.time + '</td>' +'<td>' + val.concepto + '</td>' +'<td>$' + val.precio + '</td>' +'</tr>');
         })
     })
-    .fail(function(data, jqXHR, textStatus, errorThrown) {
-        xhrError(jqXHR, textStatus, errorThrown)
-    })
+    .fail(function(data, jqXHR, textStatus, errorThrown){xhrError(jqXHR, textStatus, errorThrown)})
     .always(function(data){})
 }
 
@@ -230,8 +197,7 @@ function loadingpagos(){
 function loadingSelectAll(){
     //--->
     $("#ins_gradocursar").empty().append("<option value=\"null\"> - Nivel – Grupo – Salon -</option>")   
-    let jqxhr = $.getJSON(urlDbGruposR + "?type=all", function(data) {
-        })
+    let jqxhr = $.getJSON(urlDbGruposR + "?type=all", function(data) {})
         .done(function(data) {
             //--->
             $.each(data, function(i, val) {
