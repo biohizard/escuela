@@ -5,6 +5,50 @@
  *                         FUNCTION XHR                          *
  *****************************************************************/
 console.log("%cLoad File : %cxhr", "color: cyan", "color: yellow");
+function allXhr(){
+    loadingpagos()
+}
+function loadingpagos(){
+    $.getJSON(urlDbPagosR + "?type=now")
+    .done(function(data) {
+        $.each(data, function(i, val) {
+        /*
+            [
+            {
+                "id": "78",
+                "id_advance": "C-MzrpkhxwQb4PWL3joe",
+                "time": "2021-08-23 03:08:23",
+                "id_advance_usuario": "AfN9M25VoJmSU8Ps9w2",
+                "id_advance_alumno": "73d2bd688102a9c3bf84",
+                "id_advance_programas": "col1-usGq4VZo59EHgYX",
+                "pago": "700",
+                "concepto": "1ª ½ de agosto",
+                "type": "colegiatura",
+                "descripcion": "1ª ½ de agosto",
+                "precio": "700.00",
+                "fecha_limite": "2021-09-14",
+                "nombre": "jorge francisco",
+                "paterno": "rodriguez",
+                "materno": "garibaldo"
+            }
+            ]            
+            */
+            let x = '<tr>' +
+                    '<th scope=\"row\">' + val.id + '</th>' +
+                    '<td>' + val.time + '</td>' +
+                    '<td>' + val.nombre + " " + val.paterno + " " + val.materno + '</td>' +
+                    '<td>' + val.grupos + '</td>' +
+                    '<td>' + val.concepto + '</td>' +
+                    '<td>' + "$"+val.pago + '</td>' +
+                '</tr>';
+                
+                $("#reporteNow").append(x);
+        })
+    })
+    .fail(function(data, jqXHR, textStatus, errorThrown){xhrError(jqXHR, textStatus, errorThrown)})
+    .always(function(data){})
+}
+
 
 function saveDataInscripcion() {
     /*

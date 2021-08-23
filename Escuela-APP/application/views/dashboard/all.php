@@ -1,10 +1,10 @@
 <!-- All -->
 <div class="container-fluid">
   <div class="row">
-    <div class="col-8 offset-2">
+    <div class="col-10 offset-1">
 
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2 text-capitalize">reporte colegiatura del mes</h1>
+        <h1 class="h2 text-capitalize">reporte pagos mes</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
             <button type="button" class="btn btn-sm btn-outline-secondary text-capitalize">kinder</button>
@@ -25,13 +25,14 @@
         <thead>
           <tr>
             <th scope="col text-uppercase">#</th>
+            <th scope="col text-uppercase">fecha</th>
             <th scope="col text-uppercase">nombre</th>
-            <th scope="col text-uppercase">nivel</th>
             <th scope="col text-uppercase">grupo</th>
-            <th scope="col text-uppercase">salon</th>
+            <th scope="col text-uppercase">concepto</th>
+            <th scope="col text-uppercase">pago</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody id="reporteNow"></tbody>
       </table>
     </div>
   </div>

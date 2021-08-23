@@ -30,9 +30,12 @@ class Dbpagos extends CI_Controller
     {
         if ($_GET['type']=="all"){
             $xr8_data=$this->Querys->allDataRead();
+        }else if ($_GET['type']=="now"){
+            $xr8_data=$this->Querys->nowDataRead();
         }else {
             $xr8_data=array("Error: Reade Alumno"=>101);
         }
+        
             $this->output->set_content_type('application/json')->set_output(json_encode($xr8_data));
     }
     //--->
