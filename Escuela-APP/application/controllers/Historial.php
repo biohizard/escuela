@@ -39,6 +39,7 @@ class Historial extends CI_Controller
         $this->load->view('loop/top', $data);
         $this->load->view('loop/all-top', $data);
             $this->load->view('historial/all', $data);
+            $this->load->view('historial/modal', $data);
         $this->load->view('loop/admin-foot', $data);
         $this->load->view('loop/footer', $data);
     }

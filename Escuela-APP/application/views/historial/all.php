@@ -1,10 +1,12 @@
 <!-- All -->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-8 offset-2">
+        <div class="col-10 offset-1">
 
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2 text-capitalize">historial alumno</h1>
+                
+                <button data-bs-toggle="modal" href="#modalUpdate" aria-current="page" id="modificarAlumno" type="button" class="btn btn-warning text-capitalize">modificar</button>
             </div>                      
                 <div class="row">
                     <div class="col-12">

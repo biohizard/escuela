@@ -1,10 +1,13 @@
 function xhrAll(){
     /*############################################################*/
     console.log("%c Load Js XHR","color:#FA2A00; font-size:24px")
-        loadingAlumnos()
+        loadingSelectAll()    
+        
         loadingHistorial()
         loadingcolegiaturas()
         loadingpagos()
+
+        
     /*############################################################*/
 }
 
@@ -22,6 +25,76 @@ function loadingAlumnos() {
         .done(function(data) {
             //--->
             $.each(data, function(i, val) {
+                /*
+                [
+                {
+                    "id": "11",
+                    "id_advance": "Aqt8CkbGXTBrEU9ayQoM",
+                    "time": "2021-07-30 02:25:01",
+                    "nombre": "jorge francisco",
+                    "paterno": "rodriguez",
+                    "materno": "garibaldo",
+                    "fecha": "1983-12-28",
+                    "edad": "37",
+                    "curp": "curpdemo1235",
+                    "sexo": "masculino",
+                    "estatura": "170",
+                    "peso": "80",
+                    "sangre": "0+",
+                    "telefono": "0",
+                    "recado": "0",
+                    "direccion": "c 26 n 84",
+                    "cp": "57210",
+                    "tutor": "luis Arellano",
+                    "parentes": "papa",
+                    "tutocurp": "curpdemo",
+                    "maestra": "Fernanda",
+                    "grado": "p-0adhSVX0b9MNxkLxwf",
+                    "exalumno": "si",
+                    "tipopago": "efectivo",
+                    "annoskinder": "3",
+                    "lectoescritura": "si",
+                    "lectoescriturapor": "lee y escribe",
+                    "problema": "no",
+                    "procedencia": "ausubel",
+                    "salon": "a",
+                    "grupos": "p1",
+                    "nivel": "b6PKi2gAJXYFdgHriZmO",
+                    "niveltxt": "primaria"
+                }
+                ]
+                FICHA DE INSCRIPCION
+                NOMBRE DE LA MAESTRA QUE INSCRIBE
+                ES EXALUMNO
+                selecionar
+                GRADO A CURSAR
+                METODOS DE PAGO                
+                */
+                
+                    $("#ins_nombremaestra").val(val.maestra)
+                    $('#ins_gradocursar').val(val.grado)    
+                    $('#ins_exalumno').val(val.exalumno)
+                    $('#ins_tipopago').val(val.tipopago)
+                    /*datos del alumno*/
+                    $("#ins_nombrealumno").val(val.nombre)
+                    $("#ins_apaternoalumno").val(val.paterno)
+                    $("#ins_amaternoalumno").val(val.materno)
+                    $("#ins_curp").val(val.curp)
+                    $("#ins_direccion").val(val.direccion)
+                    $("#ins_cp").val(val.cp)
+
+                    $("#ins_fechanacimiento").val(val.fecha)
+                    $("#ins_edad").val(val.edad)
+                    $("#ins_estatura").val(val.estatura)
+                    $("#ins_peso").val(val.peso)
+                    $("#ins_tiposanguineo").val(val.sangre)
+                    $("#ins_telefono").val(val.telefono)
+                    $("#ins_recados").val(val.recado)
+                    
+                    $("#tutor_tutor").val(val.tutor)
+                    $("#tutor_parentesco").val(val.parentes)
+                    $("#tutor_tutocurp").val(val.tutocurp)
+
                     $("#data_nombre").html(val.nombre + " " + val.paterno + " " + val.materno)
                     $("#data_fecha").html(val.fecha)
                     $("#data_edad").html(val.edad)
@@ -53,13 +126,9 @@ function loadingAlumnos() {
                 })
                 //--->
         })
-        .fail(function(data, jqXHR, textStatus, errorThrown) {
-            console.info("Run: all user loading error");
-            xhrError(jqXHR, textStatus, errorThrown);
-        })
-        .always(function(data) {
-        })
-        //--->  
+        .fail(function(data, jqXHR, textStatus, errorThrown) {xhrError(jqXHR, textStatus, errorThrown)})
+        .always(function(data) {})
+        //--->
 }
 function loadingHistorial(){
     let x = $("#token").val()
@@ -135,8 +204,53 @@ function loadingpagos(){
             $("#loadPagos").append(z)
         })
     })
-    .fail(function(data,jqXHR,textStatus,errorThrown){xhrError(jqXHR, textStatus, errorThrown)})
+    .fail(function(data, jqXHR, textStatus, errorThrown) {
+        xhrError(jqXHR, textStatus, errorThrown)
+    })
     .always(function(data){})
+}
+
+
+function loadingSelectAll(){
+    //--->
+    $("#ins_gradocursar").empty().append("<option value=\"null\"> - Nivel – Grupo – Salon -</option>")   
+    let jqxhr = $.getJSON(urlDbGruposR + "?type=all", function(data) {
+        })
+        .done(function(data) {
+            //--->
+            $.each(data, function(i, val) {
+
+                if(val.grupos == "k1"){
+                    grupoDefine = "Preescolar 1"
+                }else if(val.grupos == "k2"){
+                    grupoDefine = "Preescolar 2"
+                }else if(val.grupos == "k3"){
+                    grupoDefine = "Preescolar 3"
+                }else if(val.grupos == "p1"){
+                    grupoDefine = "Primaria 1"
+                }else if(val.grupos == "p2"){
+                    grupoDefine = "Primaria 2"
+                }else if(val.grupos == "p3"){
+                    grupoDefine = "Primaria 3"
+                }else if(val.grupos == "p4"){
+                    grupoDefine = "Primaria 4"
+                }else if(val.grupos == "p5"){
+                    grupoDefine = "Primaria 5"
+                }else if(val.grupos == "p6"){
+                    grupoDefine = "Primaria 6"
+                }
+                
+                $("#ins_gradocursar").append("<option value=\""+ val.id_advance +"\"> " + grupoDefine + " " + val.salon + "</option>");               
+            })
+            //--->
+        })
+        .fail(function(data, jqXHR, textStatus, errorThrown) {
+            xhrError(jqXHR, textStatus, errorThrown);
+        })
+        .always(function(data) {
+            loadingAlumnos()
+        })
+        //--->  
 }
 /*########################################################################*/
 

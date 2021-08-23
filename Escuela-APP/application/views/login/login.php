@@ -7,7 +7,5 @@
     <input name="PHt0gjv8TbmLTQCWVB81" type="password" id="inputPassword" class="form-control" placeholder="PASSWORD" required>
     <button class="btn btn-lg btn-primary btn-block" type="submit">CONTINUAR</button>
     <p class="mt-5 mb-3 text-muted">&copy;Colegio Ausubel - 2021</p>
-    <h6 class="mt-5 mb-3 text-muted d-none">
-        <?php echo $sha1; ?>
-    </h6>
+    <h6 class="mt-5 mb-3 text-muted d-none"><?php echo $sha1; ?></h6>
 </form>

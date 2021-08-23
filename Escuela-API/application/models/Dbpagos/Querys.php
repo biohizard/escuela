@@ -54,7 +54,7 @@ class Querys extends CI_Model
               } else {
                   $date   = date("Y-m-d H:m:s");
                   $data[] = array(
-                      "Time"       => $date.$mes,
+                      "Time"       => $date,
                       "Message"    => "Error Alumno",
                       "Code"       => 104,
                       "Contorller" => "DbTabsCierre",

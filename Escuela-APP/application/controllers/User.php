@@ -36,10 +36,13 @@ class User extends CI_Controller
         $data['sub_page_title2'] = 'Login';
         $data['css']             = 'login';
         $data['js']              = 'user/login/login';
-
+        
+        
+        
         $this->load->view('loop/header', $data);
             $this->load->view('login/login', $data);
-        $this->load->view('loop/footer', $data);
+        $this->load->view('loop/footersingle', $data);
+        
     }
     //--->
     public function logout()
