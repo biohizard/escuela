@@ -8,6 +8,7 @@ console.log("%cLoad File : %ctools", "color: cyan", "color: yellow");
 
 function allTools() {
     edadCalcVal()
+    gradoChange()
 }
 function clsInscripcion() {
     $("#ins_noarchivo").val(" ")
@@ -50,21 +51,19 @@ function edadCalcVal(){
         $('#new').toggleClass('d-none');
       })
 
-    $("#ins_gradocursar").change(function(){
-        let x = $(this).val()
-        console.log(x)
-        if(x == "p-0adhSVX0b9MNxkLxwf"){
+    
+}
+function gradoChange(){
+    $("#ins_gradocursar").on('change',function(){
+
+        if($(this).val() == "p-0adhSVX0b9MNxkLxwf" || $(this).val() == "p-ie6NKuPBjG8iS8m3oj"){
             $("#new").removeClass("d-none")
         }else{
             $("#new").addClass("d-none")
-            $("#new input").val("")
-            $('#ins_lectoescritura option:eq(0)').prop('selected', true)    
         }
+
     })
-
-    
 }
-
 /*****************************************************************
  *                              END                              *
  *                         FUNCTION XHR                          *

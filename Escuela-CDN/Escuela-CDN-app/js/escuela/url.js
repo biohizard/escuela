@@ -76,7 +76,7 @@ urlDbGruposD = url_api;
 //-------------------------------------------------------------->
 urlDbAlumnoC = url_api + "dbalumno/createdata";
 urlDbAlumnoR = url_api + "dbalumno/readedata";
-urlDbAlumnoU = url_api;
+urlDbAlumnoU = url_api + "dbalumno/update";
 urlDbAlumnoD = url_api;
 
 urlDbAlumnoS = url_api + "dbalumno/searchdata";

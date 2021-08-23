@@ -53,5 +53,13 @@ class Dbalumno extends CI_Controller
     }
     //--->    
 
+    //--->
+    public function update()
+    { 
+        $xr8_data = $this->Querys->alumnoUpdate();
+        $this->output->set_content_type('application/json')->set_output(json_encode($xr8_data));
+    }
+    //--->
+
     //----->
 }
