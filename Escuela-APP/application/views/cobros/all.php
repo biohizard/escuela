@@ -9,16 +9,18 @@
   
   <!-- Begin: 3 COL -->
     <!-- Buscar -->
-    <div class="col-4">
-      <h4 class="d-flex justify-content-between align-items-center mb-3">
-        <span class="text-primary text-capitalize">buscar</span>
-      </h4>
-      <div class="col-sm-12 my-4">
+    <div class="col-4" id="colBuscar">
+      <h4 class="d-flex justify-content-between align-items-center mb-3"><span class="text-primary text-capitalize">buscar</span></h4>
+      
+      <div class="col-sm-12">  
         <input type="text"   class="form-control" id="firstName" placeholder="ID Alumno" value="" required="">
         <div class="invalid-feedback">Valid first name is required.</div>
       </div>
 
-              <div class="col-sm-12"><label for="firstName" class="form-label text-uppercase">colegiatura</label>
+      <div class="col-sm-12 mt-4 d-none" id="tipoefectivo">
+        <h5 class="d-flex justify-content-between align-items-center mb-3"><span class="text-primary text-capitalize">efectivo</span></h5>
+
+        <div class="col-sm-12"><label for="firstName" class="form-label text-uppercase">colegiatura</label>
                 <select class="form-control" id="cobros_serpro" disabled>
                   <option value="null">- seleccionar -</option>
                 </select>
@@ -99,13 +101,19 @@
               <div class="col-sm-12 my-4">
                 <button class="w-100 btn btn-warning btn-lg text-uppercase" type="submit" id="btnClearCobro">limpiar cobro</button>  
               </div>
+
+      </div>
+
+      <div class="col-sm-12 mt-4 d-none" id="tipodeposito">
+        <h5 class="d-flex justify-content-between align-items-center mb-3"><span class="text-primary text-capitalize">deposito bancario</span></h5>
+        <textarea name="textarea" rows="10" id="datosTicket" class="col-sm-12 form-control"  placeholder="Datos del ticket del deposito" value="" ></textarea>
+      </div>
               
-              <hr class="my-4">
     </div>
     <!-- Buscar -->
 
     <!-- Historial -->
-    <div class="col-4">
+    <div class="col-4 d-none" id="colHistorial">
       <h4 class="d-flex justify-content-between align-items-center mb-3">
         <span class="text-primary text-capitalize">historial</span>
       </h4>
@@ -121,7 +129,7 @@
     <!-- Historial -->
 
     <!-- Ticket -->
-    <div class="col-4" id="print_div">
+    <div class="col-4 d-none" id="colTicket">
       <h4 class="d-flex justify-content-between align-items-center mb-3">
         <span class="text-primary text-capitalize">ticket</span>
       </h4>
@@ -298,7 +306,8 @@
         </li>
       </ul>
 
-      <button class="w-100 btn btn-primary btn-lg text-uppercase" type="submit" id="btnSaveCobro">generar cobro</button>
+      <button class="w-100 btn btn-primary btn-lg text-uppercase d-none" type="submit" id="btnSaveCobro"   >generar cobro</button>
+      <button class="w-100 btn btn-primary btn-lg text-uppercase d-none" type="submit" id="btnSaveDeposito">registrar deposito</button>
     </div>
     <!-- Ticket -->
   <!-- End: 3 COL -->
@@ -318,12 +327,22 @@
       <li class="list-group-item">Interes:              <input type="text" id="config_interes"              value="15"          disabled></li>
       <li class="list-group-item">DPA:                  <input type="text" id="config_dpa"                  value="15"          disabled></li>
 
+      <li class="list-group-item">Fecha hoy:            <input type="text" id="config_fechahoy"             value="<?php echo Date("Y-m-d"); ?>" disabled></li>
+    </ul>
+
+    <ul class="list-group">
+      <li class="list-group-item">fecha efectivo </li>
       <li class="list-group-item">Fecha mes:            <input type="text" id="config_mes"                  value="2021-08-01" disabled></li>
       <li class="list-group-item">Fecha DPA:            <input type="text" id="config_fechadpa"             value="2021-09-15" disabled></li>
       <li class="list-group-item">Fecha Interes:        <input type="text" id="config_fechainteres"         value="2021-09-30" disabled></li>
-      
-      <li class="list-group-item">Fecha hoy:            <input type="text" id="config_fechahoy"             value="<?php echo Date("Y-m-d"); ?>" disabled></li>
     </ul>
+
+    <ul class="list-group">
+      <li class="list-group-item">fecha deposito </li>
+      <li class="list-group-item">Fecha mes:            <input type="text" id="config_depo_mesB"             value="2021-08-01" disabled></li>
+      <li class="list-group-item">Fecha DPA:            <input type="text" id="config_depo_fechadpaB"        value="2021-09-01" disabled></li>
+      <li class="list-group-item">Fecha Interes:        <input type="text" id="config_depo_fechainteresB"    value="2021-09-10" disabled></li>
+    </ul>      
   </div>
 
   <div class="col-4">

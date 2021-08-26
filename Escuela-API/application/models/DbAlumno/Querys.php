@@ -158,7 +158,8 @@ class Querys extends CI_Model
         `alumno`.time,
         `alumno`.id,
         `inscripcion`.exalumno,
-        `inscripcion`.id_advance_alumno
+        `inscripcion`.id_advance_alumno,
+        `inscripcion`.tipopago
         ');
         $this->db->from('alumno');
         $this->db->like('alumno.id',$x,'both');

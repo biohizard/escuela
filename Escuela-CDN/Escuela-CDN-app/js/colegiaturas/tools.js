@@ -1,120 +1,198 @@
-function toolsAll(){
-/*##########################################################################*/
-    console.log("%c Load Js TOOLS ","color:#FA2A00; font-size:24px")
-        $("#cobros_serpro").attr("disabled",true)
-        rangoFecha_A = rangoFecha()
-        inputColegiatura()
-        pago()
-/*##########################################################################*/
+/*##########################################################################
+___________________   ________  .____     
+\__    ___/\_____  \  \_____  \ |    |    
+  |    |    /   |   \  /   |   \|    |    
+  |    |   /    |    \/    |    \    |___ 
+  |____|   \_______  /\_______  /_______ \
+                   \/         \/        \/
+##########################################################################*/
+function allTool(){
+    console.log("%c Load Js TOOLS ","color:#FA2A00; font-size:24px")    
+    $("#cobros_serpro").attr("disabled",true)
+    rangoFecha_A = rangoFecha()
+    rangoFecha_B = rangoFechaB()
+    inputColegiatura()
+    pago()
+    
 }
+/*########################################################################*/
 
 /*##########################################################################
-   __                  _   _
-  / _|                | | (_)
- | |_ _   _ _ __   ___| |_ _  ___  _ __
- |  _| | | | '_ \ / __| __| |/ _ \| '_ \
- | | | |_| | | | | (__| |_| | (_) | | | |
- |_|  \__,_|_| |_|\___|\__|_|\___/|_| |_|
+_______________ __________  ____________________.___________    _______    _________
+\_   _____/    |   \      \ \_   ___ \__    ___/|   \_____  \   \      \  /   _____/
+ |    __) |    |   /   |   \/    \  \/ |    |   |   |/   |   \  /   |   \ \_____  \ 
+ |     \  |    |  /    |    \     \____|    |   |   /    |    \/    |    \/        \
+ \___  /  |______/\____|__  /\______  /|____|   |___\_______  /\____|__  /_______  /
+     \/                   \/        \/                      \/         \/        \/ 
 ##########################################################################*/
-function inputColegiatura(){
-    console.log("%ctools: Run->inputColegiatura: ","color:SkyBlue;")
-    //--------->
-    $("#cobros_serpro").on('change',function() {
-        
-        $("#precio_PorPagar").attr("disabled",false)
+    
+    /*Begin: Efectivo*/
+    /*efectivo 2 cobros_serpro*/
+    function inputColegiatura(){
+        console.log("%ctools: Run->inputColegiatura: ","color:SkyBlue;")
         //--------->
-        if($("#exalumno").val() == "si"){
-        }else{
-        }
-        costo_col = $("#config_colegiatura").val()   
-
-        a = $(this).val();
-        b = $("#cobros_serpro option:selected").html()
-        c = b.split(" ");
-        if(c.length == 1){
-            d=b;
-            }else{
-                d=c[0];
-            }
-        $("#cobroIdAdvanceSerpro").val(a)
-        //alert(a +" /-----/ " +b+" /-----/ " +c+"  /-----/ " +d+"  /-----/ ")
-
-        if(
-            b == "septiembre" ||
-            b == "octubre"    ||
-            b == "noviembre"  ||
-            b == "diciembre"  ||
-            b == "enero"      ||
-            b == "febrero"    ||
-            b == "marzo"      ||
-            b == "abril"      ||
-            b == "mayo"       ||
-            b == "junio"      ||
-            b == "julio"
-        ){
-            //alert("#historialval_m_" + b)
-            if($("#historialval_m_" + b).val() == "true"){
-                $("#text_precio_change_x").html("00.00")
-                $("#precio_change_x").val("00.00")
-            }else{
-                colegiaturaNow(b)
-            }
+        $("#cobros_serpro").on('change',function() {
             
-        }else if(
-            d == "1ª" ||
-            d == "2ª"){
-                colegiaturaNow2(c)
+            $("#precio_PorPagar").attr("disabled",false)
+            //--------->
+            if($("#exalumno").val() == "si"){
+            }else{
+            }
+            costo_col = $("#config_colegiatura").val()   
+    
+            a = $(this).val();
+            b = $("#cobros_serpro option:selected").html()
+            c = b.split(" ");
+            if(c.length == 1){
+                d=b;
+                }else{
+                    d=c[0];
+                }
+            $("#cobroIdAdvanceSerpro").val(a)
+            //alert(a +" /-----/ " +b+" /-----/ " +c+"  /-----/ " +d+"  /-----/ ")
+    
+            if(
+                b == "septiembre" ||
+                b == "octubre"    ||
+                b == "noviembre"  ||
+                b == "diciembre"  ||
+                b == "enero"      ||
+                b == "febrero"    ||
+                b == "marzo"      ||
+                b == "abril"      ||
+                b == "mayo"       ||
+                b == "junio"      ||
+                b == "julio"
+            ){
+                //alert("#historialval_m_" + b)
+                if($("#historialval_m_" + b).val() == "true"){
+                    $("#text_precio_change_x").html("00.00")
+                    $("#precio_change_x").val("00.00")
+                }else{
+                    colegiaturaNow(b)
+                }
                 
-        }else{}
-
-            /*###################################################################################
-            #                                                                                   #
-            # Determina el restante  de la colegiatura  dependiendo del dpa , normal o interes  #
-            #                                                                                   #
-            ####################################################################################*/
-            //------------------------>
-            //run toolsAll() -> rangoFecha_A
-            /*
-            if(rangoFecha_A == "dpa"){
+            }else if(
+                d == "1ª" ||
+                d == "2ª"){
+                    colegiaturaNow2(c)
+                    
+            }else{}
+    
+                /*###################################################################################
+                #                                                                                   #
+                # Determina el restante  de la colegiatura  dependiendo del dpa , normal o interes  #
+                #                                                                                   #
+                ####################################################################################*/
                 //------------------------>
-                console.log("Run rango fecha DPA")
-                $("#text_precio_change_x").html("$" + col_now)
-                $("#precio_change_x").val(col_now)            
+                //run toolsAll() -> rangoFecha_A
+                /*
+                if(rangoFecha_A == "dpa"){
+                    //------------------------>
+                    console.log("Run rango fecha DPA")
+                    $("#text_precio_change_x").html("$" + col_now)
+                    $("#precio_change_x").val(col_now)            
+                    //------------------------>
+                }else if(rangoFecha_A == "normal"){
+                    //------------------------>
+                    console.log("Run rango fecha NORMAL")
+                    $("#text_precio_change_x").html("$" + col_now)
+                    $("#precio_change_x").val(col_now)            
+                    //------------------------>
+                }else if(rangoFecha_A == "interes"){
+                    //------------------------>
+                    console.log("Run rango fecha INTERES")
+                    col_now = col_now + (col_now *0.15)
+                    $("#text_precio_change_x").html("$" + col_now)
+                    $("#precio_change_x").val(col_now)
+                    //------------------------>
+                }else{console.error("Error: Rango de fecha")}
+                */
                 //------------------------>
-            }else if(rangoFecha_A == "normal"){
-                //------------------------>
-                console.log("Run rango fecha NORMAL")
-                $("#text_precio_change_x").html("$" + col_now)
-                $("#precio_change_x").val(col_now)            
-                //------------------------>
-            }else if(rangoFecha_A == "interes"){
-                //------------------------>
-                console.log("Run rango fecha INTERES")
-                col_now = col_now + (col_now *0.15)
-                $("#text_precio_change_x").html("$" + col_now)
-                $("#precio_change_x").val(col_now)
-                //------------------------>
-            }else{console.error("Error: Rango de fecha")}
-            */
-            //------------------------>
-            /*###################################################################################
-            #                                                                                   #
-            ####################################################################################*/
-
-        interesPago()
+                /*###################################################################################
+                #                                                                                   #
+                ####################################################################################*/
+    
+            interesPago()
+            //--------->
+        })
         //--------->
-    })
-    //--------->
-}
-function pago(){
-console.log("%ctools: Run-> pago ","color:SkyBlue;")
-    //--------->
-$("#precio_PorPagar").on('input',function() {
-    if($(this).val() >= parseInt($("#precio_change_x").val())+1){
-        alert("El pago no pude ser mayor al restante del")
-        $(this).val("")
-    }else{
+    }
+    /*efectivo 3 precio_PorPagar*/
+    function pago(){
+        console.log("%ctools: Run-> pago ","color:SkyBlue;")
+        //--------->
+        $("#precio_PorPagar").on('input',function() {
+            if($(this).val() >= parseInt($("#precio_change_x").val())+1){
+                alert("El pago no pude ser mayor al restante del")
+                $(this).val("")
+            }else{
+        
+                /*###################################################################################
+                #                                                                                   #
+                # Determina el restante  de la colegiatura  dependiendo del dpa , normal o interes  #
+                #                                                                                   #
+                ####################################################################################*/
+                //------------------------>
+                //run toolsAll() -> rangoFecha_A
+                if(rangoFecha_A == "dpa"){
+                    //------------------------>
+                    console.log("Run rango fecha DPA")
+                    total_now = parseInt($("#precio_change_x").val()) - parseInt($("#precio_PorPagar").val());
+                    if(isNaN(total_now)){
+                        total_now = 0
+                    }else{
+                        total_now
+                    }
+        
+                    $("#print_pago").html("$" + $(this).val())
+                    $("#print_total").html("$ " + total_now)
+                    $("#val_precio_total").val(total_now)
+                    //------------------------>
+                }else if(rangoFecha_A == "normal"){
+                    //------------------------>
+                    console.log("Run rango fecha NORMAL")
+                    total_now = parseInt($("#precio_change_x").val()) - parseInt($("#precio_PorPagar").val());
+                    if(isNaN(total_now)){
+                        total_now = 0
+                    }else{
+                        total_now
+                    }
+        
+                    $("#print_pago").html("$" + $(this).val())
+                    $("#print_total").html("$ " + total_now)
+                    $("#val_precio_total").val(total_now)
+                    //------------------------>
+                }else if(rangoFecha_A == "interes"){
+                    //------------------------>
+                    let x = parseInt($("#precio_PorPagar").val()) + (parseInt($("#precio_PorPagar").val())*0.15)
+                    total_now = parseInt($("#precio_change_x").val()) - parseInt($("#precio_PorPagar").val());
+        
+                    if(isNaN(total_now)){
+                        total_now = 0
+                        x  = 0
+                    }
+                    $("#print_pago").html("$" + parseInt($("#precio_PorPagar").val()))
+                    $("#print_total").html("$ " +total_now)
+                    $("#val_precio_total").val(total_now)
+                    console.log("Run rango fecha INTERES")
+                    //------------------------>
+                }else{console.error("Error: Rango de fecha")}
+                //------------------------>
+                /*###################################################################################
+                #                                                                                   #
+                ####################################################################################*/
+        
+            }
+        })
+        //--------->
+    }
+    /*End: Efectivo*/
 
+    /*Begin: Deposito*/
+    function deposito(){
+        console.log("%ctools: Run-> pago " + rangoFecha_B,"color:SkyBlue;")
+        //--------->
         /*###################################################################################
         #                                                                                   #
         # Determina el restante  de la colegiatura  dependiendo del dpa , normal o interes  #
@@ -122,21 +200,36 @@ $("#precio_PorPagar").on('input',function() {
         ####################################################################################*/
         //------------------------>
         //run toolsAll() -> rangoFecha_A
-        if(rangoFecha_A == "dpa"){
+        
+        if(rangoFecha_B == "dpa"){
             //------------------------>
             console.log("Run rango fecha DPA")
-            total_now = parseInt($("#precio_change_x").val()) - parseInt($("#precio_PorPagar").val());
+            
+            $("#text_precio_change_x").html("$1190")
+            $("#precio_change_x").val(1190)
+
+            $("#print_pago").html("$1190")
+
+            $("#print_total").html("$00.00")
+            $("#val_precio_total").val(0)
+
+            //total_now = parseInt($("#precio_change_x").val()) - parseInt($("#precio_PorPagar").val());
+            //alert(total_now)
+            /*
             if(isNaN(total_now)){
                 total_now = 0
             }else{
                 total_now
             }
-
+            //Pago - Por Pagar
             $("#print_pago").html("$" + $(this).val())
+            //TotaL - Por Pagar text
             $("#print_total").html("$ " + total_now)
+            //TotaL - Por Pagar input
             $("#val_precio_total").val(total_now)
+            */
             //------------------------>
-        }else if(rangoFecha_A == "normal"){
+        }else if(rangoFecha_B == "normal"){
             //------------------------>
             console.log("Run rango fecha NORMAL")
             total_now = parseInt($("#precio_change_x").val()) - parseInt($("#precio_PorPagar").val());
@@ -150,7 +243,7 @@ $("#precio_PorPagar").on('input',function() {
             $("#print_total").html("$ " + total_now)
             $("#val_precio_total").val(total_now)
             //------------------------>
-        }else if(rangoFecha_A == "interes"){
+        }else if(rangoFecha_B == "interes"){
             //------------------------>
             let x = parseInt($("#precio_PorPagar").val()) + (parseInt($("#precio_PorPagar").val())*0.15)
             total_now = parseInt($("#precio_change_x").val()) - parseInt($("#precio_PorPagar").val());
@@ -165,49 +258,35 @@ $("#precio_PorPagar").on('input',function() {
             console.log("Run rango fecha INTERES")
             //------------------------>
         }else{console.error("Error: Rango de fecha")}
+    
         //------------------------>
         /*###################################################################################
         #                                                                                   #
         ####################################################################################*/
-
+        //--------->
+    }    
+    function datosTicket(){
+        /*Costo - Por Pagar*/
+        $("#textprecio_costo").html("$" + $("#config_costo").val())
+        $("#precio_costo").val($("#config_costo").val()) 
+        
+        deposito()
+        
+        $("#datosTicket").on('click',function(){$(this).val(" ")})
     }
-})
-//--------->
-}
-/*##########################################################################*/
+    /*End  : Deposito*/
+
+/*########################################################################*/
 
 /*##########################################################################
-           | |                     | | (_)
-  ___ _   _| |__    _ __ ___  _   _| |_ _ _ __   ___  ___
- / __| | | | '_ \  | '__/ _ \| | | | __| | '_ \ / _ \/ __|
- \__ \ |_| | |_) | | | | (_) | |_| | |_| | | | |  __/\__ \
- |___/\__,_|_.__/  |_|  \___/ \__,_|\__|_|_| |_|\___||___/
+            ___.            __________               __  .__                     
+  ________ _\_ |__          \______   \ ____  __ ___/  |_|__| ____   ___________ 
+ /  ___/  |  \ __ \   ______ |       _//  _ \|  |  \   __\  |/    \_/ __ \_  __ \
+ \___ \|  |  / \_\ \ /_____/ |    |   (  <_> )  |  /|  | |  |   |  \  ___/|  | \/
+/____  >____/|___  /         |____|_  /\____/|____/ |__| |__|___|  /\___  >__|   
+     \/          \/                 \/                           \/     \/       
 ##########################################################################*/
 
-function interesPago(){
-    console.log("%ctools: Run-> sub routines-> costoColegiatura: ","color:SkyBlue;")
-    //-------->
-    let x             = $("#precio_change_x").val()
-    let fecha_hoy     = diaAnno($("#config_fecha").val(),"Hoy")
-    let fecha_mes     = diaAnno($("#config_mes").val(),"Inicio del mes")
-    let fecha_dpa     = diaAnno($("#config_fechadpa").val(),"DPA")
-    let fecha_interes = diaAnno($("#config_fechainteres").val(),"INTERES")
-
-    if(fecha_hoy >= fecha_mes && fecha_hoy <= fecha_dpa){
-        console.log("descueto interes 1")
-        $("#configDpaShow").removeClass('d-none')
-    }else if(fecha_hoy > fecha_dpa && fecha_hoy <= fecha_interes){
-        console.log("descueto interes 2")
-        $("#configDpaShow").addClass('d-none')
-    }else{
-        $("#configDpaShow").addClass('d-none')
-        console.log("descueto interes 3")
-        config_colegiatura =(parseInt(x)*0.15)
-    }
-
-    //-------->
-    
-}
 function precioChange(){
     $("#precio_change_x").on('change',function() {
         totalCalc()
@@ -309,15 +388,29 @@ function rangoFecha(){
     }
     return x;
 }
+function rangoFechaB(){
+    console.log("%cRun -> rangoFecha: ","color:Fucsia;")
+
+    let fecha_hoy          = diaAnno($("#config_fechahoy").val()    ,"Hoy")
+    let fecha_mes          = diaAnno($("#config_depo_mesB").val()         ,"Inicio del mes")
+    let fecha_dpa          = diaAnno($("#config_depo_fechadpaB").val()    ,"DPA")
+    let fecha_interes      = diaAnno($("#config_depo_fechainteresB").val(),"DPA")
+    
+    //227-----212-----257-----272
+    //alert(fecha_hoy +  "-----" +fecha_mes +  "-----" +fecha_dpa +  "-----" +fecha_interes)
+    if(fecha_hoy <= fecha_dpa ){
+        x = "dpa"
+    }else if(fecha_hoy > fecha_dpa && fecha_hoy <= fecha_interes){
+        x = "normal"
+    }else{
+        x = "interes"
+    }
+    return x;
+}
 function formClear(){
     console.log("%cRun : formClear","color:SkyBlue;")
-/*    
-    $('#cobros_serpro option:eq(0)').prop('selected', true)
+$("#tipodeposito,#tipoefectivo,#colHistorial,#colTicket").addClass("d-none")
 
-    $(".cole-hidden").addClass("d-none")
-
-    $("#alumno_inscripcion").html("$ 00.00")
-*/
 /*COBRO*/
 $("#firstName").val("")
 $('#cobros_serpro option:eq(0)').prop('selected', true)
@@ -362,144 +455,175 @@ $("#val_precio_total").val("")
 $("#historiaAlumno").empty()
 $("#historiaAlumno").html("<li class=\"list-group-item d-flex justify-content-between lh-sm\"><h6 class=\"my-0 text-capitalize\">historial</h6><small class=\"text-muted text-capitalize\">colegiaturas</small></li>")
 }
-function colegiaturaNow(b){
-    /*Concepto - Concepto Del Cobro*/
-    col_actual = $("#"+b).val()
-    $("#textSerpro").html("Colegiatura del mes de " + b)
-    $("#cobroSerpro").val(b)
-    
-    /*Costo - Por Pagar*/
-    $("#textprecio_costo").html("$" + $("#config_costo").val())
-    $("#precio_costo").val($("#config_costo").val())        
 
-    /*Resta - Por Pagar*/
-    descuentoInteres(b)
-}
-function descuentoInteres(mes){
-    console.log("%ctools: Run-> sub routines-> descuentoInteres : carga el descuento y el interes","color:SkyBlue;")
+    /*Begin: Efectivo*/
+    function colegiaturaNow(b){
+        /*Concepto - Concepto Del Cobro*/
+        col_actual = $("#"+b).val()
+        $("#textSerpro").html("Colegiatura del mes de " + b)
+        $("#cobroSerpro").val(b)
         
-    var costo      = $("#precio_costo").val()
-    var col_actual = $("#val_m_" + mes).val()
-        
-        //alert(rangoFecha_A)
-        //alert(costo  + "----" +col_actual + "----" +resta_actual)
-        /*###################################################################################
-        #                                                                                   #
-        # Determina el restante  de la colegiatura  dependiendo del dpa , normal o interes  #
-        #                                                                                   #
-        ####################################################################################*/
-        //------------------------>
-        //run toolsAll() -> rangoFecha_A
-        if(rangoFecha_A == "dpa"){
-            //------------------------>
-            console.log("Run rango fecha DPA")
-            
-            col_now = costo  - (costo  *0.15)
-            nuevocosto = col_now - col_actual
-            var x = nuevocosto 
-            var y = nuevocosto 
-
-            //------------------------>
-        }else if(rangoFecha_A == "normal"){
-            //------------------------>
-            console.log("Run rango fecha NORMAL")
-
-            col_now = costo
-            nuevocosto = col_now - col_actual
-            var x = nuevocosto 
-            var y = nuevocosto          
-            //------------------------>
-        }else if(rangoFecha_A == "interes"){
-            //------------------------>
-            console.log("Run rango fecha INTERES")
-
-            col_now = costo  + (costo  *0.15)
-            nuevocosto = col_now - col_actual
-            var x = nuevocosto 
-            var y = nuevocosto 
-            //------------------------>
-        }else{console.error("Error: Rango de fecha")}
-        //------------------------>
-
-        $("#text_precio_change_x").html(x)
-        $("#precio_change_x").val(y)
-        /*###################################################################################
-        #                                                                                   #
-        ####################################################################################*/    
-}
-function colegiaturaNow2(c){
-
-    /*Concepto - Concepto Del Cobro*/
-    x = c[4]
-    x = x.replace("$","")
-    $("#textSerpro").html("Colegiatura del mes de Agosto" + x)
-    $("#cobroSerpro").val(c[0] + c[3])
+        /*Costo - Por Pagar*/
+        $("#textprecio_costo").html("$" + $("#config_costo").val())
+        $("#precio_costo").val($("#config_costo").val())        
     
-    /*Costo - Por Pagar*/
-    
-    $("#textprecio_costo").html("$" + x)
-    $("#precio_costo").val(x)        
-    
-
-    /*Resta - Por Pagar*/
-    descuentoInteres2(c)
-}
-function descuentoInteres2(mes){
-    console.log("%ctools: Run-> sub routines-> descuentoInteres : carga el descuento y el interes","color:SkyBlue;")
-    x = mes[4]
-    x = x.replace("$","")
-
-    if("#historialval_m_" + mes[0] + "agosto" == "#historialval_m_1ªagosto"){
-        var col_actual = $("#val_m_1agosto").val()
+        /*Resta - Por Pagar*/
+        descuentoInteres(b)
     }
-    if("#historialval_m_" + mes[0] + "agosto" == "#historialval_m_2ªagosto"){
-        var col_actual = $("#val_m_2agosto").val()
-    }
-    resta_actual =  x - col_actual;
+    function colegiaturaNow2(c){
+
+        /*Concepto - Concepto Del Cobro*/
+        x = c[4]
+        x = x.replace("$","")
+        $("#textSerpro").html("Colegiatura del mes de Agosto" + x)
+        $("#cobroSerpro").val(c[0] + c[3])
         
-        /*###################################################################################
-        #                                                                                   #
-        # Determina el restante  de la colegiatura  dependiendo del dpa , normal o interes  #
-        #                                                                                   #
-        ####################################################################################*/
-        //------------------------>
-        //run toolsAll() -> rangoFecha_A
-        /*
-        if(rangoFecha_A == "dpa"){
-            //------------------------>
-            console.log("Run rango fecha DPA")
+        /*Costo - Por Pagar*/
+        
+        $("#textprecio_costo").html("$" + x)
+        $("#precio_costo").val(x)        
+        
+    
+        /*Resta - Por Pagar*/
+        descuentoInteres2(c)
+    }
+    function interesPago(){
+        console.log("%ctools: Run-> sub routines-> costoColegiatura: ","color:SkyBlue;")
+        //-------->
+        let x             = $("#precio_change_x").val()
+        let fecha_hoy     = diaAnno($("#config_fecha").val(),"Hoy")
+        let fecha_mes     = diaAnno($("#config_mes").val(),"Inicio del mes")
+        let fecha_dpa     = diaAnno($("#config_fechadpa").val(),"DPA")
+        let fecha_interes = diaAnno($("#config_fechainteres").val(),"INTERES")
+    
+        if(fecha_hoy >= fecha_mes && fecha_hoy <= fecha_dpa){
+            console.log("descueto interes 1")
+            $("#configDpaShow").removeClass('d-none')
+        }else if(fecha_hoy > fecha_dpa && fecha_hoy <= fecha_interes){
+            console.log("descueto interes 2")
+            $("#configDpaShow").addClass('d-none')
+        }else{
+            $("#configDpaShow").addClass('d-none')
+            console.log("descueto interes 3")
+            config_colegiatura =(parseInt(x)*0.15)
+        }
+    
+        //-------->
+        
+    }
+    function descuentoInteres(mes){
+        console.log("%ctools: Run-> sub routines-> descuentoInteres : carga el descuento y el interes","color:SkyBlue;")
             
-            col_now = resta_actual - (resta_actual *0.15)           
+        var costo      = $("#precio_costo").val()
+        var col_actual = $("#val_m_" + mes).val()
+            
+            //alert(rangoFecha_A)
+            //alert(costo  + "----" +col_actual + "----" +resta_actual)
+            /*###################################################################################
+            #                                                                                   #
+            # Determina el restante  de la colegiatura  dependiendo del dpa , normal o interes  #
+            #                                                                                   #
+            ####################################################################################*/
+            //------------------------>
+            //run toolsAll() -> rangoFecha_A
+            if(rangoFecha_A == "dpa"){
+                //------------------------>
+                console.log("Run rango fecha DPA")
+                
+                col_now = costo  - (costo  *0.15)
+                nuevocosto = col_now - col_actual
+                var x = nuevocosto 
+                var y = nuevocosto 
+    
+                //------------------------>
+            }else if(rangoFecha_A == "normal"){
+                //------------------------>
+                console.log("Run rango fecha NORMAL")
+    
+                col_now = costo
+                nuevocosto = col_now - col_actual
+                var x = nuevocosto 
+                var y = nuevocosto          
+                //------------------------>
+            }else if(rangoFecha_A == "interes"){
+                //------------------------>
+                console.log("Run rango fecha INTERES")
+    
+                col_now = costo  + (costo  *0.15)
+                nuevocosto = col_now - col_actual
+                var x = nuevocosto 
+                var y = nuevocosto 
+                //------------------------>
+            }else{console.error("Error: Rango de fecha")}
+            //------------------------>
+    
+            $("#text_precio_change_x").html(x)
+            $("#precio_change_x").val(y)
+            /*###################################################################################
+            #                                                                                   #
+            ####################################################################################*/    
+    }
+    function descuentoInteres2(mes){
+        console.log("%ctools: Run-> sub routines-> descuentoInteres : carga el descuento y el interes","color:SkyBlue;")
+        x = mes[4]
+        x = x.replace("$","")
+    
+        if("#historialval_m_" + mes[0] + "agosto" == "#historialval_m_1ªagosto"){
+            var col_actual = $("#val_m_1agosto").val()
+        }
+        if("#historialval_m_" + mes[0] + "agosto" == "#historialval_m_2ªagosto"){
+            var col_actual = $("#val_m_2agosto").val()
+        }
+        resta_actual =  x - col_actual;
+            
+            /*###################################################################################
+            #                                                                                   #
+            # Determina el restante  de la colegiatura  dependiendo del dpa , normal o interes  #
+            #                                                                                   #
+            ####################################################################################*/
+            //------------------------>
+            //run toolsAll() -> rangoFecha_A
+            /*
+            if(rangoFecha_A == "dpa"){
+                //------------------------>
+                console.log("Run rango fecha DPA")
+                
+                col_now = resta_actual - (resta_actual *0.15)           
+                var x = col_now
+                var y = col_now
+                //------------------------>
+            }else if(rangoFecha_A == "normal"){
+                //------------------------>
+                console.log("Run rango fecha NORMAL")
+    
+                col_now = resta_actual
+                var x = col_now
+                var y = col_now            
+                //------------------------>
+            }else if(rangoFecha_A == "interes"){
+                //------------------------>
+                console.log("Run rango fecha INTERES")
+    
+                col_now = resta_actual + (resta_actual *0.15)
+                var x = col_now
+                var y = col_now
+                //------------------------>
+            }else{console.error("Error: Rango de fecha")}
+            */
+           col_now = resta_actual
             var x = col_now
             var y = col_now
             //------------------------>
-        }else if(rangoFecha_A == "normal"){
-            //------------------------>
-            console.log("Run rango fecha NORMAL")
+    
+            $("#text_precio_change_x").html(x)
+            $("#precio_change_x").val(y)
+            /*###################################################################################
+            #                                                                                   #
+            ####################################################################################*/    
+    }
+    /*End: Efectivo*/
 
-            col_now = resta_actual
-            var x = col_now
-            var y = col_now            
-            //------------------------>
-        }else if(rangoFecha_A == "interes"){
-            //------------------------>
-            console.log("Run rango fecha INTERES")
+    /*Begin: Deposito*/
 
-            col_now = resta_actual + (resta_actual *0.15)
-            var x = col_now
-            var y = col_now
-            //------------------------>
-        }else{console.error("Error: Rango de fecha")}
-        */
-       col_now = resta_actual
-        var x = col_now
-        var y = col_now
-        //------------------------>
-
-        $("#text_precio_change_x").html(x)
-        $("#precio_change_x").val(y)
-        /*###################################################################################
-        #                                                                                   #
-        ####################################################################################*/    
-}
-/*##########################################################################*/
+    /*End  : Deposito*/
+/*########################################################################*/
