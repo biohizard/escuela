@@ -11,31 +11,23 @@
     <!-- Buscar -->
     <div class="col-4" id="colBuscar">
       <h4 class="d-flex justify-content-between align-items-center mb-3"><span class="text-primary text-capitalize">buscar</span></h4>
-      
+
       <div class="col-sm-12">  
         <input type="text"   class="form-control" id="firstName" placeholder="ID Alumno" value="" required="">
         <div class="invalid-feedback">Valid first name is required.</div>
       </div>
 
+      <!-- Tipo Efectivo -->
       <div class="col-sm-12 mt-4 d-none" id="tipoefectivo">
         <h5 class="d-flex justify-content-between align-items-center mb-3"><span class="text-primary text-capitalize">efectivo</span></h5>
 
-        <div class="col-sm-12"><label for="firstName" class="form-label text-uppercase">colegiatura</label>
-                <select class="form-control" id="cobros_serpro" disabled>
-                  <option value="null">- seleccionar -</option>
-                </select>
-                <div class="invalid-feedback">Valid first name is required.</div>
-              </div>
 
               <ul class="nav nav-tabs  cole-hidden d-none" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation"><button class="nav-link" id="dos-tab" data-bs-toggle="tab" data-bs-target="#dos" type="button" role="tab" aria-controls="dos" aria-selected="false">Servicios</button></li>
                 <li class="nav-item" role="presentation"><button class="nav-link" id="tres-tab" data-bs-toggle="tab" data-bs-target="#tres" type="button" role="tab" aria-controls="tres" aria-selected="false">Colegiaturas</button></li>
               </ul>
 
-              <div class="col-sm-12 my-4"><label for="firstName" class="form-label text-uppercase">pago</label>
-                <input type="text" class="form-control" id="precio_PorPagar"  placeholder="" value="" required="" disabled> 
-                <div class="invalid-feedback">Valid first name is required.</div>
-              </div>              
+              
 
               <div class="tab-content cole-hidden d-none" id="myTabContent">
                 <div class="tab-pane fade" id="dos" role="tabpanel" aria-labelledby="dos-tab">
@@ -98,18 +90,42 @@
                 </div>
               </div>
               
-              <div class="col-sm-12 my-4">
-                <button class="w-100 btn btn-warning btn-lg text-uppercase" type="submit" id="btnClearCobro">limpiar cobro</button>  
-              </div>
+
 
       </div>
+      <!-- Tipo Efectivo -->
 
+      <!-- Tipo Deposito -->
       <div class="col-sm-12 mt-4 d-none" id="tipodeposito">
-        <h5 class="d-flex justify-content-between align-items-center mb-3"><span class="text-primary text-capitalize">deposito bancario</span></h5>
+        
+        <h5 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary text-capitalize">deposito bancario</span>
+        </h5>
+
         <textarea name="textarea" rows="10" id="datosTicket" class="col-sm-12 form-control"  placeholder="Datos del ticket del deposito" value="" ></textarea>
+
       </div>
-              
-    </div>
+      <!-- Tipo Deposito -->
+
+      <div class="col-sm-12 mt-4">
+      
+        <div class="col-sm-12"><label for="firstName" class="form-label text-uppercase">colegiatura</label>
+                  <select class="form-control" id="cobros_serpro" disabled>
+                    <option value="null">- seleccionar -</option>
+                  </select>
+                  <div class="invalid-feedback">Valid first name is required.</div>
+                </div>
+        </div>
+        <div class="col-sm-12 my-4"><label for="firstName" class="form-label text-uppercase">pago</label>
+          <input type="text" class="form-control" id="precio_PorPagar"  placeholder="" value="" required="" disabled> 
+          <div class="invalid-feedback">Valid first name is required.</div>
+        </div>
+        <div class="col-sm-12 my-4">
+            <button class="w-100 btn btn-warning btn-lg text-uppercase" type="submit" id="btnClearCobro">limpiar cobro</button>  
+        </div>
+      </div>
+      
+
     <!-- Buscar -->
 
     <!-- Historial -->

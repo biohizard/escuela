@@ -204,12 +204,18 @@ _______________ __________  ____________________.___________    _______    _____
         if(rangoFecha_B == "dpa"){
             //------------------------>
             console.log("Run rango fecha DPA")
-            
+
+            $("#text_precio_change_x").html("$1400")
+            $("#precio_change_x").val(1400)
+
+            $("#print_pago").html("$1400")
+
+            /*
             $("#text_precio_change_x").html("$1190")
             $("#precio_change_x").val(1190)
 
             $("#print_pago").html("$1190")
-
+            */
             $("#print_total").html("$00.00")
             $("#val_precio_total").val(0)
 
@@ -529,8 +535,9 @@ $("#historiaAlumno").html("<li class=\"list-group-item d-flex justify-content-be
             if(rangoFecha_A == "dpa"){
                 //------------------------>
                 console.log("Run rango fecha DPA")
-                
-                col_now = costo  - (costo  *0.15)
+                /*AQUI SE TOMA  EL PRECIO DE LA COLEGIATURA  */
+                //col_now = costo  - (costo  *0.15)
+                col_now = $("#precio_costo").val()
                 nuevocosto = col_now - col_actual
                 var x = nuevocosto 
                 var y = nuevocosto 
@@ -614,9 +621,12 @@ $("#historiaAlumno").html("<li class=\"list-group-item d-flex justify-content-be
             var x = col_now
             var y = col_now
             //------------------------>
-    
+            /*
             $("#text_precio_change_x").html(x)
             $("#precio_change_x").val(y)
+            */
+            $("#text_precio_change_x").html("$1400")
+            $("#precio_change_x").val(1400)
             /*###################################################################################
             #                                                                                   #
             ####################################################################################*/    
