@@ -53,11 +53,11 @@ _______________ __________  ____________________.___________    _______    _____
         console.log("%cXhr: Run-> autoComplete: busca los alumnos por ID ","color:SkyBlue;")
         //--->
         $("#firstName").autocomplete({
-          minLength:2,
-          delay: 2,
+          minLength:4,
+          delay:1,
           source: function (req, add) {
             // XMLHttpRequest --->
-            $.getJSON(urlDbAlumnoS + "?type=find&search=", req, function (data) {
+              $.getJSON(urlDbAlumnoS + "?type=find&search=0",req, function (data) {
               var suggestions = [];
               $.each(data, function (i, val) {
                 if (val.Buscador == "Error") {

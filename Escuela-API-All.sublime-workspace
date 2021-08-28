@@ -7,6 +7,80 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "Escuela-API/application/models/DbAlumno/Querys.php",
+			"settings":
+			{
+				"buffer_size": 19316,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					8,
+					1,
+					"insert",
+					{
+						"characters": ","
+					},
+					"AQAAABcVAAAAAAAAGBUAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAABcVAAAAAAAAFxUAAAAAAAD////////vfw"
+				],
+				[
+					10,
+					1,
+					"cut",
+					null,
+					"AQAAAPgUAAAAAAAA+BQAAAAAAAAgAAAAYGluc2NyaXBjaW9uYC5pZF9hZHZhbmNlX2FsdW1ubyw",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAABgVAAAAAAAA+BQAAAAAAAAAAAAAAMBSQA"
+				],
+				[
+					11,
+					1,
+					"paste",
+					null,
+					"AQAAAPgUAAAAAAAAGBUAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAPgUAAAAAAAA+BQAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					12,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AgAAABgVAAAAAAAAGRUAAAAAAAAAAAAAGRUAAAAAAAAhFQAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAABgVAAAAAAAAGBUAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					13,
+					1,
+					"paste",
+					null,
+					"AQAAACEVAAAAAAAAQRUAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAACEVAAAAAAAAIRUAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					16,
+					1,
+					"insert",
+					{
+						"characters": "tipopago"
+					},
+					"CQAAAC8VAAAAAAAAMBUAAAAAAAAAAAAAMBUAAAAAAAAwFQAAAAAAABEAAABpZF9hZHZhbmNlX2FsdW1ubzAVAAAAAAAAMRUAAAAAAAAAAAAAMRUAAAAAAAAyFQAAAAAAAAAAAAAyFQAAAAAAADMVAAAAAAAAAAAAADMVAAAAAAAANBUAAAAAAAAAAAAANBUAAAAAAAA1FQAAAAAAAAAAAAA1FQAAAAAAADYVAAAAAAAAAAAAADYVAAAAAAAANxUAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAEAVAAAAAAAALxUAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					17,
+					1,
+					"right_delete",
+					null,
+					"AQAAADcVAAAAAAAANxUAAAAAAAABAAAALA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAADcVAAAAAAAANxUAAAAAAAAAAAAAAADwvw"
+				]
+			]
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -44,22 +118,45 @@
 	},
 	"expanded_folders":
 	[
-		"/D/Server/DevOps/escuela/Escuela-API"
+		"/D/Server/DevOps/escuela/Escuela-API",
+		"/D/Server/DevOps/escuela/Escuela-API/application",
+		"/D/Server/DevOps/escuela/Escuela-API/application/controllers",
+		"/D/Server/DevOps/escuela/Escuela-API/application/models",
+		"/D/Server/DevOps/escuela/Escuela-API/application/models/DbAlumno",
+		"/D/Server/DevOps/escuela/Escuela-API/application/models/Dbcolegiaturasdinero",
+		"/D/Server/DevOps/escuela/Escuela-API/application/models/Dbpagos"
 	],
 	"file_history":
 	[
+		"/D/Server/DevOps/escuela/Escuela-API/application/models/caja/Querys.php",
+		"/D/Server/DevOps/escuela/Escuela-API/application/models/Dbpagos/Querys.php",
+		"/D/Server/DevOps/escuela/Escuela-API/application/controllers/Dbpagos.php",
+		"/D/Server/DevOps/escuela/Escuela-API/application/models/DbAlumno/Querys.php",
+		"/D/Server/DevOps/escuela/Escuela-API/application/controllers/Dbalumno.php",
+		"/D/Server/DevOps/escuela/Escuela-API/.htaccess",
+		"/D/Server/DevOps/escuela/Escuela-API/application/controllers/Dbcolegiaturas.php",
+		"/D/Server/DevOps/escuela/Escuela-API/application/models/cajasaldo/Querys.php",
+		"/D/Server/DevOps/escuela/Escuela-API/xr8-config.php",
+		"/D/Server/DevOps/escuela/Escuela-API/application/models/clientes/Querys.php",
+		"/D/Server/DevOps/escuela/Escuela-API/application/models/Dbserpro/Querys.php",
+		"/D/Server/DevOps/escuela/Escuela-API/application/models/Dbcolegiaturasdinero/Querys.php",
+		"/D/Server/DevOps/escuela/Escuela-API/application/controllers/Dbcolegiaturasdinero.php",
+		"/D/Server/DevOps/escuela/Escuela-API/application/controllers/Dbserpro.php",
+		"/D/Server/DevOps/escuela/Escuela-API/application/models/Dbcolegiaturas/Querys.php",
 		"/C/Users/BIOHIZARD/AppData/Roaming/Sublime Text/Packages/WakaTime/WakaTime.sublime-settings",
+		"/D/Server/DevOps/escuela/Escuela-API/humans.txt",
 		"/C/Users/BIOHIZARD/AppData/Roaming/Sublime Text/Packages/User/WakaTime.sublime-settings"
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 29.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 107.0,
 		"where_history":
 		[
+			"D:\\Server\\DevOps\\escuela\\Escuela-API\\application\\models,<project filters>"
 		]
 	},
 	"find_state":
@@ -67,6 +164,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"join",
+			"insert",
+			"join",
+			"insert",
+			"update"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -88,16 +190,48 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "Escuela-API/application/models/DbAlumno/Querys.php",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 19316,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5423,
+								5423
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3000.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 0.0
+		"height": 29.0
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 40.0
 	},
 	"layout":
 	{
@@ -130,7 +264,7 @@
 	"project": "Escuela-API-All.sublime-project",
 	"replace":
 	{
-		"height": 0.0
+		"height": 54.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -167,8 +301,8 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
-	"side_bar_width": 183.0,
+	"side_bar_visible": false,
+	"side_bar_width": 273.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
