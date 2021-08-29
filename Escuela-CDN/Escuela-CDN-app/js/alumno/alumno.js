@@ -1,7 +1,7 @@
 $(function() {
     /*############################################################*/
     //apiConecction()
-    loadingAlumnos()
+    loadingAlumnosPrimaria()
     checkBoxOne() 
     alumnosHistorial() 
     alumnoFiltro()

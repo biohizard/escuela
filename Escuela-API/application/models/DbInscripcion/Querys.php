@@ -114,22 +114,22 @@ class Querys extends CI_Model
     //--->
 
     //--->
-    function cierreRead()
+    function primariaRead()
     {
       $this->db->select('
-      `alumno`.id,
-      `alumno`.id_advance,
-      `alumno`.nombre,
-      `alumno`.paterno,
-      `alumno`.materno,
+      `alumnoprimaria`.id,
+      `alumnoprimaria`.id_advance,
+      `alumnoprimaria`.nombre,
+      `alumnoprimaria`.paterno,
+      `alumnoprimaria`.materno,
       `inscripcion`.maestra,
       `configgrupos`.grupos,
       `configgrupos`.salon
       ');        
-      $this->db->from('alumno');
-      $this->db->join('inscripcion', 'inscripcion.id_advance_alumno = alumno.id_advance');
+      $this->db->from('alumnoprimaria');
+      $this->db->join('inscripcion',  'inscripcion.id_advance_alumno = alumnoprimaria.id_advance');
       $this->db->join('configgrupos', 'inscripcion.grado = configgrupos.id_advance');
-      $this->db->order_by('`alumno`.id', 'ASC');
+      $this->db->order_by('`alumnoprimaria`.id', 'ASC');
 
         $query = $this->db->get();
         $row = $query->row_array();

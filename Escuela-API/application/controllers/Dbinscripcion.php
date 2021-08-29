@@ -56,8 +56,8 @@ class Dbinscripcion extends CI_Controller
     public function readedata()
     {
        
-        if ($_GET['type'] == "cierre"){
-            $xr8_data   = $this->Querys->cierreRead();
+        if ($_GET['type'] == "primaria"){
+            $xr8_data   = $this->Querys->primariaRead();
         }else {
             $xr8_data  = array("Error"  => 101);
         }

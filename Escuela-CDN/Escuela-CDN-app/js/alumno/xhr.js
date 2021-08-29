@@ -1,6 +1,6 @@
-function loadingAlumnos() {
+function loadingAlumnosPrimaria() {
 
-    let jqxhr = $.getJSON(urlDbInscripcionR + "?type=cierre", function(data) {})
+    let jqxhr = $.getJSON(urlDbInscripcionR + "?type=primaria", function(data) {})
         .done(function(data) {
             //--->
             $.each(data, function(i, val) {
@@ -27,7 +27,14 @@ function loadingAlumnos() {
                     nivel = "error" 
                 }
 
-                $("#loadAlumnos").append("<tr class=\"alumnos_lista " + nivel + "\"><th scope=\"row\"><input type=\"checkbox\" class=\"idAdvance\" id=\"" + val.id + "\"></th><td>" + idpro + "</td><td class=\"text-uppercase\">" + val.nombre + " " + val.paterno + " " + val.materno + "</td><td>" + nivel + "</td><td>" + val.salon + "</td><td>" + val.maestra + "</td></tr>");
+                $("#loadAlumnos").append("<tr class=\"alumnos_lista " + nivel + "\">" +
+                                         "<th scope=\"row\"><input type=\"checkbox\" class=\"idAdvance\" id=\"" + val.id_advance + "\"></th>" +
+                                         "<td>" + idpro + "</td>" +
+                                         "<td class=\"text-uppercase\">" + val.nombre + " " + val.paterno + " " + val.materno + "</td>" +
+                                         "<td>" + nivel + "</td>" +
+                                         "<td>" + val.salon + "</td>" +
+                                         "<td>" + val.maestra + "</td></tr>"
+                                         );
                 })
                 //--->
         })
@@ -39,5 +46,5 @@ function loadingAlumnos() {
 
 
         })
-        //--->  
+        //--->
 }
