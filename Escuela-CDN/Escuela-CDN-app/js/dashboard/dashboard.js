@@ -10,6 +10,6 @@ $(function() {
     console.log("%cLoad File : %cDashboard", "color: cyan", "color: yellow");
     allBtn()
     allTools()
-    allXhr()  
+    allXhr()
 })
 /*########################################################################*/    

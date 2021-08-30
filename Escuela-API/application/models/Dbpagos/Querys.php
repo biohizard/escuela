@@ -8,16 +8,16 @@ class Querys extends CI_Model
 		    	pagos.id_advance,
 		    	pagos.time,
 		    	pagos.pago,
-		    	alumno.nombre,
-		    	alumno.paterno,
-		    	alumno.materno,
+		    	alumnoprimaria.nombre,
+		    	alumnoprimaria.paterno,
+		    	alumnoprimaria.materno,
 		    	usuario.`user`,
 		    	usuario.email,
 		    	configsp.concepto,
 		    	configsp.precio
 		    ');
         $this->db->from('pagos');
-				$this->db->join('alumno'  ,'alumno.id_advance   = pagos.id_advance_alumno');
+				$this->db->join('alumnoprimaria'  ,'alumnoprimaria.id_advance   = pagos.id_advance_alumno');
 				$this->db->join('usuario' ,'usuario.id_advance  = pagos.id_advance_usuario');
 				$this->db->join('configsp','configsp.id_advance = pagos.id_advance_programas');
 				$this->db->where('pagos.id_advance_alumno',$_GET['token']);

@@ -70,7 +70,8 @@ class Querys extends CI_Model{
             $this->db->where('id_advance_alumno', $_POST['save_idAdvanceAlumno']);
             $this->db->update('colegiaturas_dinero');
 
-                if($_POST['save_total'] == 0){   
+
+
                 if($_POST['save_concepto'] == '1ªagosto'){
                     $this->db->set('colegiatura12_1_agosto',1, FALSE);
                 }
@@ -110,10 +111,10 @@ class Querys extends CI_Model{
                 if($_POST['save_concepto'] == 'julio'){
                 $this->db->set('colegiatura_7_julio',1, FALSE);
                 }    
-      
+
                 $this->db->where('id_advance_alumno', $_POST['save_idAdvanceAlumno']);
                 $this->db->update('colegiaturas');
-            }
+
 
             /*
                 save_fecha: 2021/08/16 04:25:31
