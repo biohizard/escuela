@@ -1,13 +1,14 @@
 function xhrAll(){
     /*############################################################*/
     console.log("%c Load Js XHR","color:#FA2A00; font-size:24px")
-        loadingSelectAll()    
-        
-        loadingHistorial()
-        loadingcolegiaturas()
-        loadingpagos()
+        loadingSelectAll()
 
+    /*
+            
+        loadingHistorial()
         
+        loadingpagos()
+        */
     /*############################################################*/
 }
 
@@ -19,9 +20,51 @@ function xhrAll(){
  | | | |_| | | | | (__| |_| | (_) | | | |
  |_|  \__,_|_| |_|\___|\__|_|\___/|_| |_|
 ##########################################################################*/
+function loadingSelectAll(){
+    //--->
+    $("#ins_gradocursar").empty().append("<option value=\"null\"> - Nivel – Grupo – Salon -</option>")
+
+    let jqxhr = $.getJSON(urlDbGruposR + "?type=all", function(data) {})
+        .done(function(data) {
+            //--->
+            $.each(data, function(i, val) {
+
+                if(val.grupos == "k1"){
+                    grupoDefine = "Preescolar 1"
+                }else if(val.grupos == "k2"){
+                    grupoDefine = "Preescolar 2"
+                }else if(val.grupos == "k3"){
+                    grupoDefine = "Preescolar 3"
+                }else if(val.grupos == "p1"){
+                    grupoDefine = "Primaria 1"
+                }else if(val.grupos == "p2"){
+                    grupoDefine = "Primaria 2"
+                }else if(val.grupos == "p3"){
+                    grupoDefine = "Primaria 3"
+                }else if(val.grupos == "p4"){
+                    grupoDefine = "Primaria 4"
+                }else if(val.grupos == "p5"){
+                    grupoDefine = "Primaria 5"
+                }else if(val.grupos == "p6"){
+                    grupoDefine = "Primaria 6"
+                }
+                
+                $("#ins_gradocursar").append("<option value=\""+ val.id_advance +"\"> " + grupoDefine + " " + val.salon + "</option>");               
+            })
+            //--->
+        })
+        .fail(function(data, jqXHR, textStatus, errorThrown) {
+            xhrError(jqXHR, textStatus, errorThrown);
+        })
+        .always(function(data) {
+            alumnoAll()
+        })
+        //--->  
+}
 function loadingAlumnos() {
     let x = $("#token").val()
-    let jqxhr = $.getJSON(urlDbAlumnoR + "?type=onlyone&token=" + x, function(data) {})
+    let y = $("#id").val()
+    let jqxhr = $.getJSON(urlDbAlumnoR + "?type=onlyone&token=" + x + "&id=" + y, function(data) {})
         .done(function(data) {
             //--->
             $.each(data, function(i, val) {
@@ -160,6 +203,7 @@ function loadingHistorial(){
         //--->
 }
 function loadingcolegiaturas(){
+    $("#historiaAlumno").empty()
     let x = $("#token").val()
     let jqxhr = $.getJSON(urlDbColegiaturasA + "?type=one&token=" + x, function(data) {})
     .done(function(data) {
@@ -193,52 +237,12 @@ function loadingpagos(){
     .always(function(data){})
 }
 
-
-function loadingSelectAll(){
-    //--->
-    $("#ins_gradocursar").empty().append("<option value=\"null\"> - Nivel – Grupo – Salon -</option>")   
-    let jqxhr = $.getJSON(urlDbGruposR + "?type=all", function(data) {})
-        .done(function(data) {
-            //--->
-            $.each(data, function(i, val) {
-
-                if(val.grupos == "k1"){
-                    grupoDefine = "Preescolar 1"
-                }else if(val.grupos == "k2"){
-                    grupoDefine = "Preescolar 2"
-                }else if(val.grupos == "k3"){
-                    grupoDefine = "Preescolar 3"
-                }else if(val.grupos == "p1"){
-                    grupoDefine = "Primaria 1"
-                }else if(val.grupos == "p2"){
-                    grupoDefine = "Primaria 2"
-                }else if(val.grupos == "p3"){
-                    grupoDefine = "Primaria 3"
-                }else if(val.grupos == "p4"){
-                    grupoDefine = "Primaria 4"
-                }else if(val.grupos == "p5"){
-                    grupoDefine = "Primaria 5"
-                }else if(val.grupos == "p6"){
-                    grupoDefine = "Primaria 6"
-                }
-                
-                $("#ins_gradocursar").append("<option value=\""+ val.id_advance +"\"> " + grupoDefine + " " + val.salon + "</option>");               
-            })
-            //--->
-        })
-        .fail(function(data, jqXHR, textStatus, errorThrown) {
-            xhrError(jqXHR, textStatus, errorThrown);
-        })
-        .always(function(data) {
-            loadingAlumnos()
-        })
-        //--->  
-}
-
-
 function updateDataInscripcion() {
 
     console.log("let update form")
+    let x = $("#token").val()
+    let y = $("#id").val()
+
     let alumno_token             = $("#token").val()
     let alumno_nombremaestra     = $("#ins_nombremaestra").val()
     let alumno_exalumno          = $("#ins_exalumno").val()
@@ -273,7 +277,7 @@ function updateDataInscripcion() {
     let alumno_tutocurp          = $("#tutor_tutocurp").val()
 
     let settings = {
-        "url": urlDbAlumnoU,
+        "url": urlDbAlumnoU + "?type=onlyone&token=" + x + "&id=" + y,
         "method": "POST",
         "timeout": 0,
         "headers": {
@@ -322,7 +326,7 @@ function updateDataInscripcion() {
         })
         .always(function(data) {
             console.info("Run: all user always");
-            loadingSelectAll()    
+            alumnoAll()
             $("#modalUpdate").modal("hide");
         })
     
@@ -355,5 +359,10 @@ function colegiaturasTool(a,b,z,n){
     '    <td>$'+ b + '</td>' +
     '</tr>';
     $("#historiaAlumno").append(x)
+}
+function alumnoAll(){
+    loadingAlumnos()
+    loadingHistorial()
+    loadingcolegiaturas()
 }
 /*########################################################################*/

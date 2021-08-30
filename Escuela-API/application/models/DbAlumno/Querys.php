@@ -2,104 +2,29 @@
 class Querys extends CI_Model
 {
     //--->
-    function onlyoneRead()
-    {
-        /*
-            SELECT
-            alumno.id,
-            alumno.id_advance,
-            alumno.time,
-            alumno.nombre,
-            alumno.paterno,
-            alumno.materno,
-            alumno.fecha,
-            alumno.edad,
-            alumno.curp,
-            alumno.sexo,
-            alumno.estatura,
-            alumno.peso,
-            alumno.sangre,
-            alumno.telefono,
-            alumno.recado,
-            alumno.direccion,
-            alumno.cp,
-            alumno.tutor,
-            alumno.parentes,
-            alumno.tutocurp,
-            inscripcion.maestra,
-            inscripcion.grado,
-            inscripcion.exalumno,
-            inscripcion.tipopago,
-            inscripcion.annoskinder,
-            inscripcion.lectoescritura,
-            inscripcion.lectoescriturapor,
-            inscripcion.problema,
-            inscripcion.procedencia,
-            configgrupos.salon,
-            configgrupos.grupos,
-            configgrupos.nivel,
-            configniveles.nivel AS niveltxt
-            FROM
-            alumno
-            INNER JOIN inscripcion ON alumno.id_advance = inscripcion.id_advance_alumno
-            INNER JOIN configgrupos ON inscripcion.grado = configgrupos.id_advance
-            INNER JOIN configniveles ON configgrupos.nivel = configniveles.id_advance
-        */
-        /*
-            FICHA DE INSCRIPCION 
-                save_nombremaestra: Emilia Mata INS
-                save_exalumno: si
-                save_gradocursar: p-0adhSVX0b9MNxkLxwf
-                save_tipopago: efectivo            
-            DATOS DEL ALUMNO 
-                save_nombrealumno: jorge francisco
-                save_apaternoalumno: rodriguez
-                save_amaternoalumno: garibaldo
-                save_curp: curpdemo
-                save_sexo: masculino
-                save_direccion: c 26 n 84
-                save_cp: 57210
-
-                save_fechanacimiento: 2015-01-31
-                save_edad: 6
-                save_estatura: 135
-                save_peso: 35
-                save_tiposanguineo: o+
-                save_telefono: (551) 506-7867
-                save_recados: 00000000
-            PARA ALUMNOS DE 1ER GRADO
-                save_annoskinder: 3
-                save_maestraausubel: Driss Villa curso
-                save_procedencia: Ausubel
-                save_lectoescritura: no
-                save_lectoescriturapor: lee y escribe
-                save_problema: no             
-            DATOS DEL TUTOR
-                save_tutor: pepe pecas
-                save_parentesco: papa
-                save_tutocurp: curpdemo
-        */            
-          $this->db->select('
-            `alumno`.id,
-            `alumno`.id_advance,
-            `alumno`.time,
-            `alumno`.nombre,
-            `alumno`.paterno,
-            `alumno`.materno,
-            `alumno`.fecha,
-            `alumno`.edad,
-            `alumno`.curp,
-            `alumno`.sexo,
-            `alumno`.estatura,
-            `alumno`.peso,
-            `alumno`.sangre,
-            `alumno`.telefono,
-            `alumno`.recado,
-            `alumno`.direccion,
-            `alumno`.cp,
-            `alumno`.tutor,
-            `alumno`.parentes,
-            `alumno`.tutocurp,
+    function onlyonePrimariaRead()
+    {     
+        $this->db->select('
+            `alumnoprimaria`.id,
+            `alumnoprimaria`.id_advance,
+            `alumnoprimaria`.time,
+            `alumnoprimaria`.nombre,
+            `alumnoprimaria`.paterno,
+            `alumnoprimaria`.materno,
+            `alumnoprimaria`.fecha,
+            `alumnoprimaria`.edad,
+            `alumnoprimaria`.curp,
+            `alumnoprimaria`.sexo,
+            `alumnoprimaria`.estatura,
+            `alumnoprimaria`.peso,
+            `alumnoprimaria`.sangre,
+            `alumnoprimaria`.telefono,
+            `alumnoprimaria`.recado,
+            `alumnoprimaria`.direccion,
+            `alumnoprimaria`.cp,
+            `alumnoprimaria`.tutor,
+            `alumnoprimaria`.parentes,
+            `alumnoprimaria`.tutocurp,
             `inscripcion`.maestra,
             `inscripcion`.grado,
             `inscripcion`.exalumno,
@@ -114,13 +39,14 @@ class Querys extends CI_Model
             `configgrupos`.grupos,
             `configgrupos`.nivel,
             `configniveles`.nivel AS niveltxt
-          ');        
-          $this->db->from('alumno');
-          $this->db->where('`alumno`.id_advance', $_GET['token']);
-          $this->db->join('inscripcion'  , 'inscripcion.id_advance_alumno = alumno.id_advance');
-          $this->db->join('configgrupos' , 'configgrupos.id_advance       = inscripcion.grado');
-          $this->db->join('configniveles', 'configgrupos.nivel            = configniveles.id_advance');
-          $this->db->order_by('`alumno`.id', 'ASC');
+          ');
+        $this->db->from  ('alumnoprimaria');
+        $this->db->where ('`alumnoprimaria`.id_advance',$_GET['token']);
+        
+          $this->db->join    ('inscripcion'  , 'inscripcion.id_advance_alumno = alumnoprimaria.id_advance');
+          $this->db->join    ('configgrupos' , 'configgrupos.id_advance       = inscripcion.grado');
+          $this->db->join    ('configniveles', 'configgrupos.nivel            = configniveles.id_advance');
+          $this->db->order_by('`alumnoprimaria`.id', 'ASC');
 
         $query = $this->db->get();
         $row = $query->row_array();
@@ -556,80 +482,9 @@ class Querys extends CI_Model
     
     
     //--->
-    function alumnoUpdate()
+    function alumnoPrimariaUpdate()
     {
-        /*
-            FICHA DE INSCRIPCION 
-                save_nombremaestra: Emilia Mata INS
-                save_exalumno: si
-                save_gradocursar: p-0adhSVX0b9MNxkLxwf
-                save_tipopago: efectivo            
-            DATOS DEL ALUMNO 
-                save_nombrealumno: jorge francisco
-                save_apaternoalumno: rodriguez
-                save_amaternoalumno: garibaldo
-                save_curp: curpdemo
-                save_sexo: masculino
-                save_direccion: c 26 n 84
-                save_cp: 57210
-
-                save_fechanacimiento: 2015-01-31
-                save_edad: 6
-                save_estatura: 135
-                save_peso: 35
-                save_tiposanguineo: o+
-                save_telefono: (551) 506-7867
-                save_recados: 00000000
-            PARA ALUMNOS DE 1ER GRADO
-                save_annoskinder: 3
-                save_maestraausubel: Driss Villa curso
-                save_procedencia: Ausubel
-                save_lectoescritura: no
-                save_lectoescriturapor: lee y escribe
-                save_problema: no             
-            DATOS DEL TUTOR
-                save_tutor: pepe pecas
-                save_parentesco: papa
-                save_tutocurp: curpdemo
-
-            {
-              "id": "17",
-              "id_advance": "73d2bd688102a9c3bf84",
-              "time": "2021-08-23 01:08:47",
-              "nombre": "jorge francisco",
-              "paterno": "rodriguez",
-              "materno": "garibaldo",
-              "fecha": "2015-01-31",
-              "edad": "6",
-              "curp": "curpdemo",
-              "sexo": "masculino",
-              "estatura": "135",
-              "peso": "35",
-              "sangre": "o+",
-              "telefono": "0",
-              "recado": "0",
-              "direccion": "c 26 n 84",
-              "cp": "57210",
-              "tutor": "pepe pecas",
-              "parentes": "papa",
-              "tutocurp": "curpdemo",
-              "maestra": "Driss Villa curso",
-              "grado": "p-0adhSVX0b9MNxkLxwf",
-              "exalumno": "si",
-              "tipopago": "efectivo",
-              "annoskinder": "3",
-              "lectoescritura": "no",
-              "lectoescriturapor": "lee y escribe",
-              "problema": "no",
-              "procedencia": "Ausubel",
-              "maestraausubel": "Driss Villa curso",
-              "salon": "a",
-              "grupos": "p1",
-              "nivel": "b6PKi2gAJXYFdgHriZmO",
-              "niveltxt": "primaria"
-            }                
-        */
-
+      
         $random = random_string('sha1', 20);
         $date   = date("Y-m-d H:m:s");
         $r_id   = random_string('md5', 4);
@@ -675,7 +530,7 @@ class Querys extends CI_Model
 
         $token = $_POST['save_token'];
         $this->db->where('id_advance',$token);
-        $this->db->update('alumno',$data_alumno);
+        $this->db->update('alumnoprimaria',$data_alumno);
         /*
         $this->db->insert('alumno',$data_alumno);
         $this->db->insert('inscripcion',$data_inscripcion);

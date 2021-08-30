@@ -13,6 +13,7 @@
                         <div class="row">
                             <p class="fs-4 text text-uppercase">datos generales del alumno</p>
                             <input type="hidden" id="token" value="<?php echo $_GET['token'];?>">
+                            <input type="hidden" id="id" value="<?php echo $_GET['id'];?>">
                             <div class="col-12">
                                 <label for="firstName" class="form-label text-secondary text-capitalize">Nombre del alumno </label>
                                 <p class="fs-6 text text-uppercase text-primary" id="data_nombre">nombre alumno</p>

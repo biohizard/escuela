@@ -75,10 +75,17 @@ class Dbalumno extends CI_Controller
     public function readedata()
     {
         if ($_GET['type'] == "onlyone"){
-            $xr8_data   = $this->Querys->onlyoneRead();
-        }else if ($_GET['type'] == "onlyprecios"){
+            //PR O KR
+            $term          = strtolower($_GET['id']);
+            $x_sin_numeros = preg_split('/[0-9]+/',$term);
+            
+            if($x_sin_numeros[0] == "pr"){
+                $xr8_data   = $this->Querys->onlyonePrimariaRead();
+            }
+            
+        }/*else if ($_GET['type'] == "onlyprecios"){
             $xr8_data   = $this->Querys->onlypreciosRead();
-        }else {
+        }*/else {
             $xr8_data  = array("Error: Reade Alumno"=>101);
         }
         $this->output->set_content_type('application/json')->set_output(json_encode($xr8_data));
@@ -100,7 +107,13 @@ class Dbalumno extends CI_Controller
     //--->
     public function update()
     { 
-        $xr8_data = $this->Querys->alumnoUpdate();
+            //PR O KR
+            $term          = strtolower($_GET['id']);
+            $x_sin_numeros = preg_split('/[0-9]+/',$term);
+            
+            if($x_sin_numeros[0] == "pr"){
+                $xr8_data   = $this->Querys->alumnoPrimariaUpdate();
+            }
         $this->output->set_content_type('application/json')->set_output(json_encode($xr8_data));
     }
     //--->

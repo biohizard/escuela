@@ -7,7 +7,7 @@ ____  ______ _____________
       \_/     \/        \/ 
 ##########################################################################*/
 function allXhr(){
-    loadingpagos()
+    //loadingpagos()
     loadingSelectAll()
 }
 /*########################################################################*/
@@ -21,7 +21,7 @@ _______________ __________  ____________________.___________    _______    _____
      \/                   \/        \/                      \/         \/        \/ 
 ##########################################################################*/
     /*CRUD*/
-    function saveDataInscripcionxxx() {
+    function saveDataInscripcion(){
         console.log("let save form")
         let alumno_nombremaestra     = $("#ins_nombremaestra").val()
         let alumno_exalumno          = $("#ins_exalumno").val()
@@ -107,8 +107,7 @@ _______________ __________  ____________________.___________    _______    _____
                 $("#exampleModalToggle").modal("hide");
             })
         
-    }
-    function saveDataInscripcion(){console.log("let save form");let a=$("#ins_nombremaestra").val(),e=$("#ins_exalumno").val(),o=$("#ins_gradocursar").val(),s=$("#ins_tipopago").val(),n=$("#ins_nombrealumno").val(),l=$("#ins_apaternoalumno").val(),r=$("#ins_amaternoalumno").val(),i=$("#ins_curp").val(),t=$("#ins_sexo").val(),v=$("#ins_direccion").val(),_=$("#ins_cp").val(),u=$("#ins_fechanacimiento").val(),c=$("#ins_edad").val(),m=$("#ins_estatura").val(),p=$("#ins_peso").val(),d=$("#ins_tiposanguineo").val(),f=$("#ins_telefono").val(),g=$("#ins_recados").val(),b=$("#ins_annoskinder").val(),x=$("#ins_maestraausubel").val(),h=$("#ins_procedencia").val(),w=$("#ins_lectoescritura").val(),y=$("#ins_lectoescriturapor").val(),T=$("#ins_problema").val(),k=$("#tutor_tutor").val(),C=$("#tutor_parentesco").val(),D=$("#tutor_tutocurp").val(),R={url:urlDbAlumnoC,method:"POST",timeout:0,headers:{"Content-Type":"application/x-www-form-urlencoded"},data:{save_nombremaestra:a,save_exalumno:e,save_gradocursar:o,save_tipopago:s,save_nombrealumno:n,save_apaternoalumno:l,save_amaternoalumno:r,save_curp:i,save_sexo:t,save_direccion:v,save_cp:_,save_fechanacimiento:u,save_edad:c,save_estatura:m,save_peso:p,save_tiposanguineo:d,save_telefono:f,save_recados:g,save_annoskinder:b,save_maestraausubel:x,save_procedencia:h,save_lectoescritura:w,save_lectoescriturapor:y,save_problema:T,save_tutor:k,save_parentesco:C,save_tutocurp:D}};$.ajax(R).done(function(a){}).fail(function(a,e,o,s){console.info("Run: all user loading error"),xhrError(e,o,s)}).always(function(a){console.info("Run: all user always"),$("#exampleModalToggle").modal("hide")})}    
+    }    
     function loadingpagos(){
         $.getJSON(urlDbPagosR + "?type=now")
         .done(function(data) {
@@ -191,8 +190,6 @@ _______________ __________  ____________________.___________    _______    _____
             //--->  
     }
     function readeDataInscripcion() {
-
-        //--->
         console.log("%cXHR: %cmetales/detalles loadingMetalesSaldo", "color: red", "color: green");
         $("#loadingMetalesCierres").fadeIn().empty()
     
@@ -218,14 +215,11 @@ _______________ __________  ____________________.___________    _______    _____
                     })
                     //--->
             })
-            .fail(function(data, jqXHR, textStatus, errorThrown) {
-                //--->
-                console.info("Run: all user loading error");
-                xhrError(jqXHR, textStatus, errorThrown);
+            .fail(function(data, jqXHR, textStatus, errorThrown){
+                console.info("Run: all user loading error")
+                xhrError(jqXHR, textStatus, errorThrown)
             })
             .always(function(data) {})
-            //--->  
-    
     }
 /*########################################################################*/
 
