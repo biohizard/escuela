@@ -31,15 +31,29 @@ _______________ __________  ____________________.___________    _______    _____
     function inputColegiatura(){
         console.log("%ctools: Run->inputColegiatura: ","color:SkyBlue;")
         //--------->
-        $("#cobros_serpro").on('change',function() {
+        /*
+        cobros_serpro               : select es COLEGIATURA
+        precio_PorPagar             : input pago
+        config_colegiatura          : input costo colegiatura
+        config_colegiatura_especial : input costo colegiatura especial
+        a                           : select es COLEGIATURA
+        b                           : select html
+        c                           : select html array
+        d                           : select html array[0]
+        col1-usGq4VZo59EHgYX /-----/ 1ª ½ de agosto $700.00 /-----/ 1ª,½,de,agosto,$700.00  /-----/ 1ª  /-----/ 
+        //alert(a +" /-----/ " +b+" /-----/ " +c+"  /-----/ " +d+"  /-----/ ")
+        */
+        $("#cobros_serpro").on('input',function() {
             
             $("#precio_PorPagar").attr("disabled",false)
             //--------->
             if($("#exalumno").val() == "si"){
             }else{
             }
-            costo_col = $("#config_colegiatura").val()   
-    
+            
+            costo_col     = $("#config_colegiatura").val()   
+            costo_col_esp = $("#config_colegiatura_especial").val()
+
             a = $(this).val();
             b = $("#cobros_serpro option:selected").html()
             c = b.split(" ");
@@ -50,69 +64,116 @@ _______________ __________  ____________________.___________    _______    _____
                 }
             $("#cobroIdAdvanceSerpro").val(a)
             //alert(a +" /-----/ " +b+" /-----/ " +c+"  /-----/ " +d+"  /-----/ ")
-    
-            if(
-                b == "septiembre" ||
-                b == "octubre"    ||
-                b == "noviembre"  ||
-                b == "diciembre"  ||
-                b == "enero"      ||
-                b == "febrero"    ||
-                b == "marzo"      ||
-                b == "abril"      ||
-                b == "mayo"       ||
-                b == "junio"      ||
-                b == "julio"
-            ){
-                //alert("#historialval_m_" + b)
+            //alert("#historialval_m_" + b)
+            //alert(b)
+            if(b == "septiembre" || b == "octubre"    || b == "noviembre"  || b == "diciembre"  || b == "enero"      || b == "febrero"    || b == "marzo"      || b == "abril"      || b == "mayo"       || b == "junio"      || b == "julio"){
+                //alert("qwertyuiop")
+                //----->
                 if($("#historialval_m_" + b).val() == "true"){
                     $("#text_precio_change_x").html("00.00")
                     $("#precio_change_x").val("00.00")
                 }else{
                     colegiaturaNow(b)
                 }
-                
-            }else if(
-                d == "1ª" ||
-                d == "2ª"){
-                    colegiaturaNow2(c)
+                //----->
+                // || b == "2ª ½ de agosto $700.00"
+            }else if(b == "1ª ½ de agosto $700.00"){
+                //----->
+                    /*Concepto - Concepto Del Cobro*/
+                    /*
+                    textSerpro  : Concepto Concepto Del Cobro
+                    cobroSerpro : input
+                    */
+                    $("#textSerpro").html("Colegiatura del mes de " + b )
+                    $("#cobroSerpro").val(a)
+
+                    /*Costo - Por Pagar*/
+                    $("#textprecio_costo").html("$" + $("#config_colegiatura_especial").val())
+                    $("#precio_costo").val($("#config_colegiatura_especial").val())
                     
-            }else{}
-    
-                /*###################################################################################
-                #                                                                                   #
-                # Determina el restante  de la colegiatura  dependiendo del dpa , normal o interes  #
-                #                                                                                   #
-                ####################################################################################*/
-                //------------------------>
-                //run toolsAll() -> rangoFecha_A
+                    /*Resta - Por Pagar*/
+                    descuentoInteres("1agosto")
+
+                //colegiaturaNow2(c)
+                //----->
+            }else if(b == "2ª ½ de agosto $700.00"){
+            //----->
+                /*Concepto - Concepto Del Cobro*/
                 /*
-                if(rangoFecha_A == "dpa"){
-                    //------------------------>
-                    console.log("Run rango fecha DPA")
-                    $("#text_precio_change_x").html("$" + col_now)
-                    $("#precio_change_x").val(col_now)            
-                    //------------------------>
-                }else if(rangoFecha_A == "normal"){
-                    //------------------------>
-                    console.log("Run rango fecha NORMAL")
-                    $("#text_precio_change_x").html("$" + col_now)
-                    $("#precio_change_x").val(col_now)            
-                    //------------------------>
-                }else if(rangoFecha_A == "interes"){
-                    //------------------------>
-                    console.log("Run rango fecha INTERES")
-                    col_now = col_now + (col_now *0.15)
-                    $("#text_precio_change_x").html("$" + col_now)
-                    $("#precio_change_x").val(col_now)
-                    //------------------------>
-                }else{console.error("Error: Rango de fecha")}
+                textSerpro  : Concepto Concepto Del Cobro
+                cobroSerpro : input
                 */
-                //------------------------>
-                /*###################################################################################
-                #                                                                                   #
-                ####################################################################################*/
+                $("#textSerpro").html("Colegiatura del mes de " + b )
+                $("#cobroSerpro").val(a)
+
+                /*Costo - Por Pagar*/
+                $("#textprecio_costo").html("$" + $("#config_colegiatura_especial").val())
+                $("#precio_costo").val($("#config_colegiatura_especial").val())
+                
+                /*Resta - Por Pagar*/
+                descuentoInteres("2agosto")
+
+            //colegiaturaNow2(c)
+            //----->
+            }else if(b == "inscripcion $780.00"){
+                //----->
+                    /*Concepto - Concepto Del Cobro*/
+                    /*
+                    textSerpro  : Concepto Concepto Del Cobro
+                    cobroSerpro : input
+                    */
+                    $("#textSerpro").html("Colegiatura del mes de " + b )
+                    $("#cobroSerpro").val(a)
     
+                    /*Costo - Por Pagar*/
+                    $("#textprecio_costo").html("$" + $("#config_inscripcion").val())
+                    $("#precio_costo").val($("#config_inscripcion").val())
+                    
+                    /*Resta - Por Pagar*/
+                    descuentoInteres("inscripcion")
+    
+                //colegiaturaNow2(c)
+                //----->
+            }else if(b == "seguro $180.00"){
+            //----->
+                /*Concepto - Concepto Del Cobro*/
+                /*
+                textSerpro  : Concepto Concepto Del Cobro
+                cobroSerpro : input
+                */
+                $("#textSerpro").html("Colegiatura del mes de " + b )
+                $("#cobroSerpro").val(a)
+
+                /*Costo - Por Pagar*/
+                $("#textprecio_costo").html("$" + $("#config_seguro").val())
+                $("#precio_costo").val($("#config_seguro").val())
+                
+                /*Resta - Por Pagar*/
+                descuentoInteres("seguro")
+
+            //colegiaturaNow2(c)
+            //----->
+            }else if(b == "material $850.00"){
+                //----->
+                    /*Concepto - Concepto Del Cobro*/
+                    /*
+                    textSerpro  : Concepto Concepto Del Cobro
+                    cobroSerpro : input
+                    */
+                    $("#textSerpro").html("Colegiatura del mes de " + b )
+                    $("#cobroSerpro").val(a)
+    
+                    /*Costo - Por Pagar*/
+                    $("#textprecio_costo").html("$" + $("#config_material").val())
+                    $("#precio_costo").val($("#config_material").val())
+                    
+                    /*Resta - Por Pagar*/
+                    descuentoInteres("material")
+    
+                //colegiaturaNow2(c)
+                //----->
+            }else{}
+            
             interesPago()
             //--------->
         })

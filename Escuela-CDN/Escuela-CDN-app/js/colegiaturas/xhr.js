@@ -31,6 +31,7 @@ _______________ __________  ____________________.___________    _______    _____
             .done(function(data) {
                 $.each(data, function(i, val) {
                 //--->
+                //alert(val.precio)
                     if(val.descripcion == 'colegiatura'){
                         let x = val.precio
                         costoColegiatura(x)

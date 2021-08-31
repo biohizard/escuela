@@ -340,6 +340,11 @@
       <li class="list-group-item">Colegiatura:          <input type="text" id="config_colegiatura"          value="0"          disabled></li>
       
       <li class="list-group-item">Colegiatura especial: <input type="text" id="config_colegiatura_especial" value="0"          disabled></li>
+
+      <li class="list-group-item">inscripcion: <input type="text" id="config_inscripcion" value="780"          disabled></li>
+      <li class="list-group-item">seguro:      <input type="text" id="config_seguro"      value="180"          disabled></li>
+      <li class="list-group-item">material:    <input type="text" id="config_material"    value="850"          disabled></li>
+       
       <li class="list-group-item">Interes:              <input type="text" id="config_interes"              value="15"          disabled></li>
       <li class="list-group-item">DPA:                  <input type="text" id="config_dpa"                  value="15"          disabled></li>
 
