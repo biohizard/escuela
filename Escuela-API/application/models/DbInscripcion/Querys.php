@@ -155,5 +155,48 @@ class Querys extends CI_Model
         return  $data;
     }
     //--->
-        
+
+    //--->
+    function kinderRead()
+    {
+      $this->db->select('
+      `alumnokinder`.id,
+      `alumnokinder`.id_advance,
+      `alumnokinder`.nombre,
+      `alumnokinder`.paterno,
+      `alumnokinder`.materno,
+      `inscripcion`.maestra,
+      `configgrupos`.grupos,
+      `configgrupos`.salon
+      ');        
+      $this->db->from('alumnokinder');
+      $this->db->join('inscripcion',  'inscripcion.id_advance_alumno = alumnokinder.id_advance');
+      $this->db->join('configgrupos', 'inscripcion.grado = configgrupos.id_advance');
+      $this->db->order_by('`alumnokinder`.id', 'ASC');
+
+        $query = $this->db->get();
+        $row = $query->row_array();
+
+        //---A)
+        if ($query->num_rows() > 0) {
+            foreach ($query->result() as $row) {
+                $data[] = $row;
+            }
+        } else {
+            $date   = date("Y-m-d H:m:s");
+            $data[] = array(
+                "Time"       => $date,
+                "Message"    => "Error Alumno",
+                "Code"       => 104,
+                "Contorller" => "DbTabsCierre",
+                "class"      => "DbTabsCierre",
+                "fuction"    => "DbTabsCierreRead",
+                "id"         => "user"
+            );
+        }
+
+        return  $data;
+    }
+    //--->    
+
 }    

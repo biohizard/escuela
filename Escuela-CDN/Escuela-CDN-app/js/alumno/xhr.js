@@ -7,7 +7,8 @@ ____  ______ _____________
       \_/     \/        \/ 
 ##########################################################################*/
 function allXhr(){
-    loadingAlumnosPrimaria() 
+    loadingAlumnosKinder()
+    loadingAlumnosPrimaria()
 }
 /*########################################################################*/
 
@@ -20,6 +21,41 @@ _______________ __________  ____________________.___________    _______    _____
      \/                   \/        \/                      \/         \/        \/ 
 ##########################################################################*/
     /*CRUD*/
+    function loadingAlumnosKinder() {
+
+        let jqxhr = $.getJSON(urlDbInscripcionR + "?type=kinder", function(data) {})
+            .done(function(data) {
+                //--->
+                $.each(data, function(i, val) {
+    
+                    if(val.grupos == "k1"){
+                        nivel = "primero" 
+                        idpro  = "JR" + val.id
+                    }else if(val.grupos == "k2"){
+                        nivel = "segundo" 
+                        idpro  = "JR" + val.id
+                    }else if(val.grupos == "k3"){
+                        nivel = "tercero" 
+                        idpro  = "JR" + val.id
+                    }else{
+                        nivel = "error" 
+                    }
+    
+                    $("#loadAlumnos").append("<tr class=\"alumnos_lista " + nivel + "\">" +
+                                             "<th scope=\"row\"><input type=\"checkbox\" class=\"idAdvance\" id=\"" + val.id_advance + "\"></th>" +
+                                             "<td class=\"" + val.id_advance + "\">" + idpro + "</td>" +
+                                             "<td class=\"text-uppercase\">" + val.nombre + " " + val.paterno + " " + val.materno + "</td>" +
+                                             "<td>" + nivel + "</td>" +
+                                             "<td>" + val.salon + "</td>" +
+                                             "<td>" + val.maestra + "</td></tr>"
+                                             );
+                    })
+                    //--->
+            })
+            .fail(function(data, jqXHR, textStatus, errorThrown){xhrError(jqXHR, textStatus, errorThrown)})
+            .always(function(data) {})
+            //--->
+    }
     function loadingAlumnosPrimaria() {
 
         let jqxhr = $.getJSON(urlDbInscripcionR + "?type=primaria", function(data) {})

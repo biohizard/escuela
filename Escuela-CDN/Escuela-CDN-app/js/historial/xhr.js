@@ -162,19 +162,10 @@ function allXhr(){
         })
         .fail(function(data,jqXHR,textStatus,errorThrown){xhrError(jqXHR, textStatus, errorThrown)})
         .always(function(data){})
-    }    
-    function loadingHistorial(){
-        let x = $("#token").val()
-        let jqxhr = $.getJSON(urlDbColegiaturasR + "?type=one&token=" + x,function(data){})
-            .done(function(data){
-                $.each(data,function(i,val){
-                })
-            })
-            .fail(function(data,jqXHR,textStatus,errorThrown){xhrError(jqXHR,textStatus,errorThrown)})
-            .always(function(data){})
     }
     function loadingpagos(){
-        $.getJSON(urlDbPagosR + "?type=all&token=" + $("#token").val())
+        $("#loadPagos").empty()
+        $.getJSON(urlDbPagosR + "?type=all&token=" + $("#token").val() + "&id=" + $("#id").val())
         .done(function(data) {
             $.each(data, function(i, val) {
                 if(val.Code == 104){
@@ -187,6 +178,17 @@ function allXhr(){
         .fail(function(data, jqXHR, textStatus, errorThrown){xhrError(jqXHR, textStatus, errorThrown)})
             .always(function(data){})
     }
+    function loadingHistorial(){
+        let x = $("#token").val()
+        let jqxhr = $.getJSON(urlDbColegiaturasR + "?type=one&token=" + x,function(data){})
+            .done(function(data){
+                $.each(data,function(i,val){
+                })
+            })
+            .fail(function(data,jqXHR,textStatus,errorThrown){xhrError(jqXHR,textStatus,errorThrown)})
+            .always(function(data){})
+    }
+
     function updateDataInscripcion() {
 
         console.log("let update form")

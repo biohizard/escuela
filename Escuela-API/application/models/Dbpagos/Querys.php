@@ -2,7 +2,7 @@
 class Querys extends CI_Model
 {
     //--->
-    function allDataRead(){
+    function allDataPrimariaRead(){
 		    $this->db->select('
 		    	pagos.id,
 		    	pagos.id_advance,
@@ -21,8 +21,9 @@ class Querys extends CI_Model
 				$this->db->join('usuario' ,'usuario.id_advance  = pagos.id_advance_usuario');
 				$this->db->join('configsp','configsp.id_advance = pagos.id_advance_programas');
 				$this->db->where('pagos.id_advance_alumno',$_GET['token']);
-				$this->db->group_by('`pagos`.id');
-				$this->db->order_by('`pagos`.id', 'ASC');
+				
+				$this->db->group_by('`pagos`.id'); 
+				$this->db->order_by('`pagos`.id', 'DESC');
 
               $query = $this->db->get();
               $row = $query->row_array();
@@ -48,7 +49,55 @@ class Querys extends CI_Model
               return  $data;
     }
     //--->
+
+    //--->
+    function allDataKinderRead(){
+		$this->db->select('
+			pagos.id,
+			pagos.id_advance,
+			pagos.time,
+			pagos.pago,
+			alumnokinder.nombre,
+			alumnokinder.paterno,
+			alumnokinder.materno,
+			usuario.`user`,
+			usuario.email,
+			configsp.concepto,
+			configsp.precio
+		');
+	$this->db->from('pagos');
+			$this->db->join('alumnokinder'  ,'alumnokinder.id_advance   = pagos.id_advance_alumno');
+			$this->db->join('usuario' ,'usuario.id_advance  = pagos.id_advance_usuario');
+			$this->db->join('configsp','configsp.id_advance = pagos.id_advance_programas');
+			$this->db->where('pagos.id_advance_alumno',$_GET['token']);
+			
+			$this->db->group_by('`pagos`.id'); 
+			$this->db->order_by('`pagos`.id', 'DESC');
+
+		  $query = $this->db->get();
+		  $row = $query->row_array();
   
+		  //---A)
+		  if ($query->num_rows() > 0) {
+			  foreach ($query->result() as $row) {
+				  $data[] = $row;
+			  }
+		  } else {
+			  $date   = date("Y-m-d H:m:s");
+			  $data[] = array(
+				  "Time"       => $date,
+				  "Message"    => "Error Alumno",
+				  "Code"       => 104,
+				  "Contorller" => "DbTabsCierre",
+				  "class"      => "DbTabsCierre",
+				  "fuction"    => "DbTabsCierreRead",
+				  "id"         => "user"
+			  );
+		  }
+  
+		  return  $data;
+}
+//--->
 
     //--->
     function nowDataRead(){

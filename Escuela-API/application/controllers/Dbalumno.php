@@ -81,6 +81,10 @@ class Dbalumno extends CI_Controller
             
             if($x_sin_numeros[0] == "pr"){
                 $xr8_data   = $this->Querys->onlyonePrimariaRead();
+            }else if($x_sin_numeros[0] == "jr"){
+                $xr8_data   = $this->Querys->onlyoneKinderRead();
+            }else{
+                $xr8_data   = "Erro 101";
             }
             
         }/*else if ($_GET['type'] == "onlyprecios"){
@@ -107,13 +111,15 @@ class Dbalumno extends CI_Controller
     //--->
     public function update()
     { 
-            //PR O KR
-            $term          = strtolower($_GET['id']);
-            $x_sin_numeros = preg_split('/[0-9]+/',$term);
-            
-            if($x_sin_numeros[0] == "pr"){
-                $xr8_data   = $this->Querys->alumnoPrimariaUpdate();
-            }
+        //PR O KR
+        $term          = strtolower($_GET['id']);
+        $x_sin_numeros = preg_split('/[0-9]+/',$term);
+        
+        if($x_sin_numeros[0] == "pr"){
+            $xr8_data   = $this->Querys->alumnoPrimariaUpdate();
+        }else if($x_sin_numeros[0] == "jr"){
+            $xr8_data   = $this->Querys->alumnoKinderUpdate();
+        }
         $this->output->set_content_type('application/json')->set_output(json_encode($xr8_data));
     }
     //--->

@@ -58,6 +58,8 @@ class Dbinscripcion extends CI_Controller
        
         if ($_GET['type'] == "primaria"){
             $xr8_data   = $this->Querys->primariaRead();
+        }else if ($_GET['type'] == "kinder"){
+            $xr8_data   = $this->Querys->kinderRead();
         }else {
             $xr8_data  = array("Error"  => 101);
         }
