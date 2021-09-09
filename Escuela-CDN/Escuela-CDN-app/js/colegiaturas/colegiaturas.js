@@ -6,6 +6,15 @@ _________  ________  .____     ___________ ________.___   ____________________ _
  \______  /\_______  /_______ \/_______  /\______  /___\____|__  /____|  |______/  |____|_  /\____|__  /_______  /
         \/         \/        \/        \/        \/            \/                         \/         \/        \/ 
 ##########################################################################*/
+    /*
+    colegiatura select list
+        cargamos COLEGIATURA
+    
+    autoComplete
+        busqueda autocomplete pr o jr
+    
+    inputColegiatura change
+    */
     $(function() {
         console.log("%c Load Js COBROS ","color:#FA2A00; font-size:24px")
         allBtn()

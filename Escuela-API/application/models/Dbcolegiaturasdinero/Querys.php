@@ -8,33 +8,43 @@ class Querys extends CI_Model{
         $r_id   = random_string('md5', 4);
 
         $pago = $_POST["save_pago"];
+
         /*
-        save_fecha: 2021/08/31 02:58:22
-        save_idUsuario: AfN9M25VoJmSU8Ps9w2
-        save_idAlumno: 14
-        save_idAdvanceAlumno: e25826e6737491f172fc
-        save_nombreAlumno: jorge fco rodriguez garibaldo
-        save_concepto: seg-sAcaE6YjPyGtFaMP
-        save_idadconcepto: seg-sAcaE6YjPyGtFaMP
-        save_costo: 850
-        save_resta: 850
-        save_pago: 850
-        save_total: 0
+            save_fecha: 2021/09/08 19:07:13
+            save_idUsuario: AfN9M25VoJmSU8Ps9w2
+            save_idAlumno: 14
+            save_idAdvanceAlumno: e25826e6737491f172fc
+            save_nombreAlumno: jorge fco rodriguez garibaldo
+            save_concepto: seguro
+            save_idadconcepto: mat-IW9v0HkFnl8iT3Zn
+            save_costo: 180
+            save_resta: 180
+            save_pago: 100
+            save_total: 80
         */
-        /*colegiaturas*/
         //---------->
-            if($_POST['save_concepto'] == 'col1-usGq4VZo59EHgYX'){
+        if($_POST['save_total'] == 0){
+            
+            if($_POST['save_idadconcepto'] == 'col1-usGq4VZo59EHgYX'){
+                
                 $this->db->set('colegiatura12_1_agosto',1, FALSE);
-            }else if($_POST['save_concepto'] == 'col1-yoG41KM4GW0X8U3'){
+
+            }else if($_POST['save_idadconcepto'] == 'col1-yoG41KM4GW0X8U3'){
+                
                 $this->db->set('colegiatura12_2_agosto',1, FALSE);
-            }else if($_POST['save_concepto'] == 'ins-g2Bk6N3ykoUvNLcz'){
+
+            }else if($_POST['save_idadconcepto'] == 'ins-g2Bk6N3ykoUvNLcz'){
+
                 $this->db->set('inscripcion',1, FALSE);
-            }else if($_POST['save_concepto'] == 'mat-IW9v0HkFnl8iT3Zn'){
-                //seguro
+
+            }else if($_POST['save_idadconcepto'] == 'mat-IW9v0HkFnl8iT3Zn'){
+
                 $this->db->set('seguro',1, FALSE);
-            }else if($_POST['save_concepto'] == 'seg-sAcaE6YjPyGtFaMP'){
-                //material
+
+            }else if($_POST['save_idadconcepto'] == 'seg-sAcaE6YjPyGtFaMP'){
+
                 $this->db->set('material',1, FALSE);
+            
             }else if($_POST['save_concepto'] == 'septiembre'){
                 $this->db->set('colegiatura_9_septiembre',1, FALSE);
             }else if($_POST['save_concepto'] == 'octubre'){
@@ -61,22 +71,35 @@ class Querys extends CI_Model{
 
             $this->db->where('id_advance_alumno', $_POST['save_idAdvanceAlumno']);
             $this->db->update('colegiaturas');
+        
+        }else{}
+        
         //---------->
 
-        /*colegiaturas_dinero*/
         //---------->
-            if($_POST['save_concepto'] == 'col1-usGq4VZo59EHgYX'){
+
+            if($_POST['save_idadconcepto'] == 'col1-usGq4VZo59EHgYX'){
+
                 $this->db->set('colegiatura12_1_agosto',"colegiatura12_1_agosto + $pago", FALSE);
-            }else if($_POST['save_concepto'] == 'col1-yoG41KM4GW0X8U3'){
+
+            }else if($_POST['save_idadconcepto'] == 'col1-yoG41KM4GW0X8U3'){
+                
                 $this->db->set('colegiatura12_2_agosto',"colegiatura12_2_agosto + $pago", FALSE);
-            }else if($_POST['save_concepto'] == 'ins-g2Bk6N3ykoUvNLcz'){
-                $this->db->set('inscripcion',$pago, FALSE);
-            }else if($_POST['save_concepto'] == 'mat-IW9v0HkFnl8iT3Zn'){
+
+            }else if($_POST['save_idadconcepto'] == 'ins-g2Bk6N3ykoUvNLcz'){
+
+                $this->db->set('inscripcion',"inscripcion + $pago", FALSE);
+
+            }else if($_POST['save_idadconcepto'] == 'mat-IW9v0HkFnl8iT3Zn'){
+
                 //seguro
-                $this->db->set('seguro',$pago, FALSE);
-            }else if($_POST['save_concepto'] == 'seg-sAcaE6YjPyGtFaMP'){
+                $this->db->set('seguro',"seguro + $pago", FALSE);
+
+            }else if($_POST['save_idadconcepto'] == 'seg-sAcaE6YjPyGtFaMP'){
+                
                 //material
-                $this->db->set('material',$pago, FALSE);
+                $this->db->set('material',"material + $pago", FALSE);
+
             }else if($_POST['save_concepto'] == 'septiembre'){
                 $this->db->set('colegiatura_9_septiembre',"colegiatura_9_septiembre + $pago", FALSE);
             }else if($_POST['save_concepto'] == 'octubre'){
@@ -103,10 +126,12 @@ class Querys extends CI_Model{
 
             $this->db->where('id_advance_alumno', $_POST['save_idAdvanceAlumno']);
             $this->db->update('colegiaturas_dinero');
+
         //---------->
 
         /*pagos*/
         //---------->
+
             $x      = random_string('alnum',18);
             $random = 'C-'.$x;
             $date   = date("Y-m-d H:m:s");
@@ -122,6 +147,7 @@ class Querys extends CI_Model{
             );
 
             $this->db->insert('pagos',$data_pagos);
+
         //---------->
 
             $status = [

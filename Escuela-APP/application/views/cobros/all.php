@@ -332,18 +332,21 @@
 </div>
 <!-- All -->
 
-<div class="row d-none">
+<div class="row d-nonexxx">
   <div class="col-4">
     <ul class="list-group">
       
       <li class="list-group-item">Colegiatura base:     <input type="text" id="config_costo"                value="1400"       disabled></li>  
       <li class="list-group-item">Colegiatura:          <input type="text" id="config_colegiatura"          value="0"          disabled></li>
       
+      <li class="list-group-item">1 Agosto:     <input type="text" id="config_1agosto"                value="700"       disabled></li>  
+      <li class="list-group-item">2 Agosto:     <input type="text" id="config_2agosto"                value="700"       disabled></li>  
+
       <li class="list-group-item">Colegiatura especial: <input type="text" id="config_colegiatura_especial" value="0"          disabled></li>
 
-      <li class="list-group-item">inscripcion: <input type="text" id="config_inscripcion" value="780"          disabled></li>
-      <li class="list-group-item">seguro:      <input type="text" id="config_seguro"      value="180"          disabled></li>
-      <li class="list-group-item">material:    <input type="text" id="config_material"    value="850"          disabled></li>
+      <li class="list-group-item">inscripcion:          <input type="text" id="config_inscripcion" value="780"          disabled></li>
+      <li class="list-group-item">seguro:               <input type="text" id="config_seguro"      value="180"          disabled></li>
+      <li class="list-group-item">material:             <input type="text" id="config_material"    value="850"          disabled></li>
        
       <li class="list-group-item">Interes:              <input type="text" id="config_interes"              value="15"          disabled></li>
       <li class="list-group-item">DPA:                  <input type="text" id="config_dpa"                  value="15"          disabled></li>
@@ -367,25 +370,8 @@
   </div>
 
   <div class="col-4">
-    <ul class="list-group">
-      <li class="list-group-item">SEGURO:         <input type="text" id="val_m_seguro"      value="00.00" disabled></li>
-      <li class="list-group-item">INSCRIPCION:    <input type="text" id="val_m_inscripcion" value="00.00" disabled></li>
-      <li class="list-group-item">MATERIAL:       <input type="text" id="val_m_material"    value="00.00" disabled></li>
-      <li class="list-group-item">1ª ½ AGOSTO:    <input type="text" id="val_m_1agosto"       value="00.00" disabled></li>
-      <li class="list-group-item">SEPTIEMBRE:     <input type="text" id="val_m_septiembre"         value="00.00" disabled></li>
-      <li class="list-group-item">OCTUBRE:        <input type="text" id="val_m_octubre"         value="00.00" disabled></li>
+    <ul class="list-group" id="dataColegiatura">
 
-      <li class="list-group-item">NOVIEMBRE:      <input type="text" id="val_m_noviembre"         value="00.00" disabled></li>
-      <li class="list-group-item">DICIEMBRE:      <input type="text" id="val_m_diciembre"         value="00.00" disabled></li>
-      <li class="list-group-item">2ª ½ DE AGOSTO: <input type="text" id="val_m_2agosto"       value="00.00" disabled></li>
-      <li class="list-group-item">ENERO:          <input type="text" id="val_m_enero"       value="00.00" disabled></li>
-      <li class="list-group-item">FEBRERO:        <input type="text" id="val_m_febrero"         value="00.00" disabled></li>
-
-      <li class="list-group-item">MARZO:          <input type="text" id="val_m_marzo"         value="00.00" disabled></li>
-      <li class="list-group-item">ABRIL:          <input type="text" id="val_m_abril"         value="00.00" disabled></li>
-      <li class="list-group-item">MAYO:           <input type="text" id="val_m_mayo"         value="00.00" disabled></li>
-      <li class="list-group-item">JUNIO:          <input type="text" id="val_m_junio"         value="00.00" disabled></li>
-      <li class="list-group-item">JULIO:          <input type="text" id="val_m_julio"         value="00.00" disabled></li>
     </ul>
   </div>
 

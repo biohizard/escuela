@@ -8,19 +8,23 @@ ____  ______ _____________
 ##########################################################################*/
 function allXhr(){
     console.log("%c Load Js XHR ","color:#FA2A00; font-size:24px")
-    loadingConfigCol()
+    //loadingConfigCol()
+
+    /*colegiatura select list*/
     loadingSelectAll()
+    /*buscar ID*/
     autoComplete()
+
 }
 /*########################################################################*/
 
 /*##########################################################################
 _______________ __________  ____________________.___________    _______    _________
 \_   _____/    |   \      \ \_   ___ \__    ___/|   \_____  \   \      \  /   _____/
- |    __) |    |   /   |   \/    \  \/ |    |   |   |/   |   \  /   |   \ \_____  \ 
+ |    __) |    |   /   |   \/    \  \/ |    |   |   |/   |   \  /   |   \ \_____  \
  |     \  |    |  /    |    \     \____|    |   |   /    |    \/    |    \/        \
  \___  /  |______/\____|__  /\______  /|____|   |___\_______  /\____|__  /_______  /
-     \/                   \/        \/                      \/         \/        \/ 
+     \/                   \/        \/                      \/         \/        \/
 ##########################################################################*/
     /*CRUD*/
     function loadingConfigCol(){
@@ -50,6 +54,51 @@ _______________ __________  ____________________.___________    _______    _____
             //--->  
     }
     /*efectivo 1 firstName*/
+    function loadingSelectAll(){
+        console.log("%cXhr: Run-> loadingSelectAll: carga la lista de servicios y productos","color:SkyBlue;")
+        //--->
+        let jqxhr = $.getJSON(urlDbSerproA + "?type=colegiatura", function(data) {
+            })
+            .done(function(data) {
+                //--->
+                $.each(data, function(i, val) {
+                    /*
+                    instcripcion
+                    colegiatura
+                    colegiatura ex alumno
+                    colegiatura con beca
+                    */
+                    if(
+                        val.concepto == "septiembre" ||
+                        val.concepto == "octubre"    ||
+                        val.concepto == "noviembre"  ||
+                        val.concepto == "diciembre"  ||
+                        val.concepto == "enero"      ||
+                        val.concepto == "febrero"    ||
+                        val.concepto == "marzo"      ||
+                        val.concepto == "abril"      ||
+                        val.concepto == "mayo"       ||
+                        val.concepto == "junio"      ||
+                        val.concepto == "julio"
+                    ){
+                        x = val.concepto;
+                    }else{
+                        x = val.concepto + " $" + val.precio;
+                    }
+                    $("#cobros_serpro").append("<option value=\""+ val.id_advance +"\">" + x +"</option>");
+                })
+                //--->
+            })
+            .fail(function(data, jqXHR, textStatus, errorThrown){xhrError(jqXHR, textStatus, errorThrown)})
+            .always(function(data){})
+            //--->  
+    }
+    /*
+    uscador autocomplete pr o jr 
+        inputClear()
+        loadingcolegiaturas()
+        tipo(ui.item.tipopago)    
+    */
     function autoComplete(){
         console.log("%cXhr: Run-> autoComplete: busca los alumnos por ID ","color:SkyBlue;")
         //--->
@@ -105,109 +154,50 @@ _______________ __________  ____________________.___________    _______    _____
           },
         });
         //--->
-    }
-    function loadingSelectAll(){
-        console.log("%cXhr: Run-> loadingSelectAll: carga la lista de servicios y productos","color:SkyBlue;")
-        //--->
-        let jqxhr = $.getJSON(urlDbSerproA + "?type=colegiatura", function(data) {
-            })
+    }   
+        /*lialDataColegiatura*/
+        function loadingcolegiaturas(){
+            $("#historiaAlumno").empty()
+            let x = $("#cobroIdadvance").val()
+            let jqxhr = $.getJSON(urlDbColegiaturasA + "?type=one&token=" + x, function(data) {})
             .done(function(data) {
-                //--->
                 $.each(data, function(i, val) {
+        
                     /*
-                    instcripcion
-                    colegiatura
-                    colegiatura ex alumno
-                    colegiatura con beca
+                    colegiatura true  o false 
+                        col_septiembre
+                    dinero colegiatura
+                        dinero_septiembre   
+                    costo de la colegiatura
+                        cos_septiembre
                     */
-                    if(
-                        val.concepto == "septiembre"              ||
-                        val.concepto == "octubre"                 ||
-                        val.concepto == "noviembre"               ||
-                        val.concepto == "diciembre"               ||
-                        val.concepto == "enero"                   ||
-                        val.concepto == "febrero"                 ||
-                        val.concepto == "marzo"                   ||
-                        val.concepto == "abril"                   ||
-                        val.concepto == "mayo"                    ||
-                        val.concepto == "junio"                   ||
-                        val.concepto == "julio"
-                    ){
-                        x = val.concepto;
-                    }else{
-                        x = val.concepto + " $" + val.precio;
-                    }
-                    $("#cobros_serpro").append("<option value=\""+ val.id_advance +"\">" + x +"</option>");
+
+                    lialDataColegiatura("inscripcion",val.col_inscripcion,val.dinero_inscripcion,val.cos_inscripcion)
+                    lialDataColegiatura("seguro",val.col_seguro,val.dinero_seguro,val.cos_seguro)
+                    lialDataColegiatura("material",val.col_material,val.dinero_material,val.cos_material)
+                    lialDataColegiatura("1agosto",val.col_1agosto,val.dinero_1agosto,val.cos_1agosto)
+                    lialDataColegiatura("2agosto",val.col_2agosto,val.dinero_2agosto,val.cos_2agosto)
+
+
+                        lialDataColegiatura("septiembre",val.col_septiembre,val.dinero_septiembre,val.cos_septiembre)
+                        lialDataColegiatura("octubre",val.col_octubre,val.dinero_octubre,val.cos_octubre)
+                        lialDataColegiatura("noviembre",val.col_noviembre,val.dinero_noviembre,val.cos_noviembre)
+                        lialDataColegiatura("diciembre",val.col_diciembre,val.dinero_diciembre,val.cos_diciembre)
+                        lialDataColegiatura("enero",val.col_enero,val.dinero_enero,val.cos_enero)
+                        lialDataColegiatura("febrero",val.col_febrero,val.dinero_febrero,val.cos_febrero)
+                        lialDataColegiatura("marzo",val.col_marzo,val.dinero_marzo,val.cos_marzo)
+                        lialDataColegiatura("abril",val.col_abril,val.dinero_abril,val.cos_abril)
+                        lialDataColegiatura("mayo",val.col_mayo,val.dinero_mayo,val.cos_mayo)
+                        lialDataColegiatura("junio",val.col_junio,val.dinero_junio,val.cos_junio)
+                        lialDataColegiatura("julio",val.col_julio,val.dinero_julio,val.cos_julio)
+
                 })
-                //--->
+                $("#cobros_serpro").attr("disabled",false)
             })
-            .fail(function(data, jqXHR, textStatus, errorThrown){xhrError(jqXHR, textStatus, errorThrown)})
+            .fail(function(data,jqXHR,textStatus,errorThrown){xhrError(jqXHR, textStatus, errorThrown)})
             .always(function(data){})
-            //--->  
-    }
-    function loadingcolegiaturas(){
-        $("#historiaAlumno").empty()
-        let x = $("#cobroIdadvance").val()
-        let jqxhr = $.getJSON(urlDbColegiaturasA + "?type=one&token=" + x, function(data) {})
-        .done(function(data) {
-            $.each(data, function(i, val) {
-    
-            if (typeof Intl == 'object' && typeof Intl.DateTimeFormat == 'function') {
-                var formatter = new Intl.DateTimeFormat("es-mx", {
-                    month: "short"
-                    }),
-                month1 = formatter.format(new Date())
-                console.log(month1);
-    
-                }
-                /*
-                pagadoSM(x,y,z,a,b)
-                x = db
-                y = val del html
-                z = txt del html
-                a = input
-                b = val input
-                */
-    
-                pagadoSM(val.inscripcion_m,"name_inscripcion","inscripcion","val_m_inscripcion",val.inscripcion)
-                pagadoSM(val.seguro_m     ,"name_seguro"     ,"seguro"     ,"val_m_seguro"     ,val.seguro)
-                pagadoSM(val.material_m   ,"name_material","material","val_m_material",val.material)
-    
-                pagadoSM(val.colegiatura12_1_agosto_m,"name_col_1","1ª ½ DE AGOSTO","val_m_1agosto",val.colegiatura12_1_agosto)
-                pagadoSM(val.colegiatura12_2_agosto_m,"name_col_6","2ª ½ DE AGOSTO","val_m_2agosto",val.colegiatura12_2_agosto)
-                             
-                pagadoSM(val.colegiatura_9_septiembre_m,"name_col_2","SEPTIEMBRE","val_m_septiembre",val.colegiatura_9_septiembre)
-                pagadoSM(val.colegiatura_10_octubre_m,"name_col_3","OCTUBRE","val_m_octubre",val.colegiatura_10_octubre)
-                pagadoSM(val.colegiatura_11_noviembre_m,"name_col_4","NOVIEMBRE","val_m_noviembre",val.colegiatura_11_noviembre)
-                pagadoSM(val.colegiatura_12_diciembre_m,"name_col_5","DICIEMBRE","val_m_diciembre",val.colegiatura_12_diciembre)
-    
-                pagadoSM(val.colegiatura_1_enero_m,"name_col_7","ENERO","val_m_enero",val.colegiatura_1_enero)
-                pagadoSM(val.colegiatura_2_febrero_m,"name_col_8","FEBRERO","val_m_febrero",val.colegiatura_2_febrero)
-                pagadoSM(val.colegiatura_3_marzo_m,"name_col_9","MARZO","val_m_marzo",val.colegiatura_3_marzo)
-                pagadoSM(val.colegiatura_4_abril_m,"name_col_10","ABRIL","val_m_abril",val.colegiatura_4_abril)
-                pagadoSM(val.colegiatura_5_mayo_m,"name_col_11","MAYO","val_m_mayo",val.colegiatura_5_mayo)
-                pagadoSM(val.colegiatura_6_junio_m,"name_col_12","JUNIO","val_m_junio",val.colegiatura_6_junio)
-                pagadoSM(val.colegiatura_7_julio_m,"name_col_13","JULIO","val_m_julio",val.colegiatura_7_julio)
-    
-    
-                /*
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                <div>
-                    <h6    class="my-0 text-capitalize">enero</h6>
-                    <small class="text-muted text-capitalize">2021-2022</small>
-                </div>
-                <div>
-                    <span  class="text-primary text-capitalize" id="print_fecha"> no pagada </span>
-                </div>
-                </li>
-                */
-    
-            })
-            $("#cobros_serpro").attr("disabled",false)
-        })
-        .fail(function(data,jqXHR,textStatus,errorThrown){xhrError(jqXHR, textStatus, errorThrown)})
-        .always(function(data){})
-    }
+        }
+
     function savePago(){
 
             //imprSelec('print_div')
@@ -275,13 +265,97 @@ _______________ __________  ____________________.___________    _______    _____
 /*########################################################################*/
 
 /*##########################################################################
-            ___.            __________               __  .__                     
-  ________ _\_ |__          \______   \ ____  __ ___/  |_|__| ____   ___________ 
+            ___.            __________               __  .__
+  ________ _\_ |__          \______   \ ____  __ ___/  |_|__| ____   ___________
  /  ___/  |  \ __ \   ______ |       _//  _ \|  |  \   __\  |/    \_/ __ \_  __ \
  \___ \|  |  / \_\ \ /_____/ |    |   (  <_> )  |  /|  | |  |   |  \  ___/|  | \/
-/____  >____/|___  /         |____|_  /\____/|____/ |__| |__|___|  /\___  >__|   
-     \/          \/                 \/                           \/     \/       
+/____  >____/|___  /         |____|_  /\____/|____/ |__| |__|___|  /\___  >__|
+     \/          \/                 \/                           \/     \/
 ##########################################################################*/
+    function lialDataColegiatura(mes,col,dinero,costo){
+        
+        if(costo == 0){
+
+            //---------------------------------------------------------------->
+            if(dinero <= $("#config_costo").val()){
+                resultPagado = false;
+                pago         = "No Pagado " + mes;
+                color        = "text-danger";
+            }else{
+                resultPagado = true;
+                pago         = "Si Pagado " + mes;
+                color        = "text-success"
+            }
+            if(mes == "inscripcion"){
+                var costo_x = "780"
+            }else if(mes == "meterial"){
+                var costo_x = "850"
+            }else if(mes == "seguro"){
+                var costo_x = "180"
+            }else if(mes == "material"){
+                var costo_x = "850"
+            }else if(mes == "1agosto"){
+                var costo_x = "700"
+            }else if(mes == "2agosto"){
+                var costo_x = "700"
+            }else{
+                var costo_x = $("#config_costo").val();
+            }
+            
+            //---------------------------------------------------------------->
+
+        }else{
+            
+            //---------------------------------------------------------------->
+            if(dinero <= $("#config_costo").val()){
+                resultPagado = false;
+                pago         = "No Pagado " + mes;
+                color        = "text-danger";
+            }else{
+                resultPagado = true;
+                pago         = "Si Pagado " + mes;
+                color        = "text-success"
+            }
+
+            if(mes == "inscripcion"){
+                var costo_x = "780"
+            }else if(mes == "meterial"){
+                var costo_x = "850"
+            }else if(mes == "seguro"){
+                var costo_x = "180"
+            }else if(mes == "1agosto"){
+                var costo_x = "700"
+            }else if(mes == "2agosto"){
+                var costo_x = "700"
+            }else{
+                var costo_x = $("#config_costo").val();
+            }
+            //---------------------------------------------------------------->
+
+        }
+
+        //alert( resultPagado + " " +dinero  + " " +costo_x)
+
+        var x = '<li class="list-group-item">' + 
+                ' ' + mes + ':     ' +
+                '   <ul>'+
+                '       <li><input type="text" id="historialval_m_' + mes + '"  value="'  + resultPagado + '" disabled></li>' + 
+                '       <li><input type="text" id="pagodo_m_'       + mes + '"   value="' + dinero       + '" disabled></li>' + 
+                '       <li><input type="text" id="costo_m_'        + mes + '"   value="' + costo_x      + '" disabled></li>' + 
+                '   </ul>'+
+                '</li>';
+            $("#dataColegiatura").append(x)
+
+        var y = '<li class="list-group-item d-flex justify-content-between lh-sm">' +
+                '<div>' +
+                '    <span  class="' + color + ' text-capitalize" id="print_fecha"> ' + pago + '</span>' +
+                '</div>' +
+                '</li>';
+             $("#historiaAlumno").append(y);
+
+
+    }
+
     function pagadoSM(x,y,z,a,b){
         /*
         pagadoSM(x,y,z,a,b)
@@ -294,12 +368,12 @@ _______________ __________  ____________________.___________    _______    _____
         //alert(x+ "/------/" +y+ "/------/" +z+ "/------/" +a+ "/------/" +b)
         
         if(b == 0){
-            pago = "No Pagado " + z;
-            color = "text-danger"
+            pago         = "No Pagado " + z;
+            color        = "text-danger"
             resultPagado = false;
         }else{
-            pago = "Si Pagado " + z;
-            color = "text-success"
+            pago         = "Si Pagado " + z;
+            color        = "text-success"
             resultPagado = true;
         }
         
@@ -308,7 +382,7 @@ _______________ __________  ____________________.___________    _______    _____
 
         x = '<li class="list-group-item d-flex justify-content-between lh-sm">' +
         '<div>' +
-        '<input type=\"hidden\" id=\"historial' + a +'\" value=\"' + resultPagado + '\" disabled>'+
+        '<input type=\"text\" id=\"historial' + a +'\" value=\"' + resultPagado + '\" disabled>'+
         '    <h6    class="my-0 text-capitalize">' + z + '</h6>' +
         '    <small class="text-mute text-capitalize">2021-2022</small>' +
         '</div>' +
