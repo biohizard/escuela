@@ -63,12 +63,7 @@ _______________ __________  ____________________.___________    _______    _____
                     b == "junio"      || 
                     b == "julio"
                 ){
-                    
-                    
-                    /*
-                    Costo Por Pagar
-                    Resta Por Pagar
-                    */
+
                     costoPorPagar(b)
 
                 }else if(b == "1ª ½ de agosto $700.00"){

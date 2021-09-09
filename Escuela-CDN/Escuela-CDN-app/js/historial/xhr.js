@@ -145,19 +145,27 @@ function allXhr(){
         let jqxhr = $.getJSON(urlDbColegiaturasA + "?type=one&token=" + x, function(data) {})
         .done(function(data) {
             $.each(data, function(i, val) {
-                colegiaturasTool(val.colegiatura12_1_agosto  ,val.colegiatura12_1_agosto_m  ,"1ª ½ de agosto","1")
-                colegiaturasTool(val.colegiatura_9_septiembre,val.colegiatura_9_septiembre_m,"septiembre"    ,"2")
-                colegiaturasTool(val.colegiatura_10_octubre  ,val.colegiatura_10_octubre_m  ,"octubre"       ,"3")
-                colegiaturasTool(val.colegiatura_11_noviembre,val.colegiatura_11_noviembre_m,"noviembre"     ,"4")
-                colegiaturasTool(val.colegiatura_12_diciembre,val.colegiatura_12_diciembre_m,"diciembre"     ,"5")
-                colegiaturasTool(val.colegiatura12_2_agosto  ,val.colegiatura12_2_agosto_m  ,"2ª ½ agosto"   ,"6")
-                colegiaturasTool(val.colegiatura_1_enero  ,val.colegiatura_1_enero_m        ,"enero"         ,"7")
-                colegiaturasTool(val.colegiatura_2_febrero,val.colegiatura_2_febrero_m      ,"febrero"       ,"8")
-                colegiaturasTool(val.colegiatura_3_marzo  ,val.colegiatura_3_marzo_m        ,"marzo"         ,"9")
-                colegiaturasTool(val.colegiatura_4_abril  ,val.colegiatura_4_abril_m        ,"abril"         ,"10")
-                colegiaturasTool(val.colegiatura_5_mayo   ,val.colegiatura_5_mayo_m         ,"mayo"          ,"11")
-                colegiaturasTool(val.colegiatura_6_junio  ,val.colegiatura_6_junio_m        ,"junio"         ,"12")
-                colegiaturasTool(val.colegiatura_7_julio  ,val.colegiatura_7_julio_m        ,"julio"         ,"13")
+                colegiaturasTool(val.col_inscripcion,val.dinero_inscripcion,"inscripcion","1")             
+                colegiaturasTool(val.col_seguro,val.dinero_seguro,"seguro","2")             
+                colegiaturasTool(val.col_material,val.dinero_material,"material","3")           
+
+                colegiaturasTool(val.col_1agosto,val.dinero_1agosto,"1 Agosto","4")
+                colegiaturasTool(val.col_2agosto,val.dinero_2agosto,"2 Agosto","5")
+
+                colegiaturasTool(val.col_septiembre,val.dinero_septiembre,"Septiembre","6")
+                colegiaturasTool(val.col_octubre,val.dinero_octubre,"Octubre","7")
+                colegiaturasTool(val.col_noviembre,val.dinero_noviembre,"Noviembre","8")
+                colegiaturasTool(val.col_diciembre,val.dinero_diciembre,"Diciembre","9")
+                
+                colegiaturasTool(val.col_enero,val.dinero_enero,"Enero","10")
+                colegiaturasTool(val.col_febrero,val.dinero_febrero,"febrero","11")
+                colegiaturasTool(val.col_marzo,val.dinero_marzo,"marzo","12")
+                colegiaturasTool(val.col_abril,val.dinero_abril,"abril","13")
+                colegiaturasTool(val.col_mayo,val.dinero_mayo,"mayo","14")
+                colegiaturasTool(val.col_junio,val.dinero_junio,"junio","15")
+                colegiaturasTool(val.col_julio,val.dinero_julio,"julio","16")
+
+
             })
         })
         .fail(function(data,jqXHR,textStatus,errorThrown){xhrError(jqXHR, textStatus, errorThrown)})
@@ -171,7 +179,7 @@ function allXhr(){
                 if(val.Code == 104){
                     $("#loadPagos").append('<tr><th scope=\"row\">Sin ventas</th></tr>');
                 }else{            
-                    $("#loadPagos").append('<tr>' +'<th scope=\"row\">' + val.id + '</th>' +'<td>' + val.time + '</td>' +'<td>' + val.concepto + '</td>' +'<td>$' + val.precio + '</td>' +'</tr>');
+                    $("#loadPagos").append('<tr>' +'<th scope=\"row\">' + val.id + '</th>' +'<td>' + val.time + '</td>' +'<td>' + val.concepto + '</td>' +'<td>$' + val.pago + '</td>' +'</tr>');
                 }                
             })
         })
@@ -188,7 +196,6 @@ function allXhr(){
             .fail(function(data,jqXHR,textStatus,errorThrown){xhrError(jqXHR,textStatus,errorThrown)})
             .always(function(data){})
     }
-
     function updateDataInscripcion() {
 
         console.log("let update form")
