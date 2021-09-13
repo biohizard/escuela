@@ -16,8 +16,24 @@
                     configsp.concepto,
                     configsp.precio
 				');
-			$this->db->from('pagos');
-            $this->db->like('pagos.time', date("Y-m"));
+                $this->db->from('pagos');
+        
+                $porciones = explode("-",$_GET['time']);
+                if(count($porciones) == 1){
+                    $time = date("Y");
+                    $x = 1;
+                }else if(count($porciones) == 2){
+                    $time = date("Y-m");
+                    $x = 2;
+                }else if(count($porciones) == 3){
+                    $time = $_GET['time'];
+                    $x = 3;
+                }else{
+                    $time = date("Y-m-d");
+                    $x = 4;
+                }
+        
+                $this->db->like('pagos.time',$time);
 					$this->db->join('alumnoprimaria'  ,'alumnoprimaria.id_advance = pagos.id_advance_alumno');
 					$this->db->join('configsp'        ,'configsp.id_advance       = pagos.id_advance_programas');
 					
@@ -36,7 +52,7 @@
 					$date   = date("Y-m-d H:m:s");
 					$data[] = array(
 						"Time"       => $date,
-						"Message"    => "Error Alumno",
+						"Message"    => "Error Alumno" . " " . $x . " " . $time,
 						"Code"       => 104,
 						"Contorller" => "DbTabsCierre",
 						"class"      => "DbTabsCierre",
@@ -65,8 +81,20 @@
                 configsp.concepto,
                 configsp.precio
             ');
-        $this->db->from('pagos');
-        $this->db->like('pagos.time', date("Y-m"));
+            $this->db->from('pagos');
+        
+            $porciones = explode("-",$_GET['time']);
+            if(count($porciones) == 1){
+                $time = date("Y");
+            }else if(count($porciones) == 2){
+                $time = date("Y-m");
+            }else if(count($porciones) == 3){
+                $time = date("Y-m-d");
+            }else{
+                $time = date("Y-m-d");
+            }
+
+            $this->db->like('pagos.time',$time);
                 $this->db->join('alumnokinder'  ,'alumnokinder.id_advance = pagos.id_advance_alumno');
                 $this->db->join('configsp'        ,'configsp.id_advance       = pagos.id_advance_programas');
                 

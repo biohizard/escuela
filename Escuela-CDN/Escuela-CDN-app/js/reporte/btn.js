@@ -8,6 +8,9 @@ __________   __
 ##########################################################################*/
 function allBtn(){
     console.log("%c Load Js BTN ","color:#FA2A00; font-size:24px")
+    hoy()
+    mes()
+    datetime()
 }
 /*########################################################################*/
 
@@ -19,7 +22,48 @@ function allBtn(){
  | | | |_| | | | | (__| |_| | (_) | | | |
  |_|  \__,_|_| |_|\___|\__|_|\___/|_| |_|
 ##########################################################################*/
+function hoy(){
+    $("#hoy").click(function(){
 
+        $("#loadProductos").empty()
+        $("#loadColegiaturas").empty()
+
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+    
+        today = yyyy + "-" + mm + "-" + dd;
+
+        loadingKinder(today)
+    })
+}
+function mes(){
+    $("#mes").click(function(){
+        
+        $("#loadProductos").empty()
+        $("#loadColegiaturas").empty()
+
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+    
+        today = yyyy + "-" + mm;
+
+        loadingKinder(today)
+    })
+}
+function datetime(){
+    $("#datetime").change(function(){
+        
+        $("#loadProductos").empty()
+        $("#loadColegiaturas").empty()
+
+        loadingKinder($(this).val())
+        
+    })
+}
 
 /*##########################################################################
            | |                     | | (_)
