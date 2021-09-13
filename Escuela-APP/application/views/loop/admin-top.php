@@ -15,7 +15,7 @@
                 <li><a class="dropdown-item" href="<?php echo INDEX_PAGE; ?>cobros/productos/?since=origin#top">productos</a></li>
               </ul>
             </li>
-            <li>                 <a href="<?php echo INDEX_PAGE; ?>dashboard/admin/?since=origin#top" class="nav-link px-2 link-dark">reporte</a></li>
+            <li>                 <a href="<?php echo INDEX_PAGE; ?>reporte/?since=origin#top" class="nav-link px-2 link-dark">reporte</a></li>
             <li class="nav-item"><a data-bs-toggle="modal" href="#exampleModalToggle" class="nav-link active" aria-current="page">inscripcion</a></li>
           </ul>
 

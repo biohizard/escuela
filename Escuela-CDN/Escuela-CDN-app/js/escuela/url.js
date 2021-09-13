@@ -125,3 +125,11 @@ urlDbColegiaturasPagosU = url_api + "dbcolegiaturasdinero/updatedata";
 
 urlDbColegiaturasR      = url_api + "dbcolegiaturas/allreadedata";
 
+//F.- Dbcofigcol
+//-------------------------------------------------------------->
+urlDbReporteC = url_api + "dbreporte/createdata";
+urlDbReporteR = url_api + "dbreporte/allreadedata";
+urlDbReporteU = url_api;
+urlDbReporteD = url_api;
+
+urlDbReporteA = url_api + "dbreporte/allreadedata";
