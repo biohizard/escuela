@@ -6,208 +6,108 @@
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Niveles</button>
-                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Grupos</button>
-                    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Programas</button>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-
+                <div class="tab-pane fade active show " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                         <h3 class="h3">Niveles</h3>
                         <div class="btn-toolbar mb-2 mb-md-0">
                             <div class="btn-group me-2">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Modificar</button>
+                                <button type="button" id="btnModificar" class="show_txt btn btn-sm btn-outline-secondary">Modificar</button>
+                                <button type="button" id="btnGuardar"   class="show_val btn btn-sm btn-outline-secondary">Guardar</button>
                             </div>
                         </div>
                     </div>
+                    <ul class="list-group mb-3">
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col text-uppercase">#</th>
-                                <th scope="col text-uppercase">Nivel</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row"><input type="checkbox" id="c" value="first_checkbox"></th>
-                                <td>kinder</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input type="checkbox" id="c" value="first_checkbox"></th>
-                                <td>primaria</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                </div>
-                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-
-                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h3 class="h3">Grupos</h3>
-                        <div class="btn-toolbar mb-2 mb-md-0">
-                            <div class="btn-group me-2">
-
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Modificar</button>
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Nuevo</button>
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div class="col-6">
+                                <h6    class="my-0">Colegiatura</h6>
+                                <small class="text-muted">Colegiatura descripcion</small>
                             </div>
-                        </div>
-                    </div>
-
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col text-uppercase">#</th>
-                                <th scope="col text-uppercase">Nivel</th>
-                                <th scope="col text-uppercase"></th>
-                                
-                                <th scope="col text-uppercase">Grupo</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row"><input type="checkbox" id="c" value="first_checkbox"></th>
-                                <td>kinder</td>
-                                <td>k1</td>
-                                <td>a</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input type="checkbox" id="c" value="first_checkbox"></th>
-                                <td>kinder</td>
-                                <td>k2</td>
-                                <td>a</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input type="checkbox" id="c" value="first_checkbox"></th>
-                                <td>kinder</td>
-                                <td>k3</td>
-                                <td>a</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input type="checkbox" id="c" value="first_checkbox"></th>
-                                <td>primaria</td>
-                                <td>p1</td>
-                                <td>a</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input type="checkbox" id="c" value="first_checkbox"></th>
-                                <td>primaria</td>
-                                <td>p1</td>
-                                <td>b</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input type="checkbox" id="c" value="first_checkbox"></th>
-                                <td>primaria</td>
-                                <td>p2</td>
-                                <td>a</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input type="checkbox" id="c" value="first_checkbox"></th>
-                                <td>primaria</td>
-                                <td>p2</td>
-                                <td>b</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input type="checkbox" id="c" value="first_checkbox"></th>
-                                <td>primaria</td>
-                                <td>p3</td>
-                                <td>a</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input type="checkbox" id="c" value="first_checkbox"></th>
-                                <td>primaria</td>
-                                <td>p3</td>
-                                <td>b</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input type="checkbox" id="c" value="first_checkbox"></th>
-                                <td>primaria</td>
-                                <td>p4</td>
-                                <td>a</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input type="checkbox" id="c" value="first_checkbox"></th>
-                                <td>primaria</td>
-                                <td>p4</td>
-                                <td>b</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input type="checkbox" id="c" value="first_checkbox"></th>
-                                <td>primaria</td>
-                                <td>p5</td>
-                                <td>a</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input type="checkbox" id="c" value="first_checkbox"></th>
-                                <td>primaria</td>
-                                <td>p5</td>
-                                <td>b</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input type="checkbox" id="c" value="first_checkbox"></th>
-                                <td>primaria</td>
-                                <td>p6</td>
-                                <td>a</td>
-                            </tr>                                                                                                                                                                                                                                                            
-                        </tbody>
-                    </table>
-
-                </div>
-                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-
-                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h3 class="h3">Programas</h3>
-                        <div class="btn-toolbar mb-2 mb-md-0">
-                            <div class="btn-group me-2">
-
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Modificar</button>
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Nuevo</button>
+                            <span  id="txt_colegiatura" class="show_txt text-muted">$00.00</span>
+                            <input id="val_colegiatura" class="show_val form-control" type="text" placeholder="" value="00.00" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div class="col-6">
+                                <h6    class="my-0">Colegiatura con descuento</h6>
+                                <small class="text-muted">Colegiatura con descuento descripcion</small>
                             </div>
-                        </div>
-                    </div>
+                            <span  id="txt_colegiaturades" class="show_txt text-muted">$00.00</span>
+                            <input id="val_colegiaturades" class="show_val form-control" type="text" placeholder="" value="00.00" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div class="col-6">
+                                <h6    class="my-0">1ra Colegiatura de Agosto</h6>
+                                <small class="text-muted">1ra Colegiatura de Agosto descripcion</small>
+                            </div>
+                            <span  id="txt_1Agosto" class="show_txt text-muted">$00.00</span>
+                            <input id="val_1Agosto" class="show_val form-control" type="text" placeholder="" value="00.00" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div class="col-6">
+                                <h6    class="my-0">2ra Colegiatura de Agosto</h6>
+                                <small class="text-muted">2ra Colegiatura de Agosto descripcion</small>
+                            </div>
+                            <span  id="txt_2Agosto" class="show_txt text-muted">$00.00</span>
+                            <input id="val_2Agosto" class="show_val form-control" type="text" placeholder="" value="00.00" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div class="col-6">
+                                <h6    class="my-0">Colegiatura especial</h6>
+                                <small class="text-muted">Colegiatura especial descripcion</small>
+                            </div>
+                            <span  id="txt_colegiaturaEsp" class="show_txt text-muted">$00.00</span>
+                            <input id="val_colegiaturaEsp" class="show_val form-control" type="text" placeholder="" value="00.00" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </li>                                                                                                
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col text-uppercase">#</th>
-                                <th scope="col text-uppercase">Nivel</th>
-                                <th scope="col text-uppercase">Precio</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row"><input type="checkbox" id="c" value="first_checkbox"></th>
-                                <td>colegiatura kinder</td>
-                                <td>$950.00</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input type="checkbox" id="c" value="first_checkbox"></th>
-                                <td>colegiatura primaria ex alumno</td>
-                                <td>$1250.00</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input type="checkbox" id="c" value="first_checkbox"></th>
-                                <td>colegiatura primaria comunidad general</td>
-                                <td>$1400.00</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input type="checkbox" id="c" value="first_checkbox"></th>
-                                <td>inscripcion kinder</td>
-                                <td>$450.00</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><input type="checkbox" id="c" value="first_checkbox"></th>
-                                <td>material kinder</td>
-                                <td>$670.00</td>
-                            </tr>                            
-                        </tbody>
-                    </table>
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div class="col-6">
+                                <h6    class="my-0">Inscripcion</h6>
+                                <small class="text-muted">Inscripcion descripcion</small>
+                            </div>
+                            <span  id="txt_inscripcion" class="show_txt text-muted">$00.00</span>
+                            <input id="val_inscripcion" class="show_val form-control" type="text" placeholder="" value="00.00" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div class="col-6">
+                                <h6    class="my-0">Seguro</h6>
+                                <small class="text-muted">Seguro descripcion</small>
+                            </div>
+                            <span  id="txt_seguro" class="show_txt text-muted">$00.00</span>
+                            <input id="val_seguro" class="show_val form-control" type="text" placeholder="" value="00.00" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div class="col-6">
+                                <h6    class="my-0">Material</h6>
+                                <small class="text-muted">Material descripcion</small>
+                            </div>
+                            <span  id="txt_material" class="show_txt text-muted">$00.00</span>
+                            <input id="val_material" class="show_val form-control" type="text" placeholder="" value="00.00" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div class="col-6">
+                                <h6    class="my-0">Interes</h6>
+                                <small class="text-muted">Interes descripcion</small>
+                            </div>
+                            <span  id="txt_interes" class="show_txt text-muted">00%</span>
+                            <input id="val_interes" class="show_val form-control" type="text" placeholder="" value="00" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div class="col-6">
+                                <h6    class="my-0">Descuento Pago Anticipado</h6>
+                                <small class="text-muted">Descuento Pago Anticipado descripcion</small>
+                            </div>
+                            <span  id="txt_dpa" class="show_txt text-muted">00%</span>
+                            <input id="val_dpa" class="show_val form-control" type="text" placeholder="" value="00" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </li>
+
+                    </ul>
 
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>

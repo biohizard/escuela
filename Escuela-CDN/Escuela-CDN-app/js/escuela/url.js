@@ -133,3 +133,12 @@ urlDbReporteU = url_api;
 urlDbReporteD = url_api;
 
 urlDbReporteA = url_api + "dbreporte/allreadedata";
+
+
+//F.- Dbcofigcol
+//dbconfig/readedata/?type=all
+//-------------------------------------------------------------->
+urlDbconfigC = url_api
+urlDbconfigR = url_api + "dbconfig/readedata/";
+urlDbconfigU = url_api + "dbconfig/updatedata/";
+urlDbconfigD = url_api;

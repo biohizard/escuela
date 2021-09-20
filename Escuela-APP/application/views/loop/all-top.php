@@ -31,8 +31,7 @@
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item text-capitalize" href="#">usuarios</a></li>
-                <li><a class="dropdown-item text-capitalize" href="#">contraseña</a></li>
+                <li><a class="dropdown-item text-capitalize" href="<?php echo INDEX_PAGE; ?>config/?since=origin#top">configuacion</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>

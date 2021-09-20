@@ -14,14 +14,14 @@ class Config extends CI_Controller
     //--->
     public function index()
     {
-        //--->
         $sha1                    = random_string('sha1', 16);
         $data['sha1']            = $sha1;
         $data['page_title']      = "";
         $data['sub_page_title']  = 'Dashboard';
         $data['sub_page_title2'] = 'admin';
-        $data['css']             = 'dashboard';
-        $data['js']              = 'dashboard';
+        $data['css']             = 'alumno';
+        $data['js']              = 'config/config,config/btn,config/xhr,config/tools';
+        $data['singout']         = INDEX_PAGE . "user/logout?error=102&since=" . $_GET['since'] . "&sha1=" . $sha1;
 
         $data['ID']              = $_SESSION['ID'];
         $data['IDadvance']       = $_SESSION['IDadvance'];
@@ -36,8 +36,8 @@ class Config extends CI_Controller
 
         $this->load->view('loop/header', $data);
         $this->load->view('loop/top', $data);
-        $this->load->view('loop/admin-top', $data);
-        $this->load->view('config/all', $data);
+        $this->load->view('loop/all-top', $data);
+            $this->load->view('config/all', $data);
         $this->load->view('loop/admin-foot', $data);
         $this->load->view('loop/footer', $data);
     }

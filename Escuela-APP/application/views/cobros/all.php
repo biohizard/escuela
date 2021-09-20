@@ -332,26 +332,26 @@
 </div>
 <!-- All -->
 
-<div class="row d-nonexxx">
+<div class="row d-none">
   <div class="col-4">
     <ul class="list-group">
       
-      <li class="list-group-item">Colegiatura base:     <input type="text" id="config_costo"                value="1400"       disabled></li>  
-      <li class="list-group-item">Colegiatura:          <input type="text" id="config_colegiatura"          value="0"          disabled></li>
+      <li class="list-group-item">Colegiatura base:     <input type="text" id="config_costo"                  value="0"       disabled></li>  
+      <li class="list-group-item">Colegiatura:          <input type="text" id="config_colegiatura"            value="0"          disabled></li>
       
-      <li class="list-group-item">1 Agosto:     <input type="text" id="config_1agosto"                value="700"       disabled></li>  
-      <li class="list-group-item">2 Agosto:     <input type="text" id="config_2agosto"                value="700"       disabled></li>  
+      <li class="list-group-item">1 Agosto:             <input type="text" id="config_1agosto"                value="0"       disabled></li>  
+      <li class="list-group-item">2 Agosto:             <input type="text" id="config_2agosto"                value="0"       disabled></li>  
 
-      <li class="list-group-item">Colegiatura especial: <input type="text" id="config_colegiatura_especial" value="0"          disabled></li>
+      <li class="list-group-item">Colegiatura especial: <input type="text" id="config_colegiatura_especial"   value="0"          disabled></li>
 
-      <li class="list-group-item">inscripcion:          <input type="text" id="config_inscripcion" value="780"          disabled></li>
-      <li class="list-group-item">seguro:               <input type="text" id="config_seguro"      value="180"          disabled></li>
-      <li class="list-group-item">material:             <input type="text" id="config_material"    value="850"          disabled></li>
+      <li class="list-group-item">inscripcion:          <input type="text" id="config_inscripcion"            value="0"          disabled></li>
+      <li class="list-group-item">seguro:               <input type="text" id="config_seguro"                 value="0"          disabled></li>
+      <li class="list-group-item">material:             <input type="text" id="config_material"               value="0"          disabled></li>
        
-      <li class="list-group-item">Interes:              <input type="text" id="config_interes"              value="15"          disabled></li>
-      <li class="list-group-item">DPA:                  <input type="text" id="config_dpa"                  value="15"          disabled></li>
+      <li class="list-group-item">Interes:              <input type="text" id="config_interes"                value="0"          disabled></li>
+      <li class="list-group-item">DPA:                  <input type="text" id="config_dpa"                    value="0"          disabled></li>
 
-      <li class="list-group-item">Fecha hoy:            <input type="text" id="config_fechahoy"             value="<?php echo Date("Y-m-d"); ?>" disabled></li>
+      <li class="list-group-item">Fecha hoy:            <input type="text" id="config_fechahoy"               value="<?php echo Date("Y-m-d"); ?>" disabled></li>
     </ul>
 
     <ul class="list-group">

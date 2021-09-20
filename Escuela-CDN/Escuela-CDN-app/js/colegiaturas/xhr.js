@@ -8,12 +8,8 @@ ____  ______ _____________
 ##########################################################################*/
 function allXhr(){
     console.log("%c Load Js XHR ","color:#FA2A00; font-size:24px")
-    //loadingConfigCol()
+    loadingconfig()
 
-    /*colegiatura select list*/
-    loadingSelectAll()
-    /*buscar ID*/
-    autoComplete()
 
 }
 /*########################################################################*/
@@ -170,6 +166,12 @@ _______________ __________  ____________________.___________    _______    _____
                         dinero_septiembre   
                     costo de la colegiatura
                         cos_septiembre
+
+                        "col_septiembre": "1",
+                        "cos_septiembre": "0",
+                        dinero_septiembre": "1400",
+                        
+                        lialDataColegiatura(mes,col,dinero,costo)
                     */
 
                     lialDataColegiatura("inscripcion",val.col_inscripcion,val.dinero_inscripcion,val.cos_inscripcion)
@@ -262,6 +264,33 @@ _______________ __________  ____________________.___________    _______    _____
             })
                     
     }
+    //urlDbconfigR
+    function loadingconfig(){
+        $.getJSON(urlDbconfigR + "?type=all")
+        .done(function(data) {
+            $.each(data, function(i, val) {
+
+               if(val.concepto == "colegiatura"   ){printConfig(val.value,"txt_colegiatura"   ,"config_costo","$")}
+               if(val.concepto == "colegiaturades"){printConfig(val.value,"txt_colegiaturades","config_colegiatura","$")}
+               if(val.concepto == "1Agosto"       ){printConfig(val.value,"txt_1Agosto"       ,"config_1agosto","$")}
+               if(val.concepto == "2Agosto"       ){printConfig(val.value,"txt_2Agosto"       ,"config_2agosto","$")}
+               if(val.concepto == "colegiaturaEsp"){printConfig(val.value,"txt_colegiaturaEsp","config_colegiatura_especial","$")}
+
+               if(val.concepto == "inscripcion"   ){printConfig(val.value,"txt_inscripcion"   ,"config_inscripcion","$")}
+               if(val.concepto == "seguro"        ){printConfig(val.value,"txt_seguro"        ,"config_seguro","$")}
+               if(val.concepto == "material"      ){printConfig(val.value,"txt_material"      ,"config_material","$")}
+               if(val.concepto == "interes"       ){printConfig(val.value,"txt_interes"       ,"config_interes","%")}
+               if(val.concepto == "dpa"           ){printConfig(val.value,"txt_dpa"           ,"config_dpa","%")}               
+            })
+            /*colegiatura select list*/
+            loadingSelectAll()
+            /*buscar ID*/
+            autoComplete()
+        })
+        .fail(function(data, jqXHR, textStatus, errorThrown){xhrError(jqXHR, textStatus, errorThrown)})
+        .always(function(data){})
+    }
+       
 /*########################################################################*/
 
 /*##########################################################################
@@ -273,19 +302,32 @@ _______________ __________  ____________________.___________    _______    _____
      \/          \/                 \/                           \/     \/
 ##########################################################################*/
     function lialDataColegiatura(mes,col,dinero,costo){
-        
+        /*
+
+                        "col_septiembre": "1",
+                        "cos_septiembre": "0",
+                        dinero_septiembre": "1400",
+                        
+                        lialDataColegiatura(mes,col,dinero,costo)
+                        lialDataColegiatura("septiembre",val.col_septiembre,val.dinero_septiembre,val.cos_septiembre)
+
+        */
+        //alert(mes+ " " +col+ " " +dinero+ " " +costo)
+
         if(costo == 0){
 
             //---------------------------------------------------------------->
-            if(dinero <= $("#config_costo").val()){
-                resultPagado = false;
-                pago         = "No Pagado " + mes;
-                color        = "text-danger";
-            }else{
+            if(dinero >= $("#config_costo").val()){
                 resultPagado = true;
                 pago         = "Si Pagado " + mes;
                 color        = "text-success"
+            }else{
+                resultPagado = false;
+                pago         = "No Pagado " + mes;
+                color        = "text-danger";                
+
             }
+
             if(mes == "inscripcion"){
                 var costo_x = "780"
             }else if(mes == "meterial"){
@@ -429,4 +471,13 @@ _______________ __________  ____________________.___________    _______    _____
         
         $("#colHistorial,#colTicket").removeClass("d-none")
     }
+    function printConfig(a,b,c,d){
+        $("#" + c).val(a)
+        
+        if(d == "$"){
+            $("#" + b).html(d + " " + a)
+        }else if(d == "%"){
+            $("#" + b).html(a + " " + d)
+        }
+    }    
 /*########################################################################*/
