@@ -12,6 +12,7 @@ function allBtn() {
 function generarInscripcion() {
     $("#generarinscripcion").on('click', function() {
         console.info("Run: Click Btn cierre modal generar inscripcion")
+        $("#generarinscripcion").attr('disabled','disabled');
         saveDataInscripcion()
     })
 }

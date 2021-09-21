@@ -45,8 +45,8 @@ class Dashboard extends CI_Controller
         //--->
 
         $this->load->view('loop/header', $data);
-        $this->load->view('loop/top', $data);
-        $this->load->view('loop/all-top', $data);
+        $this->load->view('loop/admin-top', $data);
+        //$this->load->view('loop/all-top', $data);
         
             $this->load->view('dashboard/all', $data);
         

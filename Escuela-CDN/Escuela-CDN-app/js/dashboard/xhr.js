@@ -23,6 +23,7 @@ _______________ __________  ____________________.___________    _______    _____
     /*CRUD*/
     function saveDataInscripcion(){
         console.log("let save form")
+        let alumno_id                = $("#ins_id").val()
         let alumno_nombremaestra     = $("#ins_nombremaestra").val()
         let alumno_exalumno          = $("#ins_exalumno").val()
         let alumno_gradocursar       = $("#ins_gradocursar").val()
@@ -64,6 +65,7 @@ _______________ __________  ____________________.___________    _______    _____
                 "Content-Type": "application/x-www-form-urlencoded"
             },
             "data":{
+                'save_id'               :alumno_id, 
                 'save_nombremaestra'    :alumno_nombremaestra,
                 'save_exalumno'         :alumno_exalumno,
                 'save_gradocursar'      :alumno_gradocursar,
@@ -105,6 +107,9 @@ _______________ __________  ____________________.___________    _______    _____
             .always(function(data) {
                 console.info("Run: all user always");
                 $("#exampleModalToggle").modal("hide");
+                $("#generarinscripcion").removeAttr('disabled');
+                $("input").val(" ");
+                $("input").empty();
             })
         
     }    

@@ -15,6 +15,11 @@
                             <input type="hidden" id="token" value="<?php echo $_GET['token'];?>">
                             <input type="hidden" id="id" value="<?php echo $_GET['id'];?>">
                             <div class="col-12">
+                                <label for="firstName" class="form-label text-secondary text-capitalize">ID</label>
+                                <p class="fs-6 text text-uppercase text-primary" id="data_id">ID alumno</p>
+                            </div>
+
+                            <div class="col-12">
                                 <label for="firstName" class="form-label text-secondary text-capitalize">Nombre del alumno </label>
                                 <p class="fs-6 text text-uppercase text-primary" id="data_nombre">nombre alumno</p>
                             </div>

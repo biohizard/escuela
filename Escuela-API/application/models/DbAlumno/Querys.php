@@ -292,6 +292,7 @@ class Querys extends CI_Model
         $r_id   = random_string('md5', 4);
 
         $data_alumno = array(
+            'id'                => $_POST['save_id'],
             'id_advance'        => $random,
             'time'              => $date,
             'nombre'            => $_POST['save_nombrealumno'],
@@ -379,11 +380,33 @@ class Querys extends CI_Model
             'colegiatura_6_junio'      => 0,
             'colegiatura_7_julio'      => 0
         );
-
+        $data_colegiaturas_costo = array(
+            'id_advance'               => random_string('sha1', 20),
+            'time'                     => $date,
+            'id_advance_alumno'        => $random,
+            'cliclo'                   => 0,
+            'inscripcion'              => 0,
+            'seguro'                   => 0,
+            'material'                 => 0,
+            'colegiatura12_1_agosto'   => 0,
+            'colegiatura_9_septiembre' => 0,
+            'colegiatura_10_octubre'   => 0,
+            'colegiatura_11_noviembre' => 0,
+            'colegiatura_12_diciembre' => 0,
+            'colegiatura12_2_agosto'   => 0,
+            'colegiatura_1_enero'      => 0,
+            'colegiatura_2_febrero'    => 0,
+            'colegiatura_3_marzo'      => 0,
+            'colegiatura_4_abril'      => 0,
+            'colegiatura_5_mayo'       => 0,
+            'colegiatura_6_junio'      => 0,
+            'colegiatura_7_julio'      => 0
+        );        
         $this->db->insert('alumnokinder',$data_alumno);
         $this->db->insert('inscripcion',$data_inscripcion);
         $this->db->insert('colegiaturas',$data_colegiaturas);
         $this->db->insert('colegiaturas_dinero',$data_colegiaturas_dinero);
+        $this->db->insert('colegiaturas_costo',$data_colegiaturas_dinero );
 
         $status = [
             "category"    => "Request",
@@ -443,6 +466,7 @@ class Querys extends CI_Model
         $r_id   = random_string('md5', 4);
 
         $data_alumno = array(
+            'id'                => $_POST['save_id'],
             'id_advance'        => $random,
             'time'              => $date,
             'nombre'            => $_POST['save_nombrealumno'],
@@ -530,11 +554,41 @@ class Querys extends CI_Model
             'colegiatura_6_junio'      => 0,
             'colegiatura_7_julio'      => 0
         );
-
+        /*
+        id
+        id_advance
+        time
+        id_advance_alumno
+        cliclo
+        */
+        $data_colegiaturas_costo = array(
+            'id_advance'               => random_string('sha1', 20),
+            'time'                     => $date,
+            'id_advance_alumno'        => $random,
+            'cliclo'                   => 0,
+            'inscripcion'              => 0,
+            'seguro'                   => 0,
+            'material'                 => 0,
+            'colegiatura12_1_agosto'   => 0,
+            'colegiatura_9_septiembre' => 0,
+            'colegiatura_10_octubre'   => 0,
+            'colegiatura_11_noviembre' => 0,
+            'colegiatura_12_diciembre' => 0,
+            'colegiatura12_2_agosto'   => 0,
+            'colegiatura_1_enero'      => 0,
+            'colegiatura_2_febrero'    => 0,
+            'colegiatura_3_marzo'      => 0,
+            'colegiatura_4_abril'      => 0,
+            'colegiatura_5_mayo'       => 0,
+            'colegiatura_6_junio'      => 0,
+            'colegiatura_7_julio'      => 0
+        );        
         $this->db->insert('alumnoprimaria',$data_alumno);
         $this->db->insert('inscripcion',$data_inscripcion);
         $this->db->insert('colegiaturas',$data_colegiaturas);
         $this->db->insert('colegiaturas_dinero',$data_colegiaturas_dinero);
+        $this->db->insert('colegiaturas_costo',$data_colegiaturas_dinero );
+
 
         $status = [
             "category"    => "Request",
@@ -560,6 +614,7 @@ class Querys extends CI_Model
         $r_id   = random_string('md5', 4);
 
         $data_alumno = array(
+            'id'                => $_POST['save_id'],
             'time'              => $date,
             'nombre'            => $_POST['save_nombrealumno'],
             'paterno'           => $_POST['save_apaternoalumno'],
@@ -630,6 +685,7 @@ class Querys extends CI_Model
         $r_id   = random_string('md5', 4);
 
         $data_alumno = array(
+            'id'                => $_POST['save_id'],
             'time'              => $date,
             'nombre'            => $_POST['save_nombrealumno'],
             'paterno'           => $_POST['save_apaternoalumno'],

@@ -24,6 +24,7 @@ function btnUpdate(){
     console.log("%c btn Update ","color:#FA2A00; font-size:12px")
     $("#generaractualizacion").on('click',function(){
         console.log("Update Alumno")
+        $("#generaractualizacion").attr('disabled','disabled');
         updateDataInscripcion()
     })
 }

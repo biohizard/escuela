@@ -23,6 +23,12 @@
                                     <h2 class="h2 text-uppercase text-center">Ficha de Inscripcion</h2> 
                                     <div class="row">
                                         <div class="col-6">
+                                            <div class="col-6">
+                                                <label for="firstName" class="form-label text-uppercase">ID</label>
+                                                <input type="text" class="form-control" id="ins_id" placeholder="" value="" required="">
+                                                <div   class="invalid-feedback">ID.</div>
+                                            </div>    
+                                            <div class="col-6"></div>                                            
                                             <!-- Miss -->
                                             <div class="col-sm-12">
                                                 <label for="firstName" class="form-label text-uppercase">Nombre de la maestra que Inscribe</label>

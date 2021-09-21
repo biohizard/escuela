@@ -3,66 +3,66 @@
         //--->
         function allDataRead(){
             /*
-            SELECT
-     `       colegiaturas`.id_advance_alumno,
-     `       colegiaturas`.id_advance,            
-     `       colegiaturas`.colegiatura_7_julio,
-     `       colegiaturas`.colegiatura_6_junio,
-     `       colegiaturas`.colegiatura_5_mayo,
-     `       colegiaturas`.colegiatura_4_abril,
-     `       colegiaturas`.colegiatura_3_marzo,
-     `       colegiaturas`.colegiatura_2_febrero,
-     `       colegiaturas`.colegiatura_1_enero,
-     `       colegiaturas`.colegiatura12_2_agosto,
-     `       colegiaturas`.colegiatura_12_diciembre,
-     `       colegiaturas`.colegiatura_11_noviembre,
-     `       colegiaturas`.colegiatura_10_octubre,
-     `       colegiaturas`.colegiatura_9_septiembre,
-     `       colegiaturas`.colegiatura12_1_agosto,
-     `       colegiaturas`.material,
-     `       colegiaturas`.seguro,
-     `       colegiaturas`.inscripcion,
+                    SELECT
+                `       colegiaturas`.id_advance_alumno,
+                `       colegiaturas`.id_advance,            
+                `       colegiaturas`.colegiatura_7_julio,
+                `       colegiaturas`.colegiatura_6_junio,
+                `       colegiaturas`.colegiatura_5_mayo,
+                `       colegiaturas`.colegiatura_4_abril,
+                `       colegiaturas`.colegiatura_3_marzo,
+                `       colegiaturas`.colegiatura_2_febrero,
+                `       colegiaturas`.colegiatura_1_enero,
+                `       colegiaturas`.colegiatura12_2_agosto,
+                `       colegiaturas`.colegiatura_12_diciembre,
+                `       colegiaturas`.colegiatura_11_noviembre,
+                `       colegiaturas`.colegiatura_10_octubre,
+                `       colegiaturas`.colegiatura_9_septiembre,
+                `       colegiaturas`.colegiatura12_1_agosto,
+                `       colegiaturas`.material,
+                `       colegiaturas`.seguro,
+                `       colegiaturas`.inscripcion,
 
 
-           ` colegiaturas_costo`.inscripcion,
-           ` colegiaturas_costo`.seguro,
-           ` colegiaturas_costo`.material,
-           ` colegiaturas_costo`.colegiatura12_1_agosto,
-           ` colegiaturas_costo`.colegiatura_9_septiembre,
-           ` colegiaturas_costo`.colegiatura_10_octubre,
-           ` colegiaturas_costo`.colegiatura_11_noviembre,
-           ` colegiaturas_costo`.colegiatura_12_diciembre,
-           ` colegiaturas_costo`.colegiatura12_2_agosto,
-           ` colegiaturas_costo`.colegiatura_1_enero,
-           ` colegiaturas_costo`.colegiatura_2_febrero,
-           ` colegiaturas_costo`.colegiatura_3_marzo,
-           ` colegiaturas_costo`.colegiatura_4_abril,
-           ` colegiaturas_costo`.colegiatura_5_mayo,
-           ` colegiaturas_costo`.colegiatura_6_junio,
-           ` colegiaturas_costo`.colegiatura_7_julio,
+                    ` colegiaturas_costo`.inscripcion,
+                    ` colegiaturas_costo`.seguro,
+                    ` colegiaturas_costo`.material,
+                    ` colegiaturas_costo`.colegiatura12_1_agosto,
+                    ` colegiaturas_costo`.colegiatura_9_septiembre,
+                    ` colegiaturas_costo`.colegiatura_10_octubre,
+                    ` colegiaturas_costo`.colegiatura_11_noviembre,
+                    ` colegiaturas_costo`.colegiatura_12_diciembre,
+                    ` colegiaturas_costo`.colegiatura12_2_agosto,
+                    ` colegiaturas_costo`.colegiatura_1_enero,
+                    ` colegiaturas_costo`.colegiatura_2_febrero,
+                    ` colegiaturas_costo`.colegiatura_3_marzo,
+                    ` colegiaturas_costo`.colegiatura_4_abril,
+                    ` colegiaturas_costo`.colegiatura_5_mayo,
+                    ` colegiaturas_costo`.colegiatura_6_junio,
+                    ` colegiaturas_costo`.colegiatura_7_julio,
 
-            `colegiaturas_dinero`.inscripcion,
-            `colegiaturas_dinero`.seguro,
-            `colegiaturas_dinero`.material,
-            `colegiaturas_dinero`.colegiatura12_1_agosto,
-            `colegiaturas_dinero`.colegiatura_9_septiembre,
-            `colegiaturas_dinero`.colegiatura_10_octubre,
-            `colegiaturas_dinero`.colegiatura_11_noviembre,
-            `colegiaturas_dinero`.colegiatura_12_diciembre,
-            `colegiaturas_dinero`.colegiatura12_2_agosto,
-            `colegiaturas_dinero`.colegiatura_1_enero,
-            `colegiaturas_dinero`.colegiatura_2_febrero,
-            `colegiaturas_dinero`.colegiatura_3_marzo,
-            `colegiaturas_dinero`.colegiatura_4_abril,
-            `colegiaturas_dinero`.colegiatura_5_mayo,
-            `colegiaturas_dinero`.colegiatura_6_junio,
-            `colegiaturas_dinero`.colegiatura_7_julio
-            FROM
-            colegiaturas
-            INNER JOIN colegiaturas_costo ON colegiaturas.id_advance_alumno = colegiaturas_costo.id_advance_alumno
-            INNER JOIN colegiaturas_dinero ON colegiaturas.id_advance_alumno = colegiaturas_dinero.id_advance_alumno
-            WHERE
-            colegiaturas.id_advance_alumno = 'ebb22ab34bc23dba132a'
+                        `colegiaturas_dinero`.inscripcion,
+                        `colegiaturas_dinero`.seguro,
+                        `colegiaturas_dinero`.material,
+                        `colegiaturas_dinero`.colegiatura12_1_agosto,
+                        `colegiaturas_dinero`.colegiatura_9_septiembre,
+                        `colegiaturas_dinero`.colegiatura_10_octubre,
+                        `colegiaturas_dinero`.colegiatura_11_noviembre,
+                        `colegiaturas_dinero`.colegiatura_12_diciembre,
+                        `colegiaturas_dinero`.colegiatura12_2_agosto,
+                        `colegiaturas_dinero`.colegiatura_1_enero,
+                        `colegiaturas_dinero`.colegiatura_2_febrero,
+                        `colegiaturas_dinero`.colegiatura_3_marzo,
+                        `colegiaturas_dinero`.colegiatura_4_abril,
+                        `colegiaturas_dinero`.colegiatura_5_mayo,
+                        `colegiaturas_dinero`.colegiatura_6_junio,
+                        `colegiaturas_dinero`.colegiatura_7_julio
+                        FROM
+                        colegiaturas
+                        INNER JOIN colegiaturas_costo ON colegiaturas.id_advance_alumno = colegiaturas_costo.id_advance_alumno
+                        INNER JOIN colegiaturas_dinero ON colegiaturas.id_advance_alumno = colegiaturas_dinero.id_advance_alumno
+                        WHERE
+                        colegiaturas.id_advance_alumno = 'ebb22ab34bc23dba132a'
 
             */
             $this->db->select('

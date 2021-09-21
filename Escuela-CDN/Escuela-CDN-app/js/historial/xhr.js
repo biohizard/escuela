@@ -65,6 +65,7 @@ function allXhr(){
         let jqxhr = $.getJSON(urlDbAlumnoR + "?type=onlyone&token=" + x + "&id=" + y,function(data){})
             .done(function(data) {
                 $.each(data,function(i,val){
+                        $("#ins_id").val(val.id)
                         $("#ins_nombremaestra").val(val.maestra)
                         $('#ins_gradocursar').val(val.grado)    
                         $('#ins_exalumno').val(val.exalumno)
@@ -88,7 +89,8 @@ function allXhr(){
                         $("#tutor_tutor").val(val.tutor)
                         $("#tutor_parentesco").val(val.parentes)
                         $("#tutor_tutocurp").val(val.tutocurp)
-
+                        
+                        $("#data_id").html(val.id)
                         $("#data_nombre").html(val.nombre + " " + val.paterno + " " + val.materno)
                         $("#data_fecha").html(val.fecha)
                         $("#data_edad").html(val.edad)
@@ -201,7 +203,7 @@ function allXhr(){
         console.log("let update form")
         let x = $("#token").val()
         let y = $("#id").val()
-
+        let alumno_id                = $("#ins_id").val()
         let alumno_token             = $("#token").val()
         let alumno_nombremaestra     = $("#ins_nombremaestra").val()
         let alumno_exalumno          = $("#ins_exalumno").val()
@@ -244,6 +246,7 @@ function allXhr(){
                 "Content-Type": "application/x-www-form-urlencoded"
             },
             "data":{
+                'save_id'               :alumno_id,
                 'save_token'            :alumno_token,
                 'save_nombremaestra'    :alumno_nombremaestra,
                 'save_exalumno'         :alumno_exalumno,
@@ -287,6 +290,10 @@ function allXhr(){
                 console.info("Run: all user always");
                 alumnoAll()
                 $("#modalUpdate").modal("hide");
+                $("#generaractualizacion").removeAttr('disabled');
+                $("input").val(" ");
+                $("input").empty();
+                
             })
         
     }
