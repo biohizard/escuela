@@ -220,5 +220,42 @@ class Querys extends CI_Model
               return  $data;
       
     }
-    //--->    
+    //--->
+
+    //--->
+    function proDataSave()
+    {
+
+        $random = random_string('alnum', 20);
+        $date   = date("Y-m-d");
+        $r_id   = random_string('md5', 4);
+
+        /*
+        producto_concepto: A
+producto_precio: E
+producto_tipo: I
+        */
+            $dataconfigsp = array(
+                'id_advance'        => random_string('sha1', 20),
+                'concepto'          => $_POST['producto_concepto'],
+                'precio'            => $_POST['producto_precio'],
+                'type'              => $_POST['producto_tipo']
+            );
+            
+            $this->db->insert('configsp', $dataconfigsp);  
+            //------------------------------------------>
+
+            $status[] = array(
+                "Ok"      => 101,
+                "Cierres" => "Ok",
+                "Saldo"   => "Ok",
+                "Entregas"=> "Ok",
+                "Cierres" => "Ok",
+                "Pagos"   => "Ok"
+            );
+            
+            return    $status;
+    }
+    //--->
+
 }    

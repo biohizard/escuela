@@ -13,6 +13,8 @@ function allBtn(){
     generarCobro()
     clearCobro()
     btnRegistrar()
+
+    printUltima()
 }
 /*########################################################################*/
 
@@ -32,8 +34,10 @@ _______________ __________  ____________________.___________    _______    _____
         })
     }
     function printUltima(){
-        $("#print1").on('click',function(){
-            imprSelec('exampleModalToggle')
+        console.log("%cRun -> print ","color:SkyBlue;")
+        $("#btnPrint").on('click',function(){
+            printTicket('printTicketX')
+            $("#ModalPrint").modal("hide")
         })
         
     }
@@ -52,6 +56,7 @@ _______________ __________  ____________________.___________    _______    _____
             savePago()
         })
     }
+
 /*########################################################################*/
 
 /*##########################################################################
@@ -62,7 +67,7 @@ _______________ __________  ____________________.___________    _______    _____
 /____  >____/|___  /         |____|_  /\____/|____/ |__| |__|___|  /\___  >__|   
      \/          \/                 \/                           \/     \/       
 ##########################################################################*/
-function imprSelec(nombre) {
+function printTicket(nombre) {
     var ficha = document.getElementById(nombre);
     var ventimp = window.open(' ', 'popimpr');
     ventimp.document.write(ficha.innerHTML);

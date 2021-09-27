@@ -45,7 +45,10 @@ class Cobros extends CI_Controller
         $this->load->view('loop/header', $data);
         $this->load->view('loop/top', $data);
         $this->load->view('loop/all-top', $data);
+
             $this->load->view('cobros/all', $data);
+            $this->load->view('cobros/modalprint', $data);
+
         $this->load->view('loop/admin-foot', $data);
         $this->load->view('loop/footer', $data);
     }

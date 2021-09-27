@@ -136,10 +136,13 @@ _______________ __________  ____________________.___________    _______    _____
           },
           select: function (event, ui) {
             $("#cobroId").val(ui.item.id)        
-            $("#cobrotextId").html(ui.item.id)        
+            
+            $("#cobrotextId,#cobrotextId_x").html(ui.item.id)        
+            $("#print_alumno,#print_alumno").html(ui.item.value)
+            
             $("#cobroIdadvance").val(ui.item.idAdvance) 
             $("#cobroNombre").val(ui.item.value)
-            $("#print_alumno").html(ui.item.value)
+            
             $("#exalumno").val(ui.item.ex)
             
             $("#precio_change_x").attr('disabled',true)
@@ -254,6 +257,7 @@ _______________ __________  ____________________.___________    _______    _____
             .done(function(data) {
                 //$.each(data, function(i, val) {})
                 formClear()
+                $("#ModalPrint").modal("show")
             })
             .fail(function(data, jqXHR, textStatus, errorThrown) {
                 console.info("Run: all user loading error");

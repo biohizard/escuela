@@ -8,6 +8,7 @@ ____  ______ _____________
 ##########################################################################*/
 function allXhr(){
     loadingconfig()
+    loadingProductos()
 }
 /*########################################################################*/
 
@@ -107,6 +108,76 @@ _______________ __________  ____________________.___________    _______    _____
         })
 
 }     
+
+function loadingProductos(){
+    $("#productosInfo").empty()
+    /*
+{
+    "id": "88",
+    "id_advance": "brdDtaeySH3Mh31TuUR6",
+    "time": "2021-08-03 02:09:44",
+    "concepto": "mica media carta ",
+    "precio": "14.00",
+    "descripcion": "mica media carta ",
+    "type": "producto",
+    "grado": null,
+    "fecha_limite": "2022-07-31"
+  },    
+    */
+    $.getJSON(urlDbSerproA  + "?type=all")
+    .done(function(data) {
+        $.each(data, function(i, val) {
+
+            let productosLoad = '<tr>' +
+                    '    <th scope=\"row\"><input type=\"checkbox\" class=\"productoId\" value=\"' + val.id_advance + '\"></th>' +
+                    '    <td>' + val.concepto +'</td>' +
+                    '    <td>'+ val.precio +'</td>' +
+                    '    <td>'+ val.type +'</td>' +
+                    '</tr>';
+
+            $("#productosInfo").append(productosLoad);
+        })
+    })
+    .fail(function(data,jqXHR,textStatus,errorThrown){xhrError(jqXHR, textStatus, errorThrown)})
+    .always(function(data){})
+}
+function saveDataProductos(){
+    console.log("let save form")
+    let producto_concepto  = $("#producto_concepto").val()
+    let producto_precio    = $("#producto_precio").val()
+    let producto_tipo      = $("#producto_tipo").val()
+
+    let settings = {
+        "url": urlDbSerproC + '?type=save',
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+            /*"Authorization": "Basic cm9vdDphZG1pbg==",*/
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "data":{
+            'producto_concepto' : producto_concepto,
+            'producto_precio' : producto_precio,
+            'producto_tipo' : producto_tipo
+            }
+    }
+
+    let jqxhr1 = $.ajax(settings)
+        .done(function(data) {
+            //$.each(data, function(i, val) {})
+        })
+        .fail(function(data, jqXHR, textStatus, errorThrown) {
+            console.info("Run: all user loading error");
+            xhrError(jqXHR, textStatus, errorThrown);
+        })
+        .always(function(data) {
+            console.info("Run: all user always");
+            loadingProductos()
+            $("#ModalProductoNuevo").modal('hide')
+        })
+    
+}    
+
 /*########################################################################*/
     function printConfig(a,b,c,d){
         $("#" + c).val(a)

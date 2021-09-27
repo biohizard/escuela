@@ -9,6 +9,9 @@ __________   __
 function allBtn(){
      btnModificar()
      btnGuardar()
+
+     btnProductoNuevo()
+     btnProductoNuevoSave()
 }
 /*########################################################################*/
 
@@ -35,7 +38,17 @@ function btnGuardar(){
           saveConfig()
      })
 }
-
+function btnProductoNuevo(){
+     $("#btnNuevoProductos").on('click',function(){
+          $("#ModalProductoNuevo").modal('show')
+     })
+     
+}
+function btnProductoNuevoSave(){
+     $("#btnProductoNuevo").on('click',function(){
+          saveDataProductos()
+     })
+}
 /*########################################################################*/
 
 /*##########################################################################

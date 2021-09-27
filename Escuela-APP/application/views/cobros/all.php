@@ -229,7 +229,7 @@
             <small class="text-muted text-capitalize">concepto del cobro</small>
           </div>
           <div>
-            <span class="text-primary text-capitalize" id="textSerpro">servicio o producto</span>
+            <span class="text-primary text-capitalize" id="textSerpro_x">servicio o producto</span>
             <br>
             <input type="hidden"     id="cobroSerpro"          value="Servicio o Producto"                       disabled>
             <input type="hidden"     id="cobroIdAdvanceSerpro" value="Id advance Servicio o Producto"                       disabled>
@@ -328,9 +328,12 @@
     <!-- Ticket -->
   <!-- End: 3 COL -->
 
+
   </div>
 </div>
-<!-- All -->
+
+
+
 
 <div class="row d-none">
   <div class="col-4">

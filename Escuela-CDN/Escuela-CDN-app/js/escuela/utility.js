@@ -1,3 +1,21 @@
+function checkOnlyOne(){
+    $(document).on('click', 'input[type="checkbox"]', function() {
+        x = $('input[type="checkbox"]').not(this).prop('checked', false);
+  
+        let y = $(this).val();
+  
+        
+        //--------------------->
+        if ($('input[type="checkbox"]').is(':checked')){
+  
+          $(this).attr("disabled",false)  
+  
+        } else {
+          $(this).attr("disabled",true)
+        }
+        //--------------------->
+    })
+  }
 /*!
   Copyright (c) 20
   Licensed under 

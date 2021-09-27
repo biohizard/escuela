@@ -121,8 +121,8 @@ _______________ __________  ____________________.___________    _______    _____
                         total_now
                     }
         
-                    $("#print_pago").html("$" + $(this).val())
-                    $("#print_total").html("$ " + total_now)
+                    $("#print_pago,#print_pago_print").html("$" + $(this).val())
+                    $("#print_total,#print_total_print").html("$ " + total_now)
                     $("#val_precio_total").val(total_now)
                     //------------------------>
                 }else if(rangoFecha_A == "normal"){
@@ -135,8 +135,8 @@ _______________ __________  ____________________.___________    _______    _____
                         total_now
                     }
         
-                    $("#print_pago").html("$" + $(this).val())
-                    $("#print_total").html("$ " + total_now)
+                    $("#print_pago,#print_pago_print").html("$" + $(this).val())
+                    $("#print_total,#print_total_print").html("$ " + total_now)
                     $("#val_precio_total").val(total_now)
                     //------------------------>
                 }else if(rangoFecha_A == "interes"){
@@ -148,8 +148,8 @@ _______________ __________  ____________________.___________    _______    _____
                         total_now = 0
                         x  = 0
                     }
-                    $("#print_pago").html("$" + parseInt($("#precio_PorPagar").val()))
-                    $("#print_total").html("$ " +total_now)
+                    $("#print_pago,#print_pago_print").html("$" + parseInt($("#precio_PorPagar").val()))
+                    $("#print_total,#print_total_print").html("$ " +total_now)
                     $("#val_precio_total").val(total_now)
                     console.log("Run rango fecha INTERES")
                     //------------------------>
@@ -181,18 +181,18 @@ _______________ __________  ____________________.___________    _______    _____
             //------------------------>
             console.log("Run rango fecha DPA")
 
-            $("#text_precio_change_x").html("$1400")
+            $("#text_precio_change_x,#text_precio_change_x_print").html("$1400")
             $("#precio_change_x").val(1400)
 
-            $("#print_pago").html("$1400")
+            $("#print_pago,#print_pago_print").html("$1400")
 
             /*
-            $("#text_precio_change_x").html("$1190")
+            $("#text_precio_change_x,#text_precio_change_x_print").html("$1190")
             $("#precio_change_x").val(1190)
 
-            $("#print_pago").html("$1190")
+            $("#print_pago,#print_pago_print").html("$1190")
             */
-            $("#print_total").html("$00.00")
+            $("#print_total,#print_total_print").html("$00.00")
             $("#val_precio_total").val(0)
 
             //total_now = parseInt($("#precio_change_x").val()) - parseInt($("#precio_PorPagar").val());
@@ -204,9 +204,9 @@ _______________ __________  ____________________.___________    _______    _____
                 total_now
             }
             //Pago - Por Pagar
-            $("#print_pago").html("$" + $(this).val())
+            $("#print_pago,#print_pago_print").html("$" + $(this).val())
             //TotaL - Por Pagar text
-            $("#print_total").html("$ " + total_now)
+            $("#print_total,#print_total_print").html("$ " + total_now)
             //TotaL - Por Pagar input
             $("#val_precio_total").val(total_now)
             */
@@ -221,8 +221,8 @@ _______________ __________  ____________________.___________    _______    _____
                 total_now
             }
 
-            $("#print_pago").html("$" + $(this).val())
-            $("#print_total").html("$ " + total_now)
+            $("#print_pago,#print_pago_print").html("$" + $(this).val())
+            $("#print_total,#print_total_print").html("$ " + total_now)
             $("#val_precio_total").val(total_now)
             //------------------------>
         }else if(rangoFecha_B == "interes"){
@@ -234,8 +234,8 @@ _______________ __________  ____________________.___________    _______    _____
                 total_now = 0
                 x  = 0
             }
-            $("#print_pago").html("$" + parseInt($("#precio_PorPagar").val()))
-            $("#print_total").html("$ " +total_now)
+            $("#print_pago,#print_pago_print").html("$" + parseInt($("#precio_PorPagar").val()))
+            $("#print_total,#print_total_print").html("$ " +total_now)
             $("#val_precio_total").val(total_now)
             console.log("Run rango fecha INTERES")
             //------------------------>
@@ -249,7 +249,7 @@ _______________ __________  ____________________.___________    _______    _____
     }    
     function datosTicket(){
         /*Costo - Por Pagar*/
-        $("#textprecio_costo").html("$" + $("#config_costo").val())
+        $("#textprecio_costo,#textprecio_costo_print").html("$" + $("#config_costo").val())
         $("#precio_costo").val($("#config_costo").val()) 
         
         deposito()
@@ -277,20 +277,20 @@ function costoPorPagar(b){
     /*Costo Por Pagar */
     if($("#config_costo").val() == $("#costo_m_" + b).val()){
 
-        $("#textprecio_costo").html("$" + $("#config_costo").val())
+        $("#textprecio_costo,#textprecio_costo_print").html("$" + $("#config_costo").val())
         $("#precio_costo").val($("#config_costo").val())
 
 
     }else if($("#config_costo").val() > $("#costo_m_" + b).val()){
 
-        $("#textprecio_costo").html("$" + $("#costo_m_" + b).val())
+        $("#textprecio_costo,#textprecio_costo_print").html("$" + $("#costo_m_" + b).val())
         $("#precio_costo").val($("#costo_m_" + b).val())
 
     }else{}
 
     /*Resta Por Pagar*/
     let resta = $("#costo_m_" +b ).val() - $("#pagodo_m_" + b).val();
-    $("#text_precio_change_x").html("$" + resta)
+    $("#text_precio_change_x,#text_precio_change_x_print").html("$" + resta)
     $("#precio_change_x").val(resta)
     
     $("#precio_PorPagar").attr("disabled",false)
@@ -305,20 +305,20 @@ function costoPorPagar2(){
     /*Costo Por Pagar */
     if($("#config_1agosto").val() == $("#costo_m_1agosto").val()){ 
 
-        $("#textprecio_costo").html("$" + $("#config_1agosto").val())
+        $("#textprecio_costo,#textprecio_costo_print").html("$" + $("#config_1agosto").val())
         $("#precio_costo").val($("#config_1agosto").val())
 
 
     }else if($("#config_1agosto").val() > $("#costo_m_1agosto").val()){
 
-        $("#textprecio_costo").html("$" + $("#costo_m_1agosto").val())
+        $("#textprecio_costo,#textprecio_costo_print").html("$" + $("#costo_m_1agosto").val())
         $("#precio_costo").val($("#costo_m_1agosto").val())
 
     }else{}
 
     /*Resta Por Pagar*/
     let resta = $("#costo_m_1agosto").val() - $("#pagodo_m_1agosto").val();
-    $("#text_precio_change_x").html("$" + resta)
+    $("#text_precio_change_x,#text_precio_change_x_print").html("$" + resta)
     $("#precio_change_x").val(resta)
     
     $("#precio_PorPagar").attr("disabled",false)
@@ -333,20 +333,20 @@ function costoPorPagar3(){
     /*Costo Por Pagar */
     if($("#config_2agosto").val() == $("#costo_m_2agosto").val()){ 
 
-        $("#textprecio_costo").html("$" + $("#config_2agosto").val())
+        $("#textprecio_costo,#textprecio_costo_print").html("$" + $("#config_2agosto").val())
         $("#precio_costo").val($("#config_2agosto").val())
 
 
     }else if($("#config_2agosto").val() > $("#costo_m_2agosto").val()){
 
-        $("#textprecio_costo").html("$" + $("#costo_m_2agosto").val())
+        $("#textprecio_costo,#textprecio_costo_print").html("$" + $("#costo_m_2agosto").val())
         $("#precio_costo").val($("#costo_m_2agosto").val())
 
     }else{}
 
     /*Resta Por Pagar*/
     let resta = $("#costo_m_2agosto").val() - $("#pagodo_m_2agosto").val();
-    $("#text_precio_change_x").html("$" + resta)
+    $("#text_precio_change_x,#text_precio_change_x_print").html("$" + resta)
     $("#precio_change_x").val(resta)
     
     $("#precio_PorPagar").attr("disabled",false)
@@ -361,20 +361,20 @@ function costoPorPagar4(){
     /*Costo Por Pagar */
     if($("#config_inscripcion").val() == $("#costo_m_inscripcion").val()){ 
 
-        $("#textprecio_costo").html("$" + $("#config_inscripcion").val())
+        $("#textprecio_costo,#textprecio_costo_print").html("$" + $("#config_inscripcion").val())
         $("#precio_costo").val($("#config_inscripcion").val())
 
 
     }else if($("#config_inscripcion").val() > $("#costo_m_inscripcion").val()){
 
-        $("#textprecio_costo").html("$" + $("#costo_m_inscripcion").val())
+        $("#textprecio_costo,#textprecio_costo_print").html("$" + $("#costo_m_inscripcion").val())
         $("#precio_costo").val($("#costo_m_inscripcion").val())
 
     }else{}
 
     /*Resta Por Pagar*/
     let resta = $("#costo_m_inscripcion").val() - $("#pagodo_m_inscripcion").val();
-    $("#text_precio_change_x").html("$" + resta)
+    $("#text_precio_change_x,#text_precio_change_x_print").html("$" + resta)
     $("#precio_change_x").val(resta)
     
     $("#precio_PorPagar").attr("disabled",false)
@@ -389,20 +389,20 @@ function costoPorPagar5(){
     /*Costo Por Pagar */
     if($("#config_seguro").val() == $("#costo_m_seguro").val()){ 
 
-        $("#textprecio_costo").html("$" + $("#config_seguro").val())
+        $("#textprecio_costo,#textprecio_costo_print").html("$" + $("#config_seguro").val())
         $("#precio_costo").val($("#config_seguro").val())
 
 
     }else if($("#config_seguro").val() > $("#costo_m_seguro").val()){
 
-        $("#textprecio_costo").html("$" + $("#costo_m_seguro").val())
+        $("#textprecio_costo,#textprecio_costo_print").html("$" + $("#costo_m_seguro").val())
         $("#precio_costo").val($("#costo_m_seguro").val())
 
     }else{}
 
     /*Resta Por Pagar*/
     let resta = $("#costo_m_seguro").val() - $("#pagodo_m_seguro").val();
-    $("#text_precio_change_x").html("$" + resta)
+    $("#text_precio_change_x,#text_precio_change_x_print").html("$" + resta)
     $("#precio_change_x").val(resta)
     
     $("#precio_PorPagar").attr("disabled",false)
@@ -417,20 +417,20 @@ function costoPorPagar6(){
     /*Costo Por Pagar */
     if($("#config_material").val() == $("#costo_m_material").val()){ 
 
-        $("#textprecio_costo").html("$" + $("#config_material").val())
+        $("#textprecio_costo,#textprecio_costo_print").html("$" + $("#config_material").val())
         $("#precio_costo").val($("#config_seguro").val())
 
 
     }else if($("#config_material").val() > $("#costo_m_material").val()){
 
-        $("#textprecio_costo").html("$" + $("#costo_m_material").val())
+        $("#textprecio_costo,#textprecio_costo_print").html("$" + $("#costo_m_material").val())
         $("#precio_costo").val($("#costo_m_material").val())
 
     }else{}
 
     /*Resta Por Pagar*/
     let resta = $("#costo_m_material").val() - $("#pagodo_m_material").val();
-    $("#text_precio_change_x").html("$" + resta)
+    $("#text_precio_change_x,#text_precio_change_x_print").html("$" + resta)
     $("#precio_change_x").val(resta)
     
     $("#precio_PorPagar").attr("disabled",false)
@@ -495,7 +495,7 @@ function totalCalc(){
 
     let total_x = (colegiatura_x - dpa) + interes
 
-    $("#print_total").html("$" + total_x)
+    $("#print_total,#print_total_print").html("$" + total_x)
     $("#val_precio_total").val(total_now)
     $("#btnSaveCobro").attr("disabled",false)
           
@@ -622,7 +622,7 @@ $("#historiaAlumno").html("<li class=\"list-group-item d-flex justify-content-be
         $("#cobroSerpro").val(b)
         
         /*Costo - Por Pagar*/
-        $("#textprecio_costo").html("$" + $("#config_costo").val())
+        $("#textprecio_costo,#textprecio_costo_print").html("$" + $("#config_costo").val())
         $("#precio_costo").val($("#config_costo").val())        
     
         /*Resta - Por Pagar*/
@@ -638,7 +638,7 @@ $("#historiaAlumno").html("<li class=\"list-group-item d-flex justify-content-be
         
         /*Costo - Por Pagar*/
         
-        $("#textprecio_costo").html("$" + x)
+        $("#textprecio_costo,#textprecio_costo_print").html("$" + x)
         $("#precio_costo").val(x)        
         
     
@@ -716,7 +716,7 @@ $("#historiaAlumno").html("<li class=\"list-group-item d-flex justify-content-be
             }else{console.error("Error: Rango de fecha")}
             //------------------------>
     
-            $("#text_precio_change_x").html(x)
+            $("#text_precio_change_x,#text_precio_change_x_print").html(x)
             $("#precio_change_x").val(y)
             /*###################################################################################
             #                                                                                   #
@@ -774,10 +774,10 @@ $("#historiaAlumno").html("<li class=\"list-group-item d-flex justify-content-be
             var y = col_now
             //------------------------>
             /*
-            $("#text_precio_change_x").html(x)
+            $("#text_precio_change_x,#text_precio_change_x_print").html(x)
             $("#precio_change_x").val(y)
             */
-            $("#text_precio_change_x").html("$1400")
+            $("#text_precio_change_x,#text_precio_change_x_print").html("$1400")
             $("#precio_change_x").val(1400)
             /*###################################################################################
             #                                                                                   #
