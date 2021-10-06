@@ -129,10 +129,10 @@ function loadingProductos(){
         $.each(data, function(i, val) {
 
             let productosLoad = '<tr>' +
-                    '    <th scope=\"row\"><input type=\"checkbox\" class=\"productoId\" value=\"' + val.id_advance + '\"></th>' +
-                    '    <td>' + val.concepto +'</td>' +
-                    '    <td>'+ val.precio +'</td>' +
-                    '    <td>'+ val.type +'</td>' +
+                    '    <th scope=\"row\"><input type=\"checkbox\" class=\"productoId\" value=\"' + val.id_advance + '\" name="proact"></th>' +
+                    '    <td class=\"'+ val.id_advance + ' actualizarConcepto \">' + val.concepto +'</td>' +
+                    '    <td class=\"'+ val.id_advance + ' actualizarPrecio   \">'+ val.precio +'</td>' +
+                    '    <td class=\"'+ val.id_advance + ' actualizarType     \">'+ val.type +'</td>' +
                     '</tr>';
 
             $("#productosInfo").append(productosLoad);
@@ -174,6 +174,47 @@ function saveDataProductos(){
             console.info("Run: all user always");
             loadingProductos()
             $("#ModalProductoNuevo").modal('hide')
+        })
+    
+}    
+
+function updateDataProductos(){
+    
+    console.log("let save form")
+    let producto_concepto  = $("#producto_concepto_act").val()
+    let producto_precio    = $("#producto_precio_act").val()
+    let producto_tipo      = $("#producto_tipo_act").val()
+    let producto_id = $("input[type='checkbox']:checked").val()
+    
+    let settings = {
+        "url": urlDbSerproU + '?type=save',
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+            /*"Authorization": "Basic cm9vdDphZG1pbg==",*/
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "data":{
+            'producto_id'      : producto_id,
+            'producto_concepto' : producto_concepto,
+            'producto_precio' : producto_precio,
+            'producto_tipo' : producto_tipo
+            }
+    }
+
+    let jqxhr1 = $.ajax(settings)
+        .done(function(data) {
+            //$.each(data, function(i, val) {})
+        })
+        .fail(function(data, jqXHR, textStatus, errorThrown) {
+            console.info("Run: all user loading error");
+            xhrError(jqXHR, textStatus, errorThrown);
+        })
+        .always(function(data) {
+            console.info("Run: all user always");
+            loadingProductos()
+            
+            $("#ModalProductoActualizar").modal('hide')
         })
     
 }    

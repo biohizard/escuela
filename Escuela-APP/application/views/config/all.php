@@ -116,6 +116,7 @@
                         <div class="btn-toolbar mb-2 mb-md-0">
                             <div class="btn-group me-2">
                                 <button type="button" id="btnNuevoProductos" class="show_txt btn btn-sm btn-outline-secondary">Nuevo</button>
+                                <button type="button" id="btnActualizarProductos" class="show_txt btn btn-sm btn-outline-secondary">Actualizar</button>
                                 
                             </div>
                         </div>

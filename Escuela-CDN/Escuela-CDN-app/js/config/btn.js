@@ -12,6 +12,9 @@ function allBtn(){
 
      btnProductoNuevo()
      btnProductoNuevoSave()
+     
+     btnProductoActualizar()
+      btnProductoActualizarSave()
 }
 /*########################################################################*/
 
@@ -49,6 +52,27 @@ function btnProductoNuevoSave(){
           saveDataProductos()
      })
 }
+
+function btnProductoActualizar(){
+     $("#btnActualizarProductos").on('click',function(){
+         
+          $("#ModalProductoActualizar").modal('show')
+          let x = $("input[type='checkbox']:checked").val();
+            
+         
+          $("#producto_concepto_act").val($("."+ x +".actualizarConcepto").html())
+          $("#producto_precio_act").val($("."+ x +".actualizarPrecio").html())
+          $("#producto_tipo_act").val($("."+ x +".actualizarType").html())
+          
+     })
+     
+}
+function btnProductoActualizarSave(){
+     $("#btnProductoActualizar").on('click',function(){
+          updateDataProductos()
+     })
+}
+
 /*########################################################################*/
 
 /*##########################################################################

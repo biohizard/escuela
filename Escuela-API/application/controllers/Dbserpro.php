@@ -45,5 +45,16 @@ class Dbserpro extends CI_Controller
     }
     //--->
 
+    //--->
+    public function updatedata()
+    {
+            if ($_GET['type']      == "save"){
+                $xr8_data = $this->Querys->proDataUpdate();
+            }else {
+                $xr8_data  = array("Error: Reade Alumno"=>101);
+            }
+            $this->output->set_content_type('application/json')->set_output(json_encode($xr8_data));        
+    }
+    //--->
     //----->
 }

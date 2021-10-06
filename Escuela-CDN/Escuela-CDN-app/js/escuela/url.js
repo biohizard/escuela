@@ -85,7 +85,7 @@ urlDbAlumnoS = url_api + "dbalumno/searchdata";
 //-------------------------------------------------------------->
 urlDbSerproC = url_api + "dbserpro/createdata";
 urlDbSerproR = url_api + "dbserpro/readedata";
-urlDbSerproU = url_api;
+urlDbSerproU = url_api + "dbserpro/updatedata";
 urlDbSerproD = url_api;
 
 urlDbSerproA = url_api + "dbserpro/allreadedata";

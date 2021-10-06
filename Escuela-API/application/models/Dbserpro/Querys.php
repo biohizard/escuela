@@ -258,4 +258,50 @@ producto_tipo: I
     }
     //--->
 
+    //--->
+    function proDataUpdate()
+    {
+
+        $random = random_string('alnum', 20);
+        $date   = date("Y-m-d");
+        $r_id   = random_string('md5', 4);
+
+        /*
+        producto_concepto: A
+producto_precio: E
+producto_tipo: I
+        */
+        /*
+            $dataconfigsp = array(
+                'id_advance'        => random_string('sha1', 20),
+                'concepto'          => $_POST['producto_concepto'],
+                'precio'            => $_POST['producto_precio'],
+                'type'              => $_POST['producto_tipo']
+            );
+            
+            $this->db->insert('configsp', $dataconfigsp);  
+            */
+        $data_inscripcion = array(
+            'concepto'=> $_POST['producto_concepto'],
+            'precio'  => $_POST['producto_precio'],
+            'type'    => $_POST['producto_tipo']
+        );
+
+        $token = $_POST['producto_id'];
+        $this->db->where('id_advance',$token);
+        $this->db->update('configsp',$data_inscripcion);
+            //------------------------------------------>
+
+            $status[] = array(
+                "Ok"      => 101,
+                "Cierres" => "Ok",
+                "Saldo"   => "Ok",
+                "Entregas"=> "Ok",
+                "Cierres" => "Ok",
+                "Pagos"   => "Ok"
+            );
+            
+            return    $status;
+    }
+    //--->
 }    
