@@ -7,6 +7,7 @@
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <button class="nav-link active" id="nav-home-tab"      data-bs-toggle="tab" data-bs-target="#nav-home"      type="button" role="tab" aria-controls="nav-home"      aria-selected="true">Niveles</button>
                     <button class="nav-link"        id="nav-productos-tab" data-bs-toggle="tab" data-bs-target="#nav-productos" type="button" role="tab" aria-controls="nav-productos" aria-selected="true">Productos</button>
+                    <button class="nav-link"        id="nav-fechas-tab"    data-bs-toggle="tab" data-bs-target="#nav-fechas"    type="button" role="tab" aria-controls="nav-fechas" aria-selected="true">Fechas</button>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
@@ -109,6 +110,7 @@
                     </ul>
 
                 </div>
+
                 <div class="tab-pane fade"             id="nav-productos" role="tabpanel" aria-labelledby="nav-productos-tab">
 
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -134,6 +136,30 @@
                         <tbody id="productosInfo"></tbody>
                     </table>
                 </div>
+
+                <div class="tab-pane fade"             id="nav-fechas" role="tabpanel" aria-labelledby="nav-fechas-tab">
+
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h3 class="h3">Fechas</h3>
+                        <div class="btn-toolbar mb-2 mb-md-0">
+                            <div class="btn-group me-2">
+                                <button type="button" id="btnActualizarFechas" class="show_txt btn btn-sm btn-outline-secondary">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Concepto</th>
+                            <th scope="col">Mes</th>
+                            <th scope="col">Fecha</th>
+                            </tr>
+                        </thead>
+                        <tbody id="fechasInfo"></tbody>
+                    </table>
+                </div>                
             </div>
         </div>
     </div>

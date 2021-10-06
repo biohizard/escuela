@@ -15,6 +15,9 @@ function allBtn(){
      
      btnProductoActualizar()
       btnProductoActualizarSave()
+
+      btnFechaActualizar()
+      btnFechaUpdate()
 }
 /*########################################################################*/
 
@@ -47,12 +50,12 @@ function btnProductoNuevo(){
      })
      
 }
+
 function btnProductoNuevoSave(){
      $("#btnProductoNuevo").on('click',function(){
           saveDataProductos()
      })
 }
-
 function btnProductoActualizar(){
      $("#btnActualizarProductos").on('click',function(){
          
@@ -70,6 +73,22 @@ function btnProductoActualizar(){
 function btnProductoActualizarSave(){
      $("#btnProductoActualizar").on('click',function(){
           updateDataProductos()
+     })
+}
+
+
+function btnFechaActualizar(){
+     $("#btnActualizarFechas").on('click',function(){
+          let x = $("input[type='checkbox']:checked").val();
+          $("#fecha_fecha").val($("."+ x +".actualizarFechaFecha").html())
+          $("#ModalFechasActualizar").modal('show');
+     })
+     
+}
+
+function btnFechaUpdate(){
+     $("#btnFechaActualizar").on('click',function(){
+          saveDataFechas()
      })
 }
 

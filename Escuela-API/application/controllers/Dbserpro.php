@@ -38,6 +38,8 @@ class Dbserpro extends CI_Controller
             $xr8_data = $this->Querys->proDataRead();
         }else if($_GET['type'] == "colegiatura"){
             $xr8_data = $this->Querys->colDataRead();
+        }else if($_GET['type'] == "fechas"){
+            $xr8_data = $this->Querys->fechaDataRead();
         }else {
             $xr8_data  = array("Error: Reade Alumno"=>101);
         }
@@ -48,8 +50,10 @@ class Dbserpro extends CI_Controller
     //--->
     public function updatedata()
     {
-            if ($_GET['type']      == "save"){
+            if ($_GET['type']       == "save"){
                 $xr8_data = $this->Querys->proDataUpdate();
+            }else if ($_GET['type'] == "fecha"){
+                $xr8_data = $this->Querys->proFechaUpdate();
             }else {
                 $xr8_data  = array("Error: Reade Alumno"=>101);
             }

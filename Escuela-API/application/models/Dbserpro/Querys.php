@@ -232,9 +232,9 @@ class Querys extends CI_Model
 
         /*
         producto_concepto: A
-producto_precio: E
-producto_tipo: I
-        */
+        producto_precio: E
+        producto_tipo: I
+                */
             $dataconfigsp = array(
                 'id_advance'        => random_string('sha1', 20),
                 'concepto'          => $_POST['producto_concepto'],
@@ -268,10 +268,10 @@ producto_tipo: I
 
         /*
         producto_concepto: A
-producto_precio: E
-producto_tipo: I
-        */
-        /*
+        producto_precio: E
+        producto_tipo: I
+                */
+                /*
             $dataconfigsp = array(
                 'id_advance'        => random_string('sha1', 20),
                 'concepto'          => $_POST['producto_concepto'],
@@ -304,4 +304,71 @@ producto_tipo: I
             return    $status;
     }
     //--->
+
+    //--->
+    function fechaDataRead()
+    {
+        $mes = date("n");
+
+            $this->db->select('*');
+            $this->db->from('configfechas');
+
+              $query = $this->db->get();
+              $row = $query->row_array();
+
+              //---A)
+              if ($query->num_rows() > 0) {
+                  foreach ($query->result() as $row) {
+                      $data[] = $row;
+                  }
+              } else {
+                  $date   = date("Y-m-d H:m:s");
+                  $data[] = array(
+                      "Time"       => $date.$mes,
+                      "Message"    => "Error Alumno",
+                      "Code"       => 104,
+                      "Contorller" => "DbTabsCierre",
+                      "class"      => "DbTabsCierre",
+                      "fuction"    => "DbTabsCierreRead",
+                      "id"         => "user"
+                  );
+              }
+      
+              return  $data;
+      
+    }
+    //--->
+    //--->
+    function proFechaUpdate()
+    {
+
+        $random = random_string('alnum', 20);
+        $date   = date("Y-m-d");
+        $r_id   = random_string('md5', 4);
+        /*
+        producto_concepto: colegiatura
+        producto_fecha: 2022-04-10
+        producto_id: 0cBGRC8ijAkPu5rxloSy
+        */
+        $data_inscripcion = array(
+            'fecha' =>  $_POST['producto_fecha']
+        );
+
+        $token = $_POST['producto_id'];
+        $this->db->where('id_advance',$token);
+        $this->db->update('configfechas',$data_inscripcion);
+            //------------------------------------------>
+
+            $status[] = array(
+                "Ok"      => 101,
+                "Cierres" => "Ok",
+                "Saldo"   => "Ok",
+                "Entregas"=> "Ok",
+                "Cierres" => "Ok",
+                "Pagos"   => "Ok"
+            );
+            
+            return    $status;
+    }
+    //--->    
 }    

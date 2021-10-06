@@ -9,6 +9,7 @@ ____  ______ _____________
 function allXhr(){
     loadingconfig()
     loadingProductos()
+    loadingFechas()
 }
 /*########################################################################*/
 
@@ -43,22 +44,7 @@ _______________ __________  ____________________.___________    _______    _____
         .fail(function(data, jqXHR, textStatus, errorThrown){xhrError(jqXHR, textStatus, errorThrown)})
         .always(function(data){})
     }
-   
-    /*
-    val_colegiatura
-    val_colegiaturades
-    val_1Agosto
-    val_2Agosto
-    val_colegiaturaEsp
-
-    val_inscripcion
-    val_seguro
-    val_material
-    val_interes
-    val_dpa
-    */
-   
-   function saveConfig(){
+    function saveConfig(){
     console.log("let save form")
 
     let config_colegiatura     = $("#val_colegiatura").val()
@@ -107,7 +93,7 @@ _______________ __________  ____________________.___________    _______    _____
             console.info("Run: all user always");
         })
 
-}     
+    }
 
 function loadingProductos(){
     $("#productosInfo").empty()
@@ -219,6 +205,94 @@ function updateDataProductos(){
     
 }    
 
+function loadingFechas(){
+    $("#fechasInfo").empty()
+
+    $.getJSON(urlDbSerproA  + "?type=fechas")
+    .done(function(data) {
+        $.each(data, function(i, val) {
+            /*
+            concepto: "colegiatura"
+            fecha: "2022-05-10"
+            id: "13"
+            id_advance: "cLeTEBN8rsXKMlU99VjN"
+            mes: "5"
+            time: "2021-07-26 03:03:50"            
+            */
+            if(val.mes == 1){
+                var mesConfig = "Enero"
+            }else if(val.mes == 2){
+                var mesConfig = "Febrero"
+            }else if(val.mes == 3){
+                var mesConfig = "Marzo"
+            }else if(val.mes == 4){
+                var mesConfig = "Abril"
+            }else if(val.mes == 5){
+                var mesConfig = "Mayo"
+            }else if(val.mes == 6){
+                var mesConfig = "Junio"
+            }else if(val.mes == 7){
+                var mesConfig = "Julio"
+            }else if(val.mes == 8){
+                var mesConfig = "Agosto"
+            }else if(val.mes == 9){
+                var mesConfig = "Septiembre"
+            }else if(val.mes == 10){
+                var mesConfig = "Octubre"
+            }else if(val.mes == 11){
+                var mesConfig = "Noviembre"
+            }else if(val.mes == 12){
+                var mesConfig = "Diciembre"
+            }
+
+            let fechasLoad = '<tr>' +
+                    '    <th scope=\"row\"><input type=\"checkbox\" class=\"productoId\" value=\"' + val.id_advance + '\" name="proact"></th>' +
+                    '    <td class=\"'+ val.id_advance + ' actualizarFechaConcepto \">' + val.concepto + '</td>' +
+                    '    <td class=\"'+ val.id_advance + ' actualizarFechaMes      \">' + mesConfig    + '</td>' +
+                    '    <td class=\"'+ val.id_advance + ' actualizarFechaFecha    \">' + val.fecha    + '</td>' +
+                    '</tr>';
+
+            $("#fechasInfo").append(fechasLoad);
+        })
+    })
+    .fail(function(data,jqXHR,textStatus,errorThrown){xhrError(jqXHR, textStatus, errorThrown)})
+    .always(function(data){})
+}
+function saveDataFechas(){
+    console.log("let save form")
+    let producto_concepto  = $("#fecha_concepto").val()
+    let producto_fecha     = $("#fecha_fecha").val()
+    let producto_id        = $("input[type='checkbox']:checked").val()
+
+    //alert(producto_id + " " + producto_concepto + " " + producto_fecha)
+    
+    let settings = {
+        "url": urlDbSerproU + '?type=fecha',
+        "method": "POST",
+        "timeout": 0,
+        "headers": {"Content-Type": "application/x-www-form-urlencoded"},
+        "data":{
+            'producto_concepto' : producto_concepto,
+            'producto_fecha'    : producto_fecha,
+            'producto_id'       : producto_id
+            }
+    }
+
+    let jqxhr1 = $.ajax(settings)
+        .done(function(data) {
+            //$.each(data, function(i, val) {})
+        })
+        .fail(function(data, jqXHR, textStatus, errorThrown) {
+            console.info("Run: all user loading error");
+            xhrError(jqXHR, textStatus, errorThrown);
+        })
+        .always(function(data) {
+            console.info("Run: all user always");
+            loadingFechas()
+            $("#ModalFechasActualizar").modal('hide')
+        })
+    
+}    
 /*########################################################################*/
     function printConfig(a,b,c,d){
         $("#" + c).val(a)
