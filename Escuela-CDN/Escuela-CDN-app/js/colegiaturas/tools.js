@@ -88,6 +88,19 @@ _______________ __________  ____________________.___________    _______    _____
                     }
                 }
                 */
+                if(d == 'inscripcion'){
+
+                    $("#btnSaveCobro").attr("disabled",false)
+                    /*
+                    if($("#historialval_m_"+antemes).val() == "true"){
+                        $("#btnSaveCobro").attr("disabled",false)
+                    }else{
+                        $("#btnSaveCobro").attr("disabled",true)
+                        $('#cobros_serpro option:eq(0)').prop('selected', true)
+                    }
+                    */
+                }
+
                 mesAticipadoNo('seguro','inscripcion')
                 mesAticipadoNo('material','seguro')
                 mesAticipadoNo('1ª','material')
