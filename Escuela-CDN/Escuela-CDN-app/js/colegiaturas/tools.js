@@ -46,10 +46,67 @@ _______________ __________  ____________________.___________    _______    _____
                 }else{
                     d=c[0];
                 }
+
                 $("#cobroIdAdvanceSerpro").val(a)
                 //alert(a +" /-----/ " +b+" /-----/ " +c+"  /-----/ " +d+"  /-----/ ")
                 //col1-BrX1QB3vSNQoGDz /-----/ septiembre /-----/ septiembre  /-----/ septiembre  /-----/ 
                 b_array = b.split(" ")
+                
+                /*
+                inscripcion
+                seguro
+                material
+                1ª
+                septiembre
+                octubre
+                noviembre
+                diciembre
+                2ª
+                enero
+                febrero
+                marzo
+                abril
+                mayo
+                junio
+                julio
+                */
+               /*
+                if(d == 'diciembre'){
+                    if($("#historialval_m_noviembre").val() == "true"){
+                        $("#btnSaveCobro").attr("disabled",false)
+                    }else{
+                        $("#btnSaveCobro").attr("disabled",true)
+                        $('#cobros_serpro option:eq(0)').prop('selected', true)
+                    }
+                }
+                if(d == '2ª'){
+                    if($("#historialval_m_diciembre").val() == "true"){
+                        $("#btnSaveCobro").attr("disabled",false)
+                    }else{
+                        $("#btnSaveCobro").attr("disabled",true)
+                        $('#cobros_serpro option:eq(0)').prop('selected', true)
+                    }
+                }
+                */
+                mesAticipadoNo('seguro','inscripcion')
+                mesAticipadoNo('material','seguro')
+                mesAticipadoNo('1ª','material')
+                mesAticipadoNo('septiembre','1ª')
+                mesAticipadoNo('octubre','septiembre')
+
+                mesAticipadoNo('noviembre','octubre')
+                mesAticipadoNo('diciembre','noviembre')
+                mesAticipadoNo('2ª','diciembre')
+                mesAticipadoNo('enero','2ª')
+                mesAticipadoNo('febrero','enero')
+                                
+                mesAticipadoNo('marzo','febrero')
+                mesAticipadoNo('abril','marzo')
+                mesAticipadoNo('mayo','abril')
+                mesAticipadoNo('junio','mayo')
+                mesAticipadoNo('julio','junio')
+                
+
                 if(
                     b == "septiembre" || 
                     b == "octubre"    || 
@@ -783,6 +840,22 @@ $("#historiaAlumno").html("<li class=\"list-group-item d-flex justify-content-be
             #                                                                                   #
             ####################################################################################*/    
     }
+
+
+    function mesAticipadoNo(mes,antemes){
+        console.log('NO SE PUEDE AGAR EL MES SIN ANTES PAGAR EL MES PREVIO')
+        if(d == mes){
+            if($("#historialval_m_"+antemes).val() == "true"){
+                $("#btnSaveCobro").attr("disabled",false)
+            }else{
+                $("#btnSaveCobro").attr("disabled",true)
+                $('#cobros_serpro option:eq(0)').prop('selected', true)
+            }
+        }
+    }
+    
+    
+
     /*End: Efectivo*/
 
     /*Begin: Deposito*/
