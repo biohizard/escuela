@@ -9,7 +9,7 @@ ____  ______ _____________
 function allXhr(){
     console.log("%c Load Js XHR ","color:#FA2A00; font-size:24px")
     loadingconfig()
-
+    loadingFechas()
 
 }
 /*########################################################################*/
@@ -219,7 +219,10 @@ _______________ __________  ____________________.___________    _______    _____
     
             let ticket_costo           = $("#precio_costo").val();
             let ticket_resta           = $("#precio_change_x").val();
-            let ticket_pago            = $("#precio_PorPagar").val()
+                var x = $("#print_total").html();  
+                var y = x.split(" "); 
+            
+            let ticket_pago            = y[1]
             let ticket_total           = $("#val_precio_total").val()
     
             //alert(ticket_fecha + "/-----/" + ticket_idUsuario + "/-----/" + ticket_idAlumno + "/-----/" + ticket_idAdvanceAlumno + "/-----/" + ticket_nombreAlumno + "/-----/" + ticket_concepto + "/-----/" + ticket_costo + "/-----/" + ticket_resta + "/-----/" + ticket_pago + "/-----/" + ticket_total)
@@ -295,7 +298,62 @@ _______________ __________  ____________________.___________    _______    _____
         .fail(function(data, jqXHR, textStatus, errorThrown){xhrError(jqXHR, textStatus, errorThrown)})
         .always(function(data){})
     }
-       
+
+    function loadingFechas(){
+    
+        $.getJSON(urlDbSerproA  + "?type=fechas")
+        .done(function(data) {
+            $.each(data, function(i, val) {
+                /*
+                concepto: "colegiatura"
+                fecha: "2022-05-10"
+                id: "13"
+                id_advance: "cLeTEBN8rsXKMlU99VjN"
+                mes: "5"
+                time: "2021-07-26 03:03:50"            
+                */
+                if(val.mes == 1){
+                    var mesConfig = "Enero"
+                }else if(val.mes == 2){
+                    var mesConfig = "Febrero"
+                }else if(val.mes == 3){
+                    var mesConfig = "Marzo"
+                }else if(val.mes == 4){
+                    var mesConfig = "Abril"
+                }else if(val.mes == 5){
+                    var mesConfig = "Mayo"
+                }else if(val.mes == 6){
+                    var mesConfig = "Junio"
+                }else if(val.mes == 7){
+                    var mesConfig = "Julio"
+                }else if(val.mes == 8){
+                    var mesConfig = "Agosto"
+                }else if(val.mes == 9){
+                    var mesConfig = "Septiembre"
+                }else if(val.mes == 10){
+                    var mesConfig = "Octubre"
+                }else if(val.mes == 11){
+                    var mesConfig = "Noviembre"
+                }else if(val.mes == 12){
+                    var mesConfig = "Diciembre"
+                }
+
+                var mesActual = new Date();
+                var mes       = mesActual.getMonth() + 1;
+
+                if(mes == val.mes){
+                    $("#config_mes").val(val.fecha)
+                    $("#config_depo_mesB").val(val.fecha2)
+                    $("#config_fechainteres").val(val.interes)
+                    $("#config_depo_fechainteresB").val(val.interes2)
+                }
+                
+
+            })
+        })
+        .fail(function(data,jqXHR,textStatus,errorThrown){xhrError(jqXHR, textStatus, errorThrown)})
+        .always(function(data){})
+    }
 /*########################################################################*/
 
 /*##########################################################################
@@ -381,14 +439,12 @@ _______________ __________  ____________________.___________    _______    _____
 
         }
 
-        //alert( resultPagado + " " +dinero  + " " +costo_x)
-
         var x = '<li class="list-group-item">' + 
                 ' ' + mes + ':     ' +
                 '   <ul>'+
                 '       <li><input type="text" id="historialval_m_' + mes + '"  value="'  + resultPagado + '" disabled></li>' + 
                 '       <li><input type="text" id="pagodo_m_'       + mes + '"   value="' + dinero       + '" disabled></li>' + 
-                '       <li><input type="text" id="costo_m_'        + mes + '"   value="' + costo_x      + '" disabled></li>' + 
+                '       <li><input type="text" id="costo_m_'        + mes + '"   value="' + costo_x     + '" disabled></li>' + 
                 '       <li><input type="text" id="num_m_'        + num + '"   value="' + num      + '" disabled></li>' + 
                 '   </ul>'+
                 '</li>';

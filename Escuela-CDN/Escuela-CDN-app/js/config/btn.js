@@ -18,6 +18,9 @@ function allBtn(){
 
       btnFechaActualizar()
       btnFechaUpdate()
+
+      btnFechaActualizar2()
+      btnFechaUpdate2()
 }
 /*########################################################################*/
 
@@ -85,13 +88,26 @@ function btnFechaActualizar(){
      })
      
 }
-
 function btnFechaUpdate(){
      $("#btnFechaActualizar").on('click',function(){
           saveDataFechas()
      })
 }
 
+
+function btnFechaActualizar2(){
+     $("#btnActualizarFechas2").on('click',function(){
+          let x = $("input[type='checkbox']:checked").val();
+          $("#fecha_fecha2").val($("."+ x +".actualizarFechaFecha2").html())
+          $("#ModalFechas2Actualizar").modal('show');
+     })
+     
+}
+function btnFechaUpdate2(){
+     $("#btnFecha2Actualizar").on('click',function(){
+          saveDataFechas2()
+     })
+}
 /*########################################################################*/
 
 /*##########################################################################

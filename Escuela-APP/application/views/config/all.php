@@ -5,9 +5,10 @@
             <p class="fs-5 text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan pulvinar nulla, eu tincidunt lectus rhoncus vel. Etiam quis dictum sapien. Donec eget neque ex..</p>
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <button class="nav-link active" id="nav-home-tab"      data-bs-toggle="tab" data-bs-target="#nav-home"      type="button" role="tab" aria-controls="nav-home"      aria-selected="true">Niveles</button>
-                    <button class="nav-link"        id="nav-productos-tab" data-bs-toggle="tab" data-bs-target="#nav-productos" type="button" role="tab" aria-controls="nav-productos" aria-selected="true">Productos</button>
-                    <button class="nav-link"        id="nav-fechas-tab"    data-bs-toggle="tab" data-bs-target="#nav-fechas"    type="button" role="tab" aria-controls="nav-fechas" aria-selected="true">Fechas</button>
+                    <button class="nav-link active" id="nav-home-tab"      data-bs-toggle="tab" data-bs-target="#nav-home"      type="button" role="tab" aria-controls="nav-home"      aria-selected="true">Niveles         </button>
+                    <button class="nav-link"        id="nav-productos-tab" data-bs-toggle="tab" data-bs-target="#nav-productos" type="button" role="tab" aria-controls="nav-productos" aria-selected="true">Productos       </button>
+                    <button class="nav-link"        id="nav-fechas-tab"    data-bs-toggle="tab" data-bs-target="#nav-fechas"    type="button" role="tab" aria-controls="nav-fechas"    aria-selected="true">Fechas Efectivo </button>
+                    <button class="nav-link"        id="nav-fechas2-tab"    data-bs-toggle="tab" data-bs-target="#nav-fechas2"  type="button" role="tab" aria-controls="nav-fechas2"   aria-selected="true">Fechas Deposito </button>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
@@ -140,7 +141,7 @@
                 <div class="tab-pane fade"             id="nav-fechas" role="tabpanel" aria-labelledby="nav-fechas-tab">
 
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h3 class="h3">Fechas</h3>
+                        <h3 class="h3">Fechas Efectivo</h3>
                         <div class="btn-toolbar mb-2 mb-md-0">
                             <div class="btn-group me-2">
                                 <button type="button" id="btnActualizarFechas" class="show_txt btn btn-sm btn-outline-secondary">Actualizar</button>
@@ -159,7 +160,31 @@
                         </thead>
                         <tbody id="fechasInfo"></tbody>
                     </table>
-                </div>                
+                </div>
+
+                <div class="tab-pane fade"             id="nav-fechas2" role="tabpanel" aria-labelledby="nav-fechas2-tab">
+
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h3 class="h3">Fechas Deposito</h3>
+                        <div class="btn-toolbar mb-2 mb-md-0">
+                            <div class="btn-group me-2">
+                                <button type="button" id="btnActualizarFechas2" class="show_txt btn btn-sm btn-outline-secondary">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Concepto</th>
+                            <th scope="col">Mes</th>
+                            <th scope="col">Fecha</th>
+                            </tr>
+                        </thead>
+                        <tbody id="fechasInfo2"></tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

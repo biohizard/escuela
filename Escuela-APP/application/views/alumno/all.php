@@ -32,6 +32,7 @@
             <th scope="col"><p class="text-uppercase">nombre </p></th>
             <th scope="col"><p class="text-uppercase">grado  </p></th>
             <th scope="col"><p class="text-uppercase">grupo  </p></th>
+            <th scope="col"><p class="text-uppercase">pago  </p></th>
             <th scope="col"><p class="text-uppercase">maestra</p></th>
           </tr>
         </thead>

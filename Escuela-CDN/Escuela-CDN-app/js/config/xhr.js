@@ -206,7 +206,7 @@ function updateDataProductos(){
 }    
 
 function loadingFechas(){
-    $("#fechasInfo").empty()
+    $("#fechasInfo,#fechasInfo2").empty()
 
     $.getJSON(urlDbSerproA  + "?type=fechas")
     .done(function(data) {
@@ -252,7 +252,17 @@ function loadingFechas(){
                     '    <td class=\"'+ val.id_advance + ' actualizarFechaFecha    \">' + val.fecha    + '</td>' +
                     '</tr>';
 
-            $("#fechasInfo").append(fechasLoad);
+            
+
+            let fechasLoad2 = '<tr>' +
+                    '    <th scope=\"row\"><input type=\"checkbox\" class=\"productoId\" value=\"' + val.id_advance + '\" name="proact"></th>' +
+                    '    <td class=\"'+ val.id_advance + ' actualizarFechaConcepto2 \">' + val.concepto + '</td>' +
+                    '    <td class=\"'+ val.id_advance + ' actualizarFechaMes2      \">' + mesConfig    + '</td>' +
+                    '    <td class=\"'+ val.id_advance + ' actualizarFechaFecha2    \">' + val.fecha2    + '</td>' +
+                    '</tr>';
+            
+                $("#fechasInfo").append(fechasLoad)
+                $("#fechasInfo2").append(fechasLoad2)
         })
     })
     .fail(function(data,jqXHR,textStatus,errorThrown){xhrError(jqXHR, textStatus, errorThrown)})
@@ -292,7 +302,42 @@ function saveDataFechas(){
             $("#ModalFechasActualizar").modal('hide')
         })
     
-}    
+}
+function saveDataFechas2(){
+    console.log("let save form")
+    let producto_concepto  = $("#fecha_concepto").val()
+    let producto_fecha     = $("#fecha_fecha2").val()
+    let producto_id        = $("input[type='checkbox']:checked").val()
+
+    //alert(producto_id + " " + producto_concepto + " " + producto_fecha)
+    
+    let settings = {
+        "url": urlDbSerproU + '?type=fecha2',
+        "method": "POST",
+        "timeout": 0,
+        "headers": {"Content-Type": "application/x-www-form-urlencoded"},
+        "data":{
+            'producto_concepto' : producto_concepto,
+            'producto_fecha'    : producto_fecha,
+            'producto_id'       : producto_id
+            }
+    }
+
+    let jqxhr1 = $.ajax(settings)
+        .done(function(data) {
+            //$.each(data, function(i, val) {})
+        })
+        .fail(function(data, jqXHR, textStatus, errorThrown) {
+            console.info("Run: all user loading error");
+            xhrError(jqXHR, textStatus, errorThrown);
+        })
+        .always(function(data) {
+            console.info("Run: all user always");
+            loadingFechas()
+            $("#ModalFechas2Actualizar").modal('hide')
+        })
+    
+}     
 /*########################################################################*/
     function printConfig(a,b,c,d){
         $("#" + c).val(a)

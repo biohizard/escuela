@@ -47,6 +47,7 @@ _______________ __________  ____________________.___________    _______    _____
                                              "<td class=\"text-uppercase\">" + val.nombre + " " + val.paterno + " " + val.materno + "</td>" +
                                              "<td>" + nivel + "</td>" +
                                              "<td>" + val.salon + "</td>" +
+                                             "<td>" + val.tipopago + "</td>" +
                                              "<td>" + val.maestra + "</td></tr>"
                                              );
                     })
@@ -91,6 +92,7 @@ _______________ __________  ____________________.___________    _______    _____
                                              "<td class=\"text-uppercase\">" + val.nombre + " " + val.paterno + " " + val.materno + "</td>" +
                                              "<td>" + nivel + "</td>" +
                                              "<td>" + val.salon + "</td>" +
+                                             "<td>" + val.tipopago + "</td>" +
                                              "<td>" + val.maestra + "</td></tr>"
                                              );
                     })

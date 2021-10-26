@@ -123,6 +123,7 @@ class Querys extends CI_Model
       `alumnoprimaria`.paterno,
       `alumnoprimaria`.materno,
       `inscripcion`.maestra,
+      `inscripcion`.tipopago,
       `configgrupos`.grupos,
       `configgrupos`.salon
       ');        
@@ -166,6 +167,7 @@ class Querys extends CI_Model
       `alumnokinder`.paterno,
       `alumnokinder`.materno,
       `inscripcion`.maestra,
+      `inscripcion`.tipopago,
       `configgrupos`.grupos,
       `configgrupos`.salon
       ');        

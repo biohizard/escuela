@@ -370,5 +370,38 @@ class Querys extends CI_Model
             
             return    $status;
     }
+    //--->
+    //--->
+    function proFechaUpdate2()
+    {
+
+        $random = random_string('alnum', 20);
+        $date   = date("Y-m-d");
+        $r_id   = random_string('md5', 4);
+        /*
+        producto_concepto: colegiatura
+        producto_fecha: 2022-04-10
+        producto_id: 0cBGRC8ijAkPu5rxloSy
+        */
+        $data_inscripcion = array(
+            'fecha2' =>  $_POST['producto_fecha']
+        );
+
+        $token = $_POST['producto_id'];
+        $this->db->where('id_advance',$token);
+        $this->db->update('configfechas',$data_inscripcion);
+            //------------------------------------------>
+
+            $status[] = array(
+                "Ok"      => 101,
+                "Cierres" => "Ok",
+                "Saldo"   => "Ok",
+                "Entregas"=> "Ok",
+                "Cierres" => "Ok",
+                "Pagos"   => "Ok"
+            );
+            
+            return    $status;
+    }
     //--->    
 }    

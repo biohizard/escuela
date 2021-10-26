@@ -359,16 +359,16 @@
 
     <ul class="list-group">
       <li class="list-group-item">fecha efectivo </li>
-      <li class="list-group-item">Fecha mes:            <input type="text" id="config_mes"                  value="2021-08-01" disabled></li>
-      <li class="list-group-item">Fecha DPA:            <input type="text" id="config_fechadpa"             value="2021-09-15" disabled></li>
-      <li class="list-group-item">Fecha Interes:        <input type="text" id="config_fechainteres"         value="2021-09-30" disabled></li>
+      <li class="list-group-item">Fecha mes:            <input type="text" id="config_mes"                  value="0" disabled></li>
+      <li class="list-group-item">Fecha DPA:            <input type="text" id="config_fechadpa"             value="0" disabled></li>
+      <li class="list-group-item">Fecha Interes:        <input type="text" id="config_fechainteres"         value="0" disabled></li>
     </ul>
 
     <ul class="list-group">
       <li class="list-group-item">fecha deposito </li>
-      <li class="list-group-item">Fecha mes:            <input type="text" id="config_depo_mesB"             value="2021-08-01" disabled></li>
-      <li class="list-group-item">Fecha DPA:            <input type="text" id="config_depo_fechadpaB"        value="2021-09-01" disabled></li>
-      <li class="list-group-item">Fecha Interes:        <input type="text" id="config_depo_fechainteresB"    value="2021-09-10" disabled></li>
+      <li class="list-group-item">Fecha mes:            <input type="text" id="config_depo_mesB"             value="0" disabled></li>
+      <li class="list-group-item">Fecha DPA:            <input type="text" id="config_depo_fechadpaB"        value="0" disabled></li>
+      <li class="list-group-item">Fecha Interes:        <input type="text" id="config_depo_fechainteresB"    value="0" disabled></li>
     </ul>      
   </div>
 

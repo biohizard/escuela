@@ -54,6 +54,8 @@ class Dbserpro extends CI_Controller
                 $xr8_data = $this->Querys->proDataUpdate();
             }else if ($_GET['type'] == "fecha"){
                 $xr8_data = $this->Querys->proFechaUpdate();
+            }else if ($_GET['type'] == "fecha2"){
+                $xr8_data = $this->Querys->proFechaUpdate2();
             }else {
                 $xr8_data  = array("Error: Reade Alumno"=>101);
             }

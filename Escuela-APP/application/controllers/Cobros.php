@@ -10,7 +10,7 @@ class Cobros extends CI_Controller
         session_check();
     }
     //--->
-    
+
     //--->
     public function index()
     {
@@ -18,6 +18,15 @@ class Cobros extends CI_Controller
     //--->
 
     //--->
+    /*
+    Pasos
+    Colegiatua efectivo
+    1: Buscar alumno  - PR49
+    2: load historial
+    3: Seleccionamos el mes a pagar
+    4: pago
+    5: generar cobro e imprimir 
+    */
     public function colegiatura()
     {
         //--->

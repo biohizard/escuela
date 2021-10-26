@@ -11,6 +11,7 @@ function allTool(){
     $("#cobros_serpro").attr("disabled",true)
     rangoFecha_A = rangoFecha()
     rangoFecha_B = rangoFechaB()
+    
     inputColegiatura()
     pago()
 }
@@ -197,6 +198,7 @@ _______________ __________  ____________________.___________    _______    _____
                     //------------------------>
                 }else if(rangoFecha_A == "normal"){
                     //------------------------>
+                    alert("normal")
                     console.log("Run rango fecha NORMAL")
                     total_now = parseInt($("#precio_change_x").val()) - parseInt($("#precio_PorPagar").val());
                     if(isNaN(total_now)){
@@ -211,7 +213,9 @@ _______________ __________  ____________________.___________    _______    _____
                     //------------------------>
                 }else if(rangoFecha_A == "interes"){
                     //------------------------>
+                    alert("interes")
                     let x = parseInt($("#precio_PorPagar").val()) + (parseInt($("#precio_PorPagar").val())*0.15)
+                    
                     total_now = parseInt($("#precio_change_x").val()) - parseInt($("#precio_PorPagar").val());
         
                     if(isNaN(total_now)){
@@ -219,7 +223,7 @@ _______________ __________  ____________________.___________    _______    _____
                         x  = 0
                     }
                     $("#print_pago,#print_pago_print").html("$" + parseInt($("#precio_PorPagar").val()))
-                    $("#print_total,#print_total_print").html("$ " +total_now)
+                    $("#print_total,#print_total_print").html("$ " +x)
                     $("#val_precio_total").val(total_now)
                     console.log("Run rango fecha INTERES")
                     //------------------------>
@@ -860,9 +864,11 @@ $("#historiaAlumno").html("<li class=\"list-group-item d-flex justify-content-be
         if(d == mes){
             if($("#historialval_m_"+antemes).val() == "true"){
                 $("#btnSaveCobro").attr("disabled",false)
+                
             }else{
                 $("#btnSaveCobro").attr("disabled",true)
                 $('#cobros_serpro option:eq(0)').prop('selected', true)
+                //alert("No se puede pagar el mes seleccionado sin antes liquidar los pagos previos.")
             }
         }
     }
