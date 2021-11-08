@@ -36,7 +36,7 @@ class Cobros extends CI_Controller
         $data['sub_page_title']  = 'Dashboard';
         $data['sub_page_title2'] = 'admin';
         $data['css']             = 'cobros';
-        $data['js']              = 'colegiaturas/colegiaturas,colegiaturas/btn,colegiaturas/xhr,colegiaturas/tools';
+        $data['js']              = 'colegiaturas/colegiaturas,colegiaturas/btn,colegiaturas/xhr,colegiaturas/tools,colegiaturas/efectivo/efectivo,colegiaturas/efectivo/btn,colegiaturas/efectivo/xhr,colegiaturas/efectivo/tools';
         $data['singout']         = INDEX_PAGE . "user/logout?error=102&since=" . $_GET['since'] . "&sha1=" . $sha1;
 
         $data['ID']              = $_SESSION['ID'];
@@ -51,15 +51,23 @@ class Cobros extends CI_Controller
         //--->
         $data['tiempo']          = date("Y/m/d H:i:s");
 
+
+        //--->
         $this->load->view('loop/header', $data);
-        $this->load->view('loop/top', $data);
-        $this->load->view('loop/all-top', $data);
+        if($_SESSION['Permissions'] == "admin"){
+            $this->load->view('loop/admin-top', $data);
+        }else if($_SESSION['Permissions'] == "user"){
+            $this->load->view('loop/admin-user', $data);
+        }
+        //--->
 
             $this->load->view('cobros/all', $data);
             $this->load->view('cobros/modalprint', $data);
 
+        //--->
         $this->load->view('loop/admin-foot', $data);
         $this->load->view('loop/footer', $data);
+        //--->
     }
     //--->
 
@@ -88,12 +96,21 @@ class Cobros extends CI_Controller
       //--->
       $data['tiempo']          = date("Y/m/d H:i:s");
 
-      $this->load->view('loop/header', $data);
-      $this->load->view('loop/top', $data);
-      $this->load->view('loop/all-top', $data);
+        //--->
+        $this->load->view('loop/header', $data);
+        if($_SESSION['Permissions'] == "admin"){
+            $this->load->view('loop/admin-top', $data);
+        }else if($_SESSION['Permissions'] == "user"){
+            $this->load->view('loop/admin-user', $data);
+        }
+        //--->
+
           $this->load->view('productos/all', $data);
-      $this->load->view('loop/admin-foot', $data);
-      $this->load->view('loop/footer', $data);
+
+        //--->
+        $this->load->view('loop/admin-foot', $data);
+        $this->load->view('loop/footer', $data);
+        //--->
     }
     //--->
     //----->

@@ -4,7 +4,7 @@
 
     <div class="col-12">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2 text-uppercase">cobros colgiatura</h1></div>
+        <h1 class="h2 text-uppercase">cobros colegiatura</h1></div>
     </div>
   
   <!-- Begin: 3 COL -->
@@ -231,7 +231,7 @@
           <div>
             <span class="text-primary text-capitalize" id="textSerpro_x">servicio o producto</span>
             <br>
-            <input type="hidden"     id="cobroSerpro"          value="Servicio o Producto"                       disabled>
+            <input type="hidden"     id="cobroSerproxxx"          value="Servicio o Producto"                       disabled>
             <input type="hidden"     id="cobroIdAdvanceSerpro" value="Id advance Servicio o Producto"                       disabled>
           </div>
         </li>
@@ -299,7 +299,7 @@
             <span class="text-success" id="print_descuento_money">$00.00</span>
           </div>
         </li>
-        <li class="list-group-item d-flex justify-content-between bg-light d-none">
+        <li id="interes-li" class="list-group-item d-flex justify-content-between bg-light d-nonex">
           <div class="text-danger">
             <h6 class="my-0">Intereses</h6>
             <small>interés por aplicar</small>

@@ -36,6 +36,13 @@ class Historial extends CI_Controller
         //--->
 
         $this->load->view('loop/header', $data);
+
+        if($_SESSION['Permissions'] == "admin"){
+            $this->load->view('loop/admin-top', $data);
+        }else if($_SESSION['Permissions'] == "user"){
+            $this->load->view('loop/admin-user', $data);
+        }
+
         $this->load->view('loop/top', $data);
         $this->load->view('loop/all-top', $data);
             $this->load->view('historial/all', $data);

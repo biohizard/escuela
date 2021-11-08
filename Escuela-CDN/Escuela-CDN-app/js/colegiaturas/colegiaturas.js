@@ -17,8 +17,8 @@ _________  ________  .____     ___________ ________.___   ____________________ _
     */
     $(function() {
         console.log("%c Load Js COBROS ","color:#FA2A00; font-size:24px")
-        allBtn()
-        allTool()
-        allXhr()
+        colegiaturasBtn()
+        colegiaturasTool()
+        colegiaturasXhr()
     })
 /*########################################################################*/

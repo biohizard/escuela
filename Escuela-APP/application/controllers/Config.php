@@ -34,7 +34,15 @@ class Config extends CI_Controller
         $data['Time']            = $_SESSION['Time'];
         //--->
 
+
         $this->load->view('loop/header', $data);
+
+        if($_SESSION['Permissions'] == "admin"){
+            $this->load->view('loop/admin-top', $data);
+        }else if($_SESSION['Permissions'] == "user"){
+            $this->load->view('loop/admin-user', $data);
+        }
+
         $this->load->view('loop/top', $data);
         $this->load->view('loop/all-top', $data);
 

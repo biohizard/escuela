@@ -16,7 +16,6 @@ class Dashboard extends CI_Controller
     {
         echo "ssx";
         echo "all";
-        print_r($_SESSION);
     }
     //--->
 
@@ -44,17 +43,23 @@ class Dashboard extends CI_Controller
         $data['Time']            = $_SESSION['Time'];
         //--->
 
+        //--->
         $this->load->view('loop/header', $data);
-        $this->load->view('loop/admin-top', $data);
-        //$this->load->view('loop/all-top', $data);
-        
+        if($_SESSION['Permissions'] == "admin"){
+            $this->load->view('loop/admin-top', $data);
+        }else if($_SESSION['Permissions'] == "user"){
+            $this->load->view('loop/admin-user', $data);
+        }
+        //--->
+
             $this->load->view('dashboard/all', $data);
+            $this->load->view('dashboard/modal', $data);
         
-        
+        //--->
         $this->load->view('loop/admin-foot', $data);
         $this->load->view('loop/footer', $data);
+        //--->
 
-        $this->load->view('dashboard/modal', $data);
     }
     //--->
 

@@ -102,7 +102,7 @@
                             <div>
                                 <span class="text-primary text-capitalize" id="textSerpro">servicio o producto</span>
                                 <br>
-                                <input type="hidden"     id="cobroSerpro"          value="Servicio o Producto"                       disabled>
+                                <input type="hidden"     id="cobroSerproxxx"          value="Servicio o Producto"                       disabled>
                                 <input type="hidden"     id="cobroIdAdvanceSerpro" value="Id advance Servicio o Producto"                       disabled>
                             </div>
                             </li>
