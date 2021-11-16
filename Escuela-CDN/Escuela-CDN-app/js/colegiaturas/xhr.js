@@ -169,7 +169,7 @@ function loadingcolegiaturas(){
             lialDataColegiatura("inscripcion",val.col_inscripcion,val.dinero_inscripcion,val.cos_inscripcion,1)
             lialDataColegiatura("seguro",val.col_seguro,val.dinero_seguro,val.cos_seguro,2)
             lialDataColegiatura("material",val.col_material,val.dinero_material,val.cos_material,3)
-            lialDataColegiatura("1agosto",val.col_1agosto,val.dinero_1agosto,val.cos_1agosto,4)
+            lialDataColegiatura("1ª de agosto",val.col_1agosto,val.dinero_1agosto,val.cos_1agosto,4)
             
 
 
@@ -177,7 +177,7 @@ function loadingcolegiaturas(){
                 lialDataColegiatura("octubre",val.col_octubre,val.dinero_octubre,val.cos_octubre,6)
                 lialDataColegiatura("noviembre",val.col_noviembre,val.dinero_noviembre,val.cos_noviembre,7)
                 lialDataColegiatura("diciembre",val.col_diciembre,val.dinero_diciembre,val.cos_diciembre,8)
-                lialDataColegiatura("2agosto",val.col_2agosto,val.dinero_2agosto,val.cos_2agosto,9)
+                lialDataColegiatura("2ª de agosto",val.col_2agosto,val.dinero_2agosto,val.cos_2agosto,9)
                 lialDataColegiatura("enero",val.col_enero,val.dinero_enero,val.cos_enero,10)
                 lialDataColegiatura("febrero",val.col_febrero,val.dinero_febrero,val.cos_febrero,11)
                 lialDataColegiatura("marzo",val.col_marzo,val.dinero_marzo,val.cos_marzo,12)

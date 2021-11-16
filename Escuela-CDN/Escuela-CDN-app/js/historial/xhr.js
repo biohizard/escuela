@@ -151,8 +151,8 @@ function allXhr(){
                 colegiaturasTool(val.col_seguro,val.dinero_seguro,"seguro","2")             
                 colegiaturasTool(val.col_material,val.dinero_material,"material","3")           
 
-                colegiaturasTool(val.col_1agosto,val.dinero_1agosto,"1 Agosto","4")
-                colegiaturasTool(val.col_2agosto,val.dinero_2agosto,"2 Agosto","5")
+                colegiaturasTool(val.col_1agosto,val.dinero_1agosto,"1ª De Agosto","4")
+                colegiaturasTool(val.col_2agosto,val.dinero_2agosto,"2ª De Agosto","5")
 
                 colegiaturasTool(val.col_septiembre,val.dinero_septiembre,"Septiembre","6")
                 colegiaturasTool(val.col_octubre,val.dinero_octubre,"Octubre","7")

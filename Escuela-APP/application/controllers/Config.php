@@ -43,8 +43,8 @@ class Config extends CI_Controller
             $this->load->view('loop/admin-user', $data);
         }
 
-        $this->load->view('loop/top', $data);
-        $this->load->view('loop/all-top', $data);
+        //$this->load->view('loop/top', $data);
+        //$this->load->view('loop/all-top', $data);
 
             $this->load->view('config/all', $data);
             $this->load->view('config/modalproducto', $data);
