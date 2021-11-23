@@ -1,6 +1,6 @@
 <!--Begin: FICHA DE INSCRIPCION Modal -->
 <div class="modal" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
 
             <!--Begin: Header -->
@@ -292,7 +292,7 @@
 
             <!--Begin: Footer -->
             <div class="modal-footer">
-                    <button class="btn btn-primary" id="generarinscripcion">generar inscripcion</button>
+                    <button class="btn btn-primary" id="generarinscripcion">GENERAR INSCRIPCIÓN</button>
             </div>
             <!--End: Footer -->
 

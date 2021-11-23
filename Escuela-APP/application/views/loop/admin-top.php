@@ -16,7 +16,7 @@
               </ul>
             </li>
             <li>                 <a href="<?php echo INDEX_PAGE; ?>reporte/?since=origin#top" class="nav-link px-2 link-dark">reporte</a></li>
-            <li class="nav-item"><a data-bs-toggle="modal" href="#exampleModalToggle" class="nav-link active" aria-current="page">inscripcion</a></li>
+            <li class="nav-item"><a data-bs-toggle="modal" href="#exampleModalToggle" class="nav-link active" aria-current="page">inscripción</a></li>
           </ul>
 
           <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -31,7 +31,7 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item text-capitalize" href="<?php echo INDEX_PAGE; ?>config/?since=origin#top">configuacion</a></li>
+              <li><a class="dropdown-item text-capitalize" href="<?php echo INDEX_PAGE; ?>config/?since=origin#top">configuación</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
