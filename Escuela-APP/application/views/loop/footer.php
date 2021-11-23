@@ -28,7 +28,6 @@
     <script src="<?php echo CDN_URL;?>js/escuela/url.js"    ></script>
     <?php 
       $js = explode(",",$js);
-      print_r($js);
       $jsCount = count($js);
       for($i = 1; $i <= $jsCount; $i++){
         echo "<script src=".CDN_URL."js/".$js[$i-1].".js></script>";
