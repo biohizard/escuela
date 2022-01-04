@@ -27,31 +27,37 @@ _______________ __________  ____________________.___________    _______    _____
             .done(function(data) {
                 //--->
                 $.each(data, function(i, val) {
-    
-                    if(val.grupos == "k1"){
-                        nivel = "primero" 
-                        idpro  = "JR" + val.id
-                    }else if(val.grupos == "k2"){
-                        nivel = "segundo" 
-                        idpro  = "JR" + val.id
-                    }else if(val.grupos == "k3"){
-                        nivel = "tercero" 
-                        idpro  = "JR" + val.id
+                    
+                    if(val.Code){
+                        console.error("Error 401: DB vacia")
                     }else{
-                        nivel = "error" 
+
+                        if(val.grupos == "k1"){
+                            nivel = "primero" 
+                            idpro  = "JR" + val.id
+                        }else if(val.grupos == "k2"){
+                            nivel = "segundo" 
+                            idpro  = "JR" + val.id
+                        }else if(val.grupos == "k3"){
+                            nivel = "tercero" 
+                            idpro  = "JR" + val.id
+                        }else{
+                            nivel = "error" 
+                        }
+                        $("#loadAlumnos").append("<tr class=\"alumnos_lista " + nivel + "\">" +
+                            "<th scope=\"row\"><input type=\"checkbox\" class=\"idAdvance\" id=\"" + val.id_advance + "\"></th>" +
+                            "<td class=\""   + val.id_advance + "\">" + idpro + "</td>" +
+                            "<td class=\"text-capitalize\">" + val.nombre + " " + val.paterno + " " + val.materno + "</td>" +
+                            "<td class=\"text-capitalize\">" + nivel + "</td>" +
+                            "<td class=\"text-capitalize\">" + val.salon + "</td>" +
+                            "<td class=\"text-capitalize\">" + val.tipopago + "</td>" +
+                            "<td class=\"text-capitalize\">" + val.maestra + "</td></tr>"
+                        );
+
                     }
-    
-                    $("#loadAlumnos").append("<tr class=\"alumnos_lista " + nivel + "\">" +
-                                             "<th scope=\"row\"><input type=\"checkbox\" class=\"idAdvance\" id=\"" + val.id_advance + "\"></th>" +
-                                             "<td class=\"" + val.id_advance + "\">" + idpro + "</td>" +
-                                             "<td class=\"text-uppercase\">" + val.nombre + " " + val.paterno + " " + val.materno + "</td>" +
-                                             "<td>" + nivel + "</td>" +
-                                             "<td>" + val.salon + "</td>" +
-                                             "<td>" + val.tipopago + "</td>" +
-                                             "<td>" + val.maestra + "</td></tr>"
-                                             );
-                    })
-                    //--->
+
+                })
+                //--->
             })
             .fail(function(data, jqXHR, textStatus, errorThrown){xhrError(jqXHR, textStatus, errorThrown)})
             .always(function(data) {})
@@ -63,40 +69,46 @@ _______________ __________  ____________________.___________    _______    _____
             .done(function(data) {
                 //--->
                 $.each(data, function(i, val) {
-    
-                    if(val.grupos == "p1"){
-                        nivel = "primero" 
-                        idpro  = "PR" + val.id
-                    }else if(val.grupos == "p2"){
-                        nivel = "segundo" 
-                        idpro  = "PR" + val.id
-                    }else if(val.grupos == "p3"){
-                        nivel = "tercero" 
-                        idpro  = "PR" + val.id
-                    }else if(val.grupos == "p4"){
-                        nivel = "cuarto" 
-                        idpro  = "PR" + val.id
-                    }else if(val.grupos == "p5"){
-                        nivel = "quinto" 
-                        idpro  = "PR" + val.id
-                    }else if(val.grupos == "p6"){
-                        nivel = "sexto" 
-                        idpro  = "PR" + val.id
+                    if(val.Code){
+                        console.error("Error 401: DB vacia")
                     }else{
-                        nivel = "error" 
+
+                        if(val.grupos == "p1"){
+                            nivel = "primero" 
+                            idpro  = "PR" + val.id
+                        }else if(val.grupos == "p2"){
+                            nivel = "segundo" 
+                            idpro  = "PR" + val.id
+                        }else if(val.grupos == "p3"){
+                            nivel = "tercero" 
+                            idpro  = "PR" + val.id
+                        }else if(val.grupos == "p4"){
+                            nivel = "cuarto" 
+                            idpro  = "PR" + val.id
+                        }else if(val.grupos == "p5"){
+                            nivel = "quinto" 
+                            idpro  = "PR" + val.id
+                        }else if(val.grupos == "p6"){
+                            nivel = "sexto" 
+                            idpro  = "PR" + val.id
+                        }else{
+                            nivel = "error" 
+                        }
+
+                        $("#loadAlumnos").append("<tr class=\"alumnos_lista " + nivel + "\">" +
+                            "<th scope=\"row\"><input type=\"checkbox\" class=\"idAdvance\" id=\"" + val.id_advance + "\"></th>" +
+                            "<td class=\""    + val.id_advance + "\">" + idpro + "</td>" +
+                            "<td class=\"text-capitalize\">" + val.nombre + " " + val.paterno + " " + val.materno + "</td>" +
+                            "<td class=\"text-capitalize\">" + nivel + "</td>" +
+                            "<td class=\"text-capitalize\">" + val.salon + "</td>" +
+                            "<td class=\"text-capitalize\">" + val.tipopago + "</td>" +
+                            "<td class=\"text-capitalize\">" + val.maestra + "</td></tr>"
+                        );
+
                     }
-    
-                    $("#loadAlumnos").append("<tr class=\"alumnos_lista " + nivel + "\">" +
-                                             "<th scope=\"row\"><input type=\"checkbox\" class=\"idAdvance\" id=\"" + val.id_advance + "\"></th>" +
-                                             "<td class=\"" + val.id_advance + "\">" + idpro + "</td>" +
-                                             "<td class=\"text-uppercase\">" + val.nombre + " " + val.paterno + " " + val.materno + "</td>" +
-                                             "<td>" + nivel + "</td>" +
-                                             "<td>" + val.salon + "</td>" +
-                                             "<td>" + val.tipopago + "</td>" +
-                                             "<td>" + val.maestra + "</td></tr>"
-                                             );
-                    })
-                    //--->
+
+                })
+                //--->
             })
             .fail(function(data, jqXHR, textStatus, errorThrown) {
                 console.info("Run: all user loading error");

@@ -9,13 +9,7 @@ ____  ______ _____________
 function allXhr(){
     console.log("%c Load Js XHR","color:#FA2A00; font-size:24px")
         loadingSelectAll()
-
-    /*
-            
-        loadingHistorial()
-        
-        loadingpagos()
-        */
+        alumnoAll()
 }
 /*########################################################################*/
 
@@ -56,7 +50,7 @@ function allXhr(){
             })
             .fail(function(data, jqXHR, textStatus, errorThrown){xhrError(jqXHR, textStatus, errorThrown)})
             .always(function(data){
-                setTimeout(function(){alumnoAll()},250);
+                //setTimeout(function(){alumnoAll()},250);
             })
     }
     function loadingAlumnos() {
@@ -109,7 +103,8 @@ function allXhr(){
                         $("#data_inscripcion").html("$" + val.inscripcion)
                         $("#data_colegiatura").html("$" + val.colegiatura)
                         $("#data_dpp").html(val.dpp + "%")
-                        $("#data_beca").html(val.beca + "%")
+                        if(val.beca == "true"){resultBeca = "alumno becado";$("#ins_beca")[0].checked = true;}else{resultBeca = "alumno no becado"}
+                        $("#data_beca").html(resultBeca)
                         $("#data_interes").html(val.interes + "%")
 
                         $("#data_nivel").html(val.grupos)
@@ -236,6 +231,9 @@ function allXhr(){
         let alumno_tutor             = $("#tutor_tutor").val()
         let alumno_parentesco        = $("#tutor_parentesco").val()
         let alumno_tutocurp          = $("#tutor_tutocurp").val()
+        
+        let alumno_beca               = $("#ins_beca").is(':checked')
+        
 
         let settings = {
             "url": urlDbAlumnoU + "?type=onlyone&token=" + x + "&id=" + y,
@@ -274,7 +272,9 @@ function allXhr(){
                 'save_problema'         :alumno_problema,
                 'save_tutor'            :alumno_tutor,
                 'save_parentesco'       :alumno_parentesco,
-                'save_tutocurp'         :alumno_tutocurp
+                'save_tutocurp'         :alumno_tutocurp,
+                'save_beca'             :alumno_beca
+                
                     }
         }
 
@@ -291,8 +291,8 @@ function allXhr(){
                 alumnoAll()
                 $("#modalUpdate").modal("hide");
                 $("#generaractualizacion").removeAttr('disabled');
-                $("input").val(" ");
-                $("input").empty();
+                //$("input").val(" ");
+                //$("input").empty();
                 
             })
         

@@ -55,7 +55,6 @@ class Dbinscripcion extends CI_Controller
     //--->
     public function readedata()
     {
-       
         if ($_GET['type'] == "primaria"){
             $xr8_data   = $this->Querys->primariaRead();
         }else if ($_GET['type'] == "kinder"){
@@ -63,8 +62,6 @@ class Dbinscripcion extends CI_Controller
         }else {
             $xr8_data  = array("Error"  => 101);
         }
-
-
         $this->output->set_content_type('application/json')->set_output(json_encode($xr8_data));
     }
     //--->

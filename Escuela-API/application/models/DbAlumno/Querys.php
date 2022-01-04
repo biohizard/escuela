@@ -3,7 +3,7 @@ class Querys extends CI_Model
 {
     //--->
     function onlyonePrimariaRead()
-    {     
+    {
         $this->db->select('
             `alumnoprimaria`.id,
             `alumnoprimaria`.id_advance,
@@ -38,7 +38,8 @@ class Querys extends CI_Model
             `configgrupos`.salon,
             `configgrupos`.grupos,
             `configgrupos`.nivel,
-            `configniveles`.nivel AS niveltxt
+            `configniveles`.nivel AS niveltxt,
+            `beca`.beca
           ');
         $this->db->from  ('alumnoprimaria');
         $this->db->where ('`alumnoprimaria`.id_advance',$_GET['token']);
@@ -46,6 +47,7 @@ class Querys extends CI_Model
           $this->db->join    ('inscripcion'  , 'inscripcion.id_advance_alumno = alumnoprimaria.id_advance');
           $this->db->join    ('configgrupos' , 'configgrupos.id_advance       = inscripcion.grado');
           $this->db->join    ('configniveles', 'configgrupos.nivel            = configniveles.id_advance');
+          $this->db->join    ('beca'         , 'beca.id_advance_alumno        = alumnoprimaria.id_advance');
           $this->db->order_by('`alumnoprimaria`.id', 'ASC');
 
         $query = $this->db->get();
@@ -75,7 +77,7 @@ class Querys extends CI_Model
 
     //--->
     function onlyoneKinderRead()
-    {     
+    {
         $this->db->select('
             `alumnokinder`.id,
             `alumnokinder`.id_advance,
@@ -143,7 +145,7 @@ class Querys extends CI_Model
 
         return  $data;
     }
-    //--->    
+    //--->
     //--->
     function searchRead()
     {
@@ -207,7 +209,7 @@ class Querys extends CI_Model
 
                 return  $data;
     }
-    //--->    
+    //--->
 
     //--->
     function onlypreciosRead()
@@ -603,77 +605,82 @@ class Querys extends CI_Model
 
         return    $status;  
     }
-    //---> 
-    
+    //--->
+
     //--->
     function alumnoPrimariaUpdate()
     {
-      
+
         $random = random_string('sha1', 20);
         $date   = date("Y-m-d H:m:s");
         $r_id   = random_string('md5', 4);
 
-        $data_alumno = array(
-            'id'                => $_POST['save_id'],
-            'time'              => $date,
-            'nombre'            => $_POST['save_nombrealumno'],
-            'paterno'           => $_POST['save_apaternoalumno'],
-            'materno'           => $_POST['save_amaternoalumno'],
-            'fecha'             => $_POST['save_fechanacimiento'],
-            'edad'              => $_POST['save_edad'],
-            'curp'              => $_POST['save_curp'],
-            'sexo'              => $_POST['save_sexo'],
-            'estatura'          => $_POST['save_estatura'],
-            'peso'              => $_POST['save_peso'],
-            'sangre'            => $_POST['save_tiposanguineo'],
-            'telefono'          => $_POST['save_telefono'],
-            'recado'            => $_POST['save_recados'],
-            'direccion'         => $_POST['save_direccion'],
-            'cp'                => $_POST['save_cp'],
-            'tutor'             => $_POST['save_tutor'],
-            'parentes'          => $_POST['save_parentesco'],
-            'tutocurp'          => $_POST['save_tutocurp']
-        );         
-        $data_inscripcion = array(
-            'time'              => $date,
-            /*FICHA DE INSCRIPCION*/
-            //maestra inscribe
-            'maestra'           => $_POST['save_maestraausubel'],
-            'exalumno'          => $_POST['save_exalumno'],
-            'grado'             => $_POST['save_gradocursar'],
-            'tipopago'          => $_POST['save_tipopago'],
+            $data_alumno      = array(
+                'id'                => $_POST['save_id'],
+                'time'              => $date,
+                'nombre'            => $_POST['save_nombrealumno'],
+                'paterno'           => $_POST['save_apaternoalumno'],
+                'materno'           => $_POST['save_amaternoalumno'],
+                'fecha'             => $_POST['save_fechanacimiento'],
+                'edad'              => $_POST['save_edad'],
+                'curp'              => $_POST['save_curp'],
+                'sexo'              => $_POST['save_sexo'],
+                'estatura'          => $_POST['save_estatura'],
+                'peso'              => $_POST['save_peso'],
+                'sangre'            => $_POST['save_tiposanguineo'],
+                'telefono'          => $_POST['save_telefono'],
+                'recado'            => $_POST['save_recados'],
+                'direccion'         => $_POST['save_direccion'],
+                'cp'                => $_POST['save_cp'],
+                'tutor'             => $_POST['save_tutor'],
+                'parentes'          => $_POST['save_parentesco'],
+                'tutocurp'          => $_POST['save_tutocurp']
+            );
+            $data_inscripcion = array(
+                'time'              => $date,
+                /*FICHA DE INSCRIPCION*/
+                //maestra inscribe
+                'maestra'           => $_POST['save_maestraausubel'],
+                'exalumno'          => $_POST['save_exalumno'],
+                'grado'             => $_POST['save_gradocursar'],
+                'tipopago'          => $_POST['save_tipopago'],
 
-            /*PARA ALUMNOS DE 1ER GRADO*/
-            'annoskinder'       => $_POST['save_annoskinder'],
-            //SI CURSO EN AUSUBEL NOMBRE DE LA MAESTRA
-            'maestraausubel'    => $_POST['save_maestraausubel'],
-            'procedencia'       => $_POST['save_procedencia'],
-            'lectoescritura'    => $_POST['save_lectoescritura'],
-            'lectoescriturapor' => $_POST['save_lectoescriturapor'],
-            'problema'          => $_POST['save_problema']
-        );
+                /*PARA ALUMNOS DE 1ER GRADO*/
+                'annoskinder'       => $_POST['save_annoskinder'],
+                //SI CURSO EN AUSUBEL NOMBRE DE LA MAESTRA
+                'maestraausubel'    => $_POST['save_maestraausubel'],
+                'procedencia'       => $_POST['save_procedencia'],
+                'lectoescritura'    => $_POST['save_lectoescritura'],
+                'lectoescriturapor' => $_POST['save_lectoescriturapor'],
+                'problema'          => $_POST['save_problema']
+            );
+            $data_beca        = array(
+                'beca'           => $_POST['save_beca']
+            );
 
-        $token = $_POST['save_token'];
-        $this->db->where('id_advance',$token);
-        $this->db->update('alumnoprimaria',$data_alumno);
-        /*
-        $this->db->insert('alumno',$data_alumno);
-        $this->db->insert('inscripcion',$data_inscripcion);
-        */
+            $token = $_POST['save_token'];
 
+                $this->db->where('id_advance',$token);
+                $this->db->update('alumnoprimaria',$data_alumno);
 
-        $status = [
-            "category"    => "Request",
-            "description" => "Create Alumno New",
-            "id advance"  => $random,
-            "date"        => $date,
-            "http_code"   => 404,
-            "code"        => 1001,
-            "request"     => true,
-            "request_id"  => $r_id
-        ];
+                $this->db->where('id_advance_alumno',$token);
+                $this->db->update('beca',$data_beca);
 
-        return    $status;  
+                $this->db->where('id_advance_alumno',$token);
+                $this->db->insert('inscripcion',$data_inscripcion);
+
+                    $status = [
+                        "category"    => "Request",
+                        "description" => "Create Alumno New",
+                        "id advance"  => $random,
+                        "date"        => $date,
+                        "http_code"   => 404,
+                        "code"        => 1001,
+                        "request"     => true,
+                        "request_id"  => $r_id
+                    ];
+
+                    return    $status;
     }
     //--->
     //--->
@@ -724,12 +731,20 @@ class Querys extends CI_Model
             'problema'          => $_POST['save_problema']
         );
 
+        $data_beca = array(
+            'beca'           => $_POST['save_beca']
+            
+        );        
+
         $token = $_POST['save_token'];
         $this->db->where('id_advance',$token);
         $this->db->update('alumnokinder',$data_alumno);
 
         $this->db->where('id_advance_alumno',$token);
         $this->db->update('inscripcion',$data_inscripcion);
+
+        $this->db->where('id_advance_alumno',$token);
+        $this->db->update('beca',$data_beca);
 
         $status = [
             "category"    => "Request",
@@ -744,5 +759,5 @@ class Querys extends CI_Model
 
         return    $status;  
     }
-    //--->     
-}    
+    //--->
+}

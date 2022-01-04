@@ -37,6 +37,7 @@ class Alumno extends CI_Controller
 
         //--->
         $this->load->view('loop/header', $data);
+        
         if($_SESSION['Permissions'] == "admin"){
             $this->load->view('loop/admin-top', $data);
         }else if($_SESSION['Permissions'] == "user"){

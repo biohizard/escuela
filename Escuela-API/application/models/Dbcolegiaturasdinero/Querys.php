@@ -21,6 +21,20 @@ class Querys extends CI_Model{
             save_resta: 180
             save_pago: 100
             save_total: 80
+
+            save_fecha: 2022/01/03 03:58:08
+            save_idUsuario: AfN9M25VoJmSU8Ps9w2
+            save_idAlumno: 10
+            save_idAdvanceAlumno: fc2edfe26c1ac5976c26
+            save_nombreAlumno: jorge francisco rodriguez garibaldo
+            
+            save_concepto: inscripcion $780.00
+            save_idadconcepto: Id advance Servicio o Producto
+
+            save_costo: costo
+            save_resta: resta
+            save_pago: 780.00
+            save_total: resta
         */
         //---------->
         if($_POST['save_total'] == 0){

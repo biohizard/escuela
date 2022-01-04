@@ -1,0 +1,73 @@
+/***** Alumnos *****/
+	
+	/***** Alumnos *****/
+		/index.php/alumno/?since=origin#top
+		
+	/***** DB *****/
+		-
+			Url : dbinscripcion/readedata?type=primaria
+			Type: Json
+		-	
+			-
+				Tables :
+			-
+				alumnoprimaria
+					¬id			modificar
+					¬id_Ghost   primary key
+					¬id_advance id advance
+				inscripcion
+					¬id_advance_alumno == `alumnoprimaria`.id_advance
+					¬grado             == `configgrupos`.id_advance
+				configgrupos
+				
+				  `alumnoprimaria`.id,
+				  `alumnoprimaria`.id_advance,
+				  `alumnoprimaria`.nombre,
+				  `alumnoprimaria`.paterno,
+				  `alumnoprimaria`.materno,
+				  `inscripcion`.maestra,
+				  `inscripcion`.tipopago,
+				  `configgrupos`.grupos,
+				  `configgrupos`.salon				
+		-
+			Url : dbinscripcion/readedata?type=kinder
+			Type: Json
+		-	
+			-
+				Tables :
+			-
+				alumnokinder
+					¬id			modificar
+					¬id_Ghost   primary key
+					¬id_advance id advance				
+				inscripcion
+				configgrupos
+
+				  `alumnokinder`.id,
+				  `alumnokinder`.id_advance,
+				  `alumnokinder`.nombre,
+				  `alumnokinder`.paterno,
+				  `alumnokinder`.materno,
+				  `inscripcion`.maestra,
+				  `inscripcion`.tipopago,
+				  `configgrupos`.grupos,
+				  `configgrupos`.salon				
+
+/***** Historial *****/
+	/***** Alumnos *****/
+	historial/?token=fc2edfe26c1ac5976c26&id=PR10
+	/***** DB *****/
+		-
+			Type:Json
+		-	
+		
+******************************************
+***************Lista CODES ***************
+******************************************
+* Error : 400
+	      - 401 :db vacia 
+*
+******************************************
+******************************************
+******************************************
+		

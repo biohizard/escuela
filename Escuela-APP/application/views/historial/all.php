@@ -9,79 +9,130 @@
                 <button data-bs-toggle="modal" href="#modalUpdate" aria-current="page" id="modificarAlumno" type="button" class="btn btn-warning text-capitalize">modificar</button>
             </div>                      
                 <div class="row">
-                    <div class="col-12">
-                        <div class="row">
-                            <p class="fs-4 text text-uppercase">datos generales del alumno</p>
-                            <input type="hidden" id="token" value="<?php echo $_GET['token'];?>">
-                            <input type="hidden" id="id" value="<?php echo $_GET['id'];?>">
-                            <div class="col-12">
-                                <label for="firstName" class="form-label text-secondary text-capitalize">ID</label>
-                                <p class="fs-6 text text-uppercase text-primary" id="data_id">ID alumno</p>
-                            </div>
 
-                            <div class="col-12">
-                                <label for="firstName" class="form-label text-secondary text-capitalize">Nombre del alumno </label>
-                                <p class="fs-6 text text-uppercase text-primary" id="data_nombre">nombre alumno</p>
-                            </div>
-                            <div class="col-6">
-                                <label for="firstName" class="form-label text-secondary text-capitalize">fecha de nacimiento</label>
-                                <p class="fs-6 text text-uppercase text-primary" id="data_fecha">fecha de nacimiento</p>
-                            </div>
-                            <div class="col-6">
-                                <label for="firstName" class="form-label text-secondary text-capitalize">edad del alumno</label>
-                                <p class="fs-6 text text-uppercase text-primary" id="data_edad">edad del alumno</p>
-                            </div>                        
-                            <div class="col-3">
-                                <label for="firstName" class="form-label text-secondary text-capitalize">curp del alumno </label>
-                                <p class="fs-6 text text-uppercase text-primary" id="data_curpalumno">curp alumno</p>
-                            </div>
-                            <div class="col-3">
-                                <label for="firstName" class="form-label text-secondary text-capitalize">sexo del alumno </label>
-                                <p class="fs-6 text text-uppercase text-primary" id="data_sexo">sexo alumno</p>
-                            </div>
-                            <div class="col-3">
-                                <label for="firstName" class="form-label text-secondary text-capitalize">estatura del alumno </label>
-                                <p class="fs-6 text text-uppercase text-primary" id="data_estatura">estatura alumno</p>
-                            </div> 
-                            <div class="col-3">
-                                <label for="firstName" class="form-label text-secondary text-capitalize">tipo de sangre</label>
-                                <p class="fs-6 text text-uppercase text-primary" id="data_sangre">tipo de sangre alumno</p>
-                            </div>
-                            <div class="col-6">
-                            <label for="firstName" class="form-label text-secondary text-capitalize">telefono de contacto</label>
-                            <p class="fs-6 text text-uppercase text-primary" id="data_tel1">telefono alumno</p>
-                            </div>
-                            <div class="col-6">
-                            <label for="firstName" class="form-label text-secondary text-capitalize">telefono secundario del alumno </label>
-                            <p class="fs-6 text text-uppercase text-primary" id="data_tel2">telefono secundario del alumno</p>
-                            </div> 
-                            <div class="col-10">
-                            <label for="firstName" class="form-label text-secondary text-capitalize">direccion del alumno </label>
-                            <p class="fs-6 text text-uppercase text-primary" id="data_direccion">direccion alumno</p>
-                            </div>
-                            <div class="col-2">
-                            <label for="firstName" class="form-label text-secondary text-capitalize">CP del alumno </label>
-                            <p class="fs-6 text text-uppercase text-primary" id="data_cp">CP alumno</p>
-                            </div>
+                    <div class="col-4">
+                        <div class="row">
+
+                            <p class="fs-4 text text-uppercase">datos generales</p>
+                            <input type="hidden" id="token" value="<?php echo $_GET['token'];?>">
+                            <input type="hidden" id="id"    value="<?php echo $_GET['id'];?>">
+
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                    <div class="fw-bold">ID</div>
+                                    <span class="text-uppercase text-primary" id="data_id">ID alumno</span>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Nombre Del Alumno</div>
+                                    <span class="text-uppercase text-primary" id="data_nombre">nombre alumno</span>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Fecha De Nacimiento</div>
+                                    <span class="text-uppercase text-primary" id="data_fecha">fecha de nacimiento</span>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Curp Del Alumno</div>
+                                    <span class="text-uppercase text-primary" id="data_curpalumno">curp alumno</span>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Sexo Del Alumno</div>
+                                    <span class="text-uppercase text-primary" id="data_sexo">sexo alumno</span>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Edad Del Alumno</div>
+                                    <span class="text-uppercase text-primary" id="data_edad">edad del alumno</span>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Estatura Del Alumno</div>
+                                    <span class="text-uppercase text-primary" id="data_estatura">estatura alumno</span>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Tipo De Sangre</div>
+                                    <span class="text-uppercase text-primary" id="data_sangre">tipo de sangre alumno</span>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <p class="fs-4 text text-uppercase">datos tutor</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                    <div class="fw-bold">tutor</div>
+                                    <span class="text-uppercase text-primary" id="data_tutor">tutor</span>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                    <div class="fw-bold">parentesco</div>
+                                    <span class="text-uppercase text-primary" id="data_parentesco">parentesco</span>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                    <div class="fw-bold">curp tutor</div>
+                                    <span class="text-uppercase text-primary" id="data_curptutor">curp tutor</span>
+                                    </div>
+                                </li>
 
-                    <div class="col-12">
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Telefono De Contacto</div>
+                                    <span class="text-uppercase text-primary" id="data_tel1">telefono alumno</span>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Telefono Secundario Del Alumno</div>
+                                    <span class="text-uppercase text-primary" id="data_tel2">telefono secundario del alumno</span>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Direccion Del Alumno</div>
+                                    <span class="text-uppercase text-primary" id="data_direccion">direccion alumno</span>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                    <div class="fw-bold">CP Del Alumno</div>
+                                    <span class="text-uppercase text-primary" id="data_cp">CP alumno</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-4">
                         <div class="row">
                             <ul class="nav nav-tabs col-12" id="myTab" role="tablist">
+
                                 <li class="nav-item" role="presentation">
-                                <button class="nav-link active text-capitalize" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">datos de pago</button>
+                                    <button class="nav-link        text-capitalize" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">datos del grupo</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                <button class="nav-link        text-capitalize" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">datos del grupo</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                <button class="nav-link        text-capitalize" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">datos del tutor</button>
+                                    <button class="nav-link active text-capitalize" id="homeprincipal-tab" data-bs-toggle="tab" data-bs-target="#homeprincipal" type="button" role="tab" aria-controls="profile" aria-selected="false">datos de la beca</button>
                                 </li>
                             </ul>
 
                             <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="tab-pane fade show active" id="homeprincipal"    role="tabpanel" aria-labelledby="homeprincipal-tab">
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item">
                                             <label for="firstName" class="form-label text-secondary text-capitalize">beca</label>
@@ -101,22 +152,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">
-                                            <label for="firstName" class="form-label text-black-50 text-capitalize">tutor</label>
-                                            <p class="fs-6 text text-uppercase text-primary" id="data_tutor">tutor</p>      
-                                        </li>
-                                        <li class="list-group-item">
-                                            <label for="firstName" class="form-label text-black-50 text-capitalize">parentesco</label>
-                                            <p class="fs-6 text text-uppercase text-primary" id="data_parentesco">parentesco</p>      
-                                        </li>
-                                        <li class="list-group-item">
-                                            <label for="firstName" class="form-label text-black-50 text-capitalize">curp tutor</label>
-                                            <p class="fs-6 text text-uppercase text-primary" id="data_curptutor">curp tutor</p>      
-                                        </li>
-                                    </ul>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -126,9 +162,6 @@
                         <ul class="nav nav-tabs col-12" id="myTab2" role="tablist">
                             <li class="nav-item" role="presentation">
                             <button class="nav-link active text-capitalize" id="home-tab" data-bs-toggle="tab" data-bs-target="#home2" type="button" role="tab" aria-controls="home" aria-selected="true">colegiaturas</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                            <button class="nav-link        text-capitalize" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile2" type="button" role="tab" aria-controls="profile" aria-selected="false">datos del grupo</button>
                             </li>
                         </ul>
 
@@ -184,8 +217,4 @@
         </div>
     </div>
 </div>
-
-
-
-
 <!-- All -->

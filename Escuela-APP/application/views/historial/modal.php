@@ -44,6 +44,14 @@
                                                     <option value="no" >es exalumno no</option>
                                                 </select>
                                             </div>
+
+                                            <div class="col-sm-12">
+                                                <label for="firstName" class="form-label text-uppercase">Beca</label>
+                                                <input type="checkbox" class="form-check-input" id="ins_beca">
+                                                <div class="invalid-feedback">Beca.</div>
+                                            </div>
+                                            
+                                            
                                         </div>
                                         <div class="col-6">
                                             <!-- Grado a Cursar -->

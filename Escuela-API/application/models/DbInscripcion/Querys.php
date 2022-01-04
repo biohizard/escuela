@@ -188,12 +188,12 @@ class Querys extends CI_Model
             $date   = date("Y-m-d H:m:s");
             $data[] = array(
                 "Time"       => $date,
-                "Message"    => "Error Alumno",
-                "Code"       => 104,
-                "Contorller" => "DbTabsCierre",
-                "class"      => "DbTabsCierre",
-                "fuction"    => "DbTabsCierreRead",
-                "id"         => "user"
+                "Message"    => "Error Alumno Kinder",
+                "Code"       => 401,
+                "Contorller" => "",
+                "class"      => "",
+                "fuction"    => "",
+                "id"         => ""
             );
         }
 
