@@ -298,7 +298,7 @@ let settings = {
         "save_costo"           : ticket_costo           ,
         "save_resta"           : ticket_resta           ,
         "save_pago"            : ticket_pago            ,
-        "save_total"           : ticket_total
+        "save_total"           : ticket_total[1]
     }
 };
 
