@@ -114,27 +114,27 @@ class Querys extends CI_Model{
                 //material
                 $this->db->set('material',"material + $pago", FALSE);
 
-            }else if($_POST['save_concepto'] == 'septiembre'){
+            }else if($_POST['save_concepto'] == 'septiembre $1400.00'){
                 $this->db->set('colegiatura_9_septiembre',"colegiatura_9_septiembre + $pago", FALSE);
-            }else if($_POST['save_concepto'] == 'octubre'){
+            }else if($_POST['save_concepto'] == 'octubre $1400.00'){
                 $this->db->set('colegiatura_10_octubre',"colegiatura_10_octubre + $pago", FALSE);
-            }else if($_POST['save_concepto'] == 'noviembre'){
+            }else if($_POST['save_concepto'] == 'noviembre $1400.00'){
                 $this->db->set('colegiatura_11_noviembre',"colegiatura_11_noviembre + $pago", FALSE);
-            }else if($_POST['save_concepto'] == 'diciembre'){
+            }else if($_POST['save_concepto'] == 'diciembre $1400.00'){
                 $this->db->set('colegiatura_12_diciembre',"colegiatura_12_diciembre + $pago", FALSE);
-            }else if($_POST['save_concepto'] == 'enero'){
+            }else if($_POST['save_concepto'] == 'enero $1400.00'){
                 $this->db->set('colegiatura_1_enero',"colegiatura_1_enero + $pago", FALSE);
-            }else if($_POST['save_concepto'] == 'febrero'){
+            }else if($_POST['save_concepto'] == 'febrero $1400.00'){
                 $this->db->set('colegiatura_2_febrero',"colegiatura_2_febrero + $pago", FALSE);
-            }else if($_POST['save_concepto'] == 'marzo'){
+            }else if($_POST['save_concepto'] == 'marzo $1400.00'){
                 $this->db->set('colegiatura_3_marzo',"colegiatura_3_marzo + $pago", FALSE);
-            }else if($_POST['save_concepto'] == 'abril'){
+            }else if($_POST['save_concepto'] == 'abril $1400.00'){
                 $this->db->set('colegiatura_4_abril',"colegiatura_4_abril + $pago", FALSE);
-            }else if($_POST['save_concepto'] == 'mayo'){
+            }else if($_POST['save_concepto'] == 'mayo $1400.00'){
                 $this->db->set('colegiatura_5_mayo',"colegiatura_5_mayo + $pago", FALSE);
-            }else if($_POST['save_concepto'] == 'junio'){
+            }else if($_POST['save_concepto'] == 'junio $1400.00'){
                 $this->db->set('colegiatura_6_junio',"colegiatura_6_junio + $pago", FALSE);
-            }else if($_POST['save_concepto'] == 'julio'){
+            }else if($_POST['save_concepto'] == 'julio $1400.00'){
                 $this->db->set('colegiatura_7_julio',"colegiatura_7_julio + $pago", FALSE);
             }
 
