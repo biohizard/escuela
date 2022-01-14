@@ -45,7 +45,7 @@
                                                 </select>
                                             </div>
 
-                                            <div class="col-sm-12">
+                                            <div class="col-sm-12" id="becaprint">
                                                 <label for="firstName" class="form-label text-uppercase">Beca</label>
                                                 <input type="checkbox" class="form-check-input" id="ins_beca">
                                                 <div class="invalid-feedback">Beca.</div>

@@ -1,10 +1,10 @@
 /*##########################################################################
-____  ______ _____________ 
+____  ______ _____________
 \   \/  /   |   \______   \
  \     /    ~    \       _/
  /     \    Y    /    |   \
 /___/\  \___|_  /|____|_  /
-      \_/     \/        \/ 
+      \_/     \/        \/
 ##########################################################################*/
 function colegiaturasXhr(){
     console.log("%c Load Js XHR ","color:#FA2A00; font-size:24px")
@@ -97,14 +97,14 @@ function autoComplete(){
         $("#exalumno").val(ui.item.ex)
         
         $("#precio_change_x").attr('disabled',true)
-
+        
         inputClear()
         loadingcolegiaturas()
         tipo(ui.item.tipopago)
       },
     });
     //--->
-}    
+}
 function loadingSelectAll(){
     console.log("%cXhr: Run-> loadingSelectAll: carga la lista de servicios y productos","color:SkyBlue;")
     //--->
@@ -167,13 +167,20 @@ function loadingcolegiaturas(){
             lialDataColegiatura("seguro"     ,val.col_seguro      ,val.dinero_seguro      ,val.cos_seguro      ,2)
             lialDataColegiatura("material"   ,val.col_material    ,val.dinero_material    ,val.cos_material    ,3)
             */
+           if(val.beca_saldoafavor > 0){
+            $("#textprecio_saldoafavor").html("$" + val.beca_saldoafavor)
+            $("#saldoAfavoril").removeClass("d-none")
+           }else{
+            $("#saldoAfavoril").addClass("d-none")
+           }
+            
 
-                lialDataColegiatura("1ª de agosto",val.col_1agosto,val.dinero_1agosto,val.cos_1agosto,4)
+                lialDataColegiatura("1ªagosto",val.col_1agosto,val.dinero_1agosto,val.cos_1agosto,4)
                 lialDataColegiatura("septiembre",val.col_septiembre,val.dinero_septiembre,val.cos_septiembre,5)
                 lialDataColegiatura("octubre",val.col_octubre,val.dinero_octubre,val.cos_octubre,6)
                 lialDataColegiatura("noviembre",val.col_noviembre,val.dinero_noviembre,val.cos_noviembre,7)
                 lialDataColegiatura("diciembre",val.col_diciembre,val.dinero_diciembre,val.cos_diciembre,8)
-                lialDataColegiatura("2ª de agosto",val.col_2agosto,val.dinero_2agosto,val.cos_2agosto,9)
+                lialDataColegiatura("2ªagosto",val.col_2agosto,val.dinero_2agosto,val.cos_2agosto,9)
                 lialDataColegiatura("enero",val.col_enero,val.dinero_enero,val.cos_enero,10)
                 lialDataColegiatura("febrero",val.col_febrero,val.dinero_febrero,val.cos_febrero,11)
                 lialDataColegiatura("marzo",val.col_marzo,val.dinero_marzo,val.cos_marzo,12)
@@ -262,6 +269,9 @@ function savePago(){
     let ticket_costo           = z[1];
     
     let resta_x = $("#text_precio_change_x").html(); resta_x = resta_x.split("$");
+    let restafavorResto_x = $("#saldoafavorResto").html(); restafavorResto_x = restafavorResto_x.split("$");
+
+    
     let ticket_resta           = resta_x[1];
     
     var print_total_x = $("#print_total").html();
@@ -298,7 +308,8 @@ let settings = {
         "save_costo"           : ticket_costo           ,
         "save_resta"           : ticket_resta           ,
         "save_pago"            : ticket_pago            ,
-        "save_total"           : ticket_total[1]
+        "save_total"           : ticket_total[1]        ,
+        "save_restafavorResto" : restafavorResto_x[1]
     }
 };
 
@@ -392,9 +403,9 @@ function lialDataColegiatura(mes,col,dinero,costo,num){
             var costo_x = "180"
         }else if(mes == "material"){
             var costo_x = "850"
-        }else if(mes == "1agosto"){
+        }else if(mes == "1ªagosto"){
             var costo_x = "700"
-        }else if(mes == "2agosto"){
+        }else if(mes == "2ªagosto"){
             var costo_x = "700"
         }else{
             var costo_x = $("#config_costo").val();
@@ -414,7 +425,7 @@ function lialDataColegiatura(mes,col,dinero,costo,num){
             pago         = "Si Pagado " + mes;
             color        = "text-success"
         }
-
+        
         if(mes == "inscripcion"){
             var costo_x = "780"
         }else if(mes == "meterial"){
@@ -428,9 +439,11 @@ function lialDataColegiatura(mes,col,dinero,costo,num){
         }else{
             var costo_x = $("#config_costo").val();
         }
+        
         //---------------------------------------------------------------->
 
     }
+
 
     var x = '<li class="list-group-item">' + 
             ' ' + mes + ':     ' +
@@ -438,7 +451,7 @@ function lialDataColegiatura(mes,col,dinero,costo,num){
             '       <li><input type="text" id="historialval_m_' + mes + '"  value="'  + resultPagado + '" disabled></li>' + 
             '       <li><input type="text" id="pagodo_m_'       + mes + '"   value="' + dinero       + '" disabled></li>' + 
             '       <li><input type="text" id="costo_m_'        + mes + '"   value="' + costo_x     + '" disabled></li>' + 
-            '       <li><input type="text" id="num_m_'        + num + '"   value="' + num      + '" disabled></li>' + 
+            '       <li><input type="text" id="num_m_'          + num + '"   value="' + num      + '" disabled></li>' + 
             '   </ul>'+
             '</li>';
         $("#dataColegiatura").append(x)

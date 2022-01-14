@@ -345,7 +345,8 @@ class Querys extends CI_Model
             'inscripcion'              => 0,
             'seguro'                   => 0,
             'material'                 => 0,
-            'colegiatura12_1_agosto'   => 0,
+            'update'              => true,
+                        'colegiatura12_1_agosto'    => 0,
             'colegiatura_9_septiembre' => 0,
             'colegiatura_10_octubre'   => 0,
             'colegiatura_11_noviembre' => 0,
@@ -368,7 +369,8 @@ class Querys extends CI_Model
             'inscripcion'              => 0,
             'seguro'                   => 0,
             'material'                 => 0,
-            'colegiatura12_1_agosto'   => 0,
+            'update'              => true,
+                        'colegiatura12_1_agosto'    => 0,
             'colegiatura_9_septiembre' => 0,
             'colegiatura_10_octubre'   => 0,
             'colegiatura_11_noviembre' => 0,
@@ -390,7 +392,8 @@ class Querys extends CI_Model
             'inscripcion'              => 0,
             'seguro'                   => 0,
             'material'                 => 0,
-            'colegiatura12_1_agosto'   => 0,
+            'update'              => true,
+                        'colegiatura12_1_agosto'    => 0,
             'colegiatura_9_septiembre' => 0,
             'colegiatura_10_octubre'   => 0,
             'colegiatura_11_noviembre' => 0,
@@ -519,7 +522,8 @@ class Querys extends CI_Model
             'inscripcion'              => 0,
             'seguro'                   => 0,
             'material'                 => 0,
-            'colegiatura12_1_agosto'   => 0,
+            'update'              => true,
+                        'colegiatura12_1_agosto'    => 0,
             'colegiatura_9_septiembre' => 0,
             'colegiatura_10_octubre'   => 0,
             'colegiatura_11_noviembre' => 0,
@@ -542,7 +546,8 @@ class Querys extends CI_Model
             'inscripcion'              => 0,
             'seguro'                   => 0,
             'material'                 => 0,
-            'colegiatura12_1_agosto'   => 0,
+            'update'              => true,
+                        'colegiatura12_1_agosto'    => 0,
             'colegiatura_9_septiembre' => 0,
             'colegiatura_10_octubre'   => 0,
             'colegiatura_11_noviembre' => 0,
@@ -571,7 +576,8 @@ class Querys extends CI_Model
             'inscripcion'              => 0,
             'seguro'                   => 0,
             'material'                 => 0,
-            'colegiatura12_1_agosto'   => 0,
+            'update'              => true,
+                        'colegiatura12_1_agosto'    => 0,
             'colegiatura_9_septiembre' => 0,
             'colegiatura_10_octubre'   => 0,
             'colegiatura_11_noviembre' => 0,
@@ -654,9 +660,222 @@ class Querys extends CI_Model
                 'lectoescriturapor' => $_POST['save_lectoescriturapor'],
                 'problema'          => $_POST['save_problema']
             );
-            $data_beca        = array(
-                'beca'           => $_POST['save_beca']
-            );
+            /*
+                1ª De Agosto     agosto      08 
+                Septiembre       septiembre  09 
+                Octubre          octubre     10
+                Noviembre        noviembre   11
+                Diciembre        diciembre   12
+                2ª De Agosto     enero        01
+                Enero            enero        01
+                Febrero          febrero      02
+                Marzo            marzo        03
+                Abril            abril        04
+                Mayo             mayo         05
+                Junio            junio        06
+                Julio            julio        07
+
+            colegiatura12_1_agosto
+            colegiatura_9_septiembre
+            colegiatura_10_octubre
+            colegiatura_11_noviembre
+            colegiatura_12_diciembre
+            colegiatura12_2_agosto
+            colegiatura_1_enero
+            colegiatura_2_febrero
+            colegiatura_3_marzo
+            colegiatura_4_abril
+            colegiatura_5_mayo
+            colegiatura_6_junio
+            colegiatura_7_julio
+            */
+            $mes = date("m");
+            switch ($mes) {
+                //colegiatura12_1_agosto
+                case 8:
+                    $data_beca        = array(
+                        'beca'                     => $_POST['save_beca'],
+                        'saldoafavor'              => '175',
+                        'update'              => true,
+                        'colegiatura12_1_agosto'    => true
+                    );
+                    break;
+                //colegiatura_9_septiembre
+                case 9:
+                    $data_beca        = array(
+                        'beca'                     => $_POST['save_beca'],
+                        'saldoafavor'              => '525',
+                        'update'              => true,
+                        'colegiatura12_1_agosto'    => true,
+                        'colegiatura_9_septiembre' => true
+                    );
+                    break;
+                //colegiatura_10_octubre
+                case 10:
+                    $data_beca        = array(
+                        'beca'                     => $_POST['save_beca'],
+                        'saldoafavor'              => '875',
+                        'update'              => true,
+                        'colegiatura12_1_agosto'    => true,
+                        'colegiatura_9_septiembre' => true,
+                        'colegiatura_10_octubre'   => true
+                    );
+                    break;
+                //colegiatura_11_noviembre
+                case 11:
+                    $data_beca        = array(
+                        'beca'                     => $_POST['save_beca'],
+                        'saldoafavor'              => '1225',
+                        'update'              => true,
+                        'colegiatura12_1_agosto'    => true,
+                        'colegiatura_9_septiembre' => true,
+                        'colegiatura_10_octubre'   => true,
+                        'colegiatura_11_noviembre' => true
+                    );
+                    break;
+                //colegiatura_12_diciembre
+                case 12:
+                    $data_beca        = array(
+                        'beca'                     => $_POST['save_beca'],
+                        'saldoafavor'              => '1575',
+                        'update'              => true,
+                        'colegiatura12_1_agosto'    => true,
+                        'colegiatura_9_septiembre' => true,
+                        'colegiatura_10_octubre'   => true,
+                        'colegiatura_11_noviembre' => true,
+                        'colegiatura_12_diciembre' => true
+                    );
+                    break;
+                //colegiatura12_2_agosto
+                //colegiatura_1_enero
+                case 1:
+                    //saldo a favor * 7
+                    $data_beca        = array(
+                        'beca'                     => $_POST['save_beca'],
+                        'saldoafavor'              => '2100',
+                        'update'              => true,
+                        'colegiatura12_1_agosto'    => true,
+                        'colegiatura_9_septiembre' => true,
+                        'colegiatura_10_octubre'   => true,
+                        'colegiatura_11_noviembre' => true,
+                        'colegiatura_12_diciembre' => true,
+                        'colegiatura12_2_agosto'   => true,
+                        'colegiatura_1_enero'      => true
+                    );
+                    break;
+                //colegiatura_2_febrero
+                case 2:
+                    $data_beca        = array(
+                        'beca'                     => $_POST['save_beca'],
+                        'saldoafavor'              => '2450',
+                        'update'              => true,
+                        'colegiatura12_1_agosto'    => true,
+                        'colegiatura_9_septiembre' => true,
+                        'colegiatura_10_octubre'   => true,
+                        'colegiatura_11_noviembre' => true,
+                        'colegiatura_12_diciembre' => true,
+                        'colegiatura12_2_agosto'   => true,
+                        'colegiatura_1_enero'      => true,
+                        'colegiatura_2_febrero'    => true
+                    );
+                    break;
+                //colegiatura_3_marzo
+                case 3:
+                    $data_beca        = array(
+                        'beca'                     => $_POST['save_beca'],
+                        'saldoafavor'              => '2800',
+                        'update'              => true,
+                        'colegiatura12_1_agosto'    => true,
+                        'colegiatura_9_septiembre' => true,
+                        'colegiatura_10_octubre'   => true,
+                        'colegiatura_11_noviembre' => true,
+                        'colegiatura_12_diciembre' => true,
+                        'colegiatura12_2_agosto'   => true,
+                        'colegiatura_1_enero'      => true,
+                        'colegiatura_2_febrero'    => true,
+                        'colegiatura_3_marzo'      => true
+                    );
+                    break;
+                //colegiatura_4_abril
+                case 4:
+                    $data_beca        = array(
+                        'beca'                     => $_POST['save_beca'],
+                        'saldoafavor'              => '3150',
+                        'update'              => true,
+                        'colegiatura12_1_agosto'    => true,
+                        'colegiatura_9_septiembre' => true,
+                        'colegiatura_10_octubre'   => true,
+                        'colegiatura_11_noviembre' => true,
+                        'colegiatura_12_diciembre' => true,
+                        'colegiatura12_2_agosto'   => true,
+                        'colegiatura_1_enero'      => true,
+                        'colegiatura_2_febrero'    => true,
+                        'colegiatura_3_marzo'      => true,
+                        'colegiatura_4_abril'      => true
+                    );
+                    break;
+                //colegiatura_5_mayo
+                case 5:
+                    $data_beca        = array(
+                        'beca'                     => $_POST['save_beca'],
+                        'saldoafavor'              => '3500',
+                        'update'              => true,
+                        'colegiatura12_1_agosto'    => true,
+                        'colegiatura_9_septiembre' => true,
+                        'colegiatura_10_octubre'   => true,
+                        'colegiatura_11_noviembre' => true,
+                        'colegiatura_12_diciembre' => true,
+                        'colegiatura12_2_agosto'   => true,
+                        'colegiatura_1_enero'      => true,
+                        'colegiatura_2_febrero'    => true,
+                        'colegiatura_3_marzo'      => true,
+                        'colegiatura_4_abril'      => true,
+                        'colegiatura_5_mayo'       => true
+                    );
+                    break;
+                //colegiatura_6_junio
+                case 6:
+                    $data_beca        = array(
+                        'beca'                     => $_POST['save_beca'],
+                        'saldoafavor'              => '3850',
+                        'update'              => true,
+                        'colegiatura12_1_agosto'    => true,
+                        'colegiatura_9_septiembre' => true,
+                        'colegiatura_10_octubre'   => true,
+                        'colegiatura_11_noviembre' => true,
+                        'colegiatura_12_diciembre' => true,
+                        'colegiatura12_2_agosto'   => true,
+                        'colegiatura_1_enero'      => true,
+                        'colegiatura_2_febrero'    => true,
+                        'colegiatura_3_marzo'      => true,
+                        'colegiatura_4_abril'      => true,
+                        'colegiatura_5_mayo'       => true,
+                        'colegiatura_6_junio'      => true
+                    );
+                    break;
+                //colegiatura_7_julio
+                case 7:
+                    $data_beca        = array(
+                        'beca'                     => $_POST['save_beca'],
+                        'saldoafavor'              => '4200',
+                        'update'              => true,
+                        'colegiatura12_1_agosto'    => true,
+                        'colegiatura_9_septiembre' => true,
+                        'colegiatura_10_octubre'   => true,
+                        'colegiatura_11_noviembre' => true,
+                        'colegiatura_12_diciembre' => true,
+                        'colegiatura12_2_agosto'   => true,
+                        'colegiatura_1_enero'      => true,
+                        'colegiatura_2_febrero'    => true,
+                        'colegiatura_3_marzo'      => true,
+                        'colegiatura_4_abril'      => true,
+                        'colegiatura_5_mayo'       => true,
+                        'colegiatura_6_junio'      => true,
+                        'colegiatura_7_julio'      => true
+                    );
+                    break;
+            }
+
 
             $token = $_POST['save_token'];
 

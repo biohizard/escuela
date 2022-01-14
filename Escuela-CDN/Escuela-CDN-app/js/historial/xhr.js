@@ -103,7 +103,10 @@ function allXhr(){
                         $("#data_inscripcion").html("$" + val.inscripcion)
                         $("#data_colegiatura").html("$" + val.colegiatura)
                         $("#data_dpp").html(val.dpp + "%")
-                        if(val.beca == "true"){resultBeca = "alumno becado";$("#ins_beca")[0].checked = true;}else{resultBeca = "alumno no becado"}
+                        if(val.beca == "true"){
+                            resultBeca = "alumno becado";$("#ins_beca")[0].checked = true;
+                            $("#becaprint").hide();
+                        }else{resultBeca = "alumno no becado"}
                         $("#data_beca").html(resultBeca)
                         $("#data_interes").html(val.interes + "%")
 

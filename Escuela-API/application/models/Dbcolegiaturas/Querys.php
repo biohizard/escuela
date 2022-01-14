@@ -119,12 +119,18 @@
                 `colegiaturas_dinero`.colegiatura_4_abril      AS dinero_abril,
                 `colegiaturas_dinero`.colegiatura_5_mayo       AS dinero_mayo,
                 `colegiaturas_dinero`.colegiatura_6_junio      AS dinero_junio,
-                `colegiaturas_dinero`.colegiatura_7_julio      AS dinero_julio
+                `colegiaturas_dinero`.colegiatura_7_julio      AS dinero_julio,
+                `beca`.`update`                               AS beca_update,
+                `beca`.`cliclo`                               AS beca_ciclo,
+                `beca`.`beca`                                 AS beca_beca,
+                `beca`.`saldoafavor`                          AS beca_saldoafavor
             ');
             $this->db->from ('colegiaturas');
             $this->db->where('`colegiaturas`.id_advance_alumno',$_GET['token']);
             $this->db->join ('colegiaturas_dinero','colegiaturas.id_advance_alumno = colegiaturas_dinero.id_advance_alumno');
-            $this->db->join ('colegiaturas_costo','colegiaturas.id_advance_alumno  = colegiaturas_costo.id_advance_alumno');
+            $this->db->join ('colegiaturas_costo' ,'colegiaturas.id_advance_alumno = colegiaturas_costo.id_advance_alumno');
+            $this->db->join ('beca'               ,'colegiaturas.id_advance_alumno = beca.id_advance_alumno');
+
 
                 $query = $this->db->get();
                 $row = $query->row_array();

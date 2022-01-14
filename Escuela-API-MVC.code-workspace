@@ -1,0 +1,7 @@
+{
+	"folders": [
+		{"path": "Escuela-API\\application\\controllers"},	
+		{"path": "Escuela-API\\application\\models"},
+		{"path": "Escuela-API\\application\\views"}
+	]
+}

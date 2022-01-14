@@ -9,6 +9,7 @@ ____________________________
 function colegiaturasBtn(){
     console.log("%c Load Js BTN ","color:#FA2A00; font-size:24px")
     generarCobro()
+    imprimirTicket()
     
 }
 /*########################################################################*/
@@ -24,6 +25,11 @@ _______________ __________  ____________________.___________    _______    _____
 function generarCobro(){
     $("#btnSaveCobro").on("click",function(){
         savePago()
+    })
+}
+function imprimirTicket(){
+    $("#btnPrint").on("click",function(){
+        location.reload();
     })
 }
 /*########################################################################*/
