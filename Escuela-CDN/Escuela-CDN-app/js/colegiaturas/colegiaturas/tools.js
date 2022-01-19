@@ -6,10 +6,22 @@ ___________________   ________  .____
   |____|   \_______  /\_______  /_______ \
                    \/         \/        \/
 ##########################################################################*/
-function colegiaturasTool(){
-    console.log("%c Load Js TOOLS ","color:#FA2A00; font-size:24px")
-    checarBorrar()
-}
+
+    /**
+    * Function     inputSelectPago
+    * @author      biohizard
+    * @description {}
+    * @param       {}
+    * @return      {}
+    **/
+    function colegiaturasTool(){
+        console.log("%c Load Js TOOLS ","color:#FA2A00; font-size:24px")
+        inputAutoComplete()
+        inputSelectPago()
+        saldoaFavor()
+        checarBorrar()
+    }
+
 /*########################################################################*/
 
 /*##########################################################################
@@ -20,12 +32,182 @@ _______________ __________  ____________________.___________    _______    _____
  \___  /  |______/\____|__  /\______  /|____|   |___\_______  /\____|__  /_______  /
      \/                   \/        \/                      \/         \/        \/
 ##########################################################################*/
-function inputClear(){
-    console.log("%cRun -> 1 inputClear : limpia los input","color:SkyBlue;")
-    $("#firstName").on('click', function() {
-        formClear()
-    })
-}
+
+    /**
+    * Function     inputSelectPago
+    * @author      biohizard
+    * @description {}
+    * @param       {}
+    * @return      {}
+    **/
+    /************************************/   
+    function inputAutoComplete(){
+        autoComplete()
+    }
+    /************************************/
+
+    /**
+    * Function     inputSelectPago
+    * @author      biohizard
+    * @description {}
+    * @param       {}
+    * @return      {}
+    **/
+    /************************************/
+    function inputSelectPago(){
+
+        $("#cobros_serpro").change(function(){
+
+            let x = $(this).find("option:selected").text();
+            let y = x.split(" ");
+
+            $("#precio_PorPagar").attr("disabled",false)
+            console.log("%%%%%%" + y.length)
+
+            if(y.length == 2){
+                let z = y[1].split("$");
+
+                    let selectMes   = y[0]
+                    let mesHisorial = $("#print_fecha" + selectMes).html()
+                        mesHisorial = mesHisorial.split(" ")
+                    
+                        console.log(mesHisorial[1] + " *-- *" + selectMes)
+
+                        if(mesHisorial[1] == "Si"){
+                            alert("El mes de " + y[0] + " Ya fue pagado")
+                            $('#cobros_serpro option[value=null]').prop('selected', 'selected').change();
+                            var limpiarTxt = "true";
+                        }else if(mesHisorial[1] == "No"){
+                            var limpiarTxt = "false";
+                        }else{
+                            var limpiarTxt = "false";
+                        }
+                        
+                        conceptoCobro(y,limpiarTxt)
+                        conceptoCosto(y,limpiarTxt)
+                        conceptoPago (y,limpiarTxt)
+                        conceptoResta(y,limpiarTxt)
+
+            }else if(y.length == 5){
+                let z = y[4].split("$");
+
+                    let selectMes   = y[0]+y[3]
+                    let mesHisorial = $("#print_fecha" + selectMes).html()
+                        mesHisorial = mesHisorial.split(" ")
+
+                        if(mesHisorial[1] == "Si"){
+                            alert("El mes de " + y[0] + " Ya fue pagado")
+                            $('#cobros_serpro option[value=null]').prop('selected', 'selected').change();
+                            var limpiarTxt = "true";
+                        }else if(mesHisorial[1] == "No"){
+                            var limpiarTxt = "false";
+                        }else{
+                            var limpiarTxt = "false";
+                        }
+                        let x =  [y[3],y[4]]
+                        if(x[0] == "agosto"){
+                            let x_agosto =  [y[0],y[3],y[4]]
+                            conceptoResta(x_agosto,limpiarTxt)
+                        }else{
+                            conceptoResta(x,limpiarTxt)
+                        }
+                        conceptoCobro(x,limpiarTxt)
+                        conceptoCosto(x,limpiarTxt)
+                        conceptoPago (x,limpiarTxt)
+                        
+            }
+
+
+            console.log("&&&" + y + " --- " + limpiarTxt)
+
+
+            /************************************/
+
+        })
+    }
+    /************************************/
+
+    /**
+    * Function     inputSelectPago
+    * @author      biohizard
+    * @description {}
+    * @param       {}
+    * @return      {}
+    **/
+    /************************************/
+    function saldoaFavor(){
+        $("#aplicarsaldoafavor").on("input",function(){
+            if($("#aplicarsaldoafavor").is(':checked') == true){
+                
+                $("#print_pago" ).html("$00.00")
+                $("#print_total").html("$00.00")
+                
+                $("#precio_PorPagar").val(0).attr("disabled",true)
+
+                    let x = $("#cobros_serpro").find("option:selected").text();
+                    let y = x.split(" ");
+
+                    if(y.length == 2){
+                        var z = y[1].split("$");
+                    }else{
+                        var z = y[4].split("$");
+                    }
+
+                    let resta   = $("#text_precio_change_x").html()
+                    resta   = resta.split("$")
+                    resta_y = resta[1]
+
+                    let saldoafavor = $("#textprecio_saldoafavor").html()
+                    saldoafavor   = saldoafavor.split("$")
+                    saldoafavor_y = saldoafavor[1]
+
+                    //-------------------------------------------------------------------------->
+                    if(parseFloat(saldoafavor_y) > parseFloat(resta_y)){
+
+                        let total_y      =  parseFloat(saldoafavor_y) - parseFloat(resta_y);
+                        let totalResta_y =  -1 * (parseFloat(resta_y) - parseFloat(saldoafavor_y));
+                        
+                        $("#saldoafavorResto").html("$" + totalResta_y)
+
+                        $("#saldoAFavorRestate" ).val(total_y)
+                        $("#print_pago" ).html("$" + resta_y)
+                        $("#print_total").html("$" + resta_y)
+
+                    //-------------------------------------------------------------------------->
+                    }else{
+                    //-------------------------------------------------------------------------->
+                    /*
+                    text_precio_change_x
+                    */
+                        // saldo a favor
+                        let total_y      =  parseFloat(saldoafavor_y) - parseFloat(resta_y);
+                        
+                        if(total_y <= 0 ){
+                            totalResta_y_bug = 0;
+                            let textprecio_saldoafavor   = $("#textprecio_saldoafavor").html();
+                                textprecio_saldoafavor   = textprecio_saldoafavor.split("$");
+                                resta_y_bug = textprecio_saldoafavor[1];
+                        }else{}
+
+                        $("#saldoafavorResto").html("$" + totalResta_y_bug)
+
+                        $("#print_pago" ).html("$" + resta_y_bug)
+                        $("#print_total").html("$" + resta_y_bug)
+                    //-------------------------------------------------------------------------->
+                    }
+                    
+
+                
+            
+            }else if($("#aplicarsaldoafavor").is(':checked') == false){
+                $("#precio_PorPagar").val(0).attr("disabled",false)
+                location.reload()
+            }
+
+        })
+    }
+    /************************************/
+
 /*########################################################################*/
 
 /*##########################################################################
@@ -36,115 +218,10 @@ function inputClear(){
 /____  >____/|___  /         |____|_  /\____/|____/ |__| |__|___|  /\___  >__|   
      \/          \/                 \/                           \/     \/       
 ##########################################################################*/
+
+
 function checarBorrar(){
-    
-    /*
-    *
-    *   Select change COLEGIATURA #cobros_serpro
-    *   Input         PAGO        #precio_PorPagar
-    *
-    * 
-    */
-    $("#cobros_serpro").change(function(){
 
-        let x = $(this).find("option:selected").text();
-        let y = x.split(" ");
-
-        /************************************
-        **                                 **
-        **   PAGO                          **
-        **                                 **
-        *************************************/
-        $("#precio_PorPagar").attr("disabled",false)
-        if(y.length == 2){
-            let z = y[1].split("$");
-                //$("#precio_PorPagar").val(z[1])
-        }else{
-            let z = y[4].split("$");
-                //$("#precio_PorPagar").val(z[1])
-        }
-        /************************************/
-
-        /************************************
-        **                                 **
-        **   Concepto                      **
-        **   Concepto Del Cobro            **
-        **                                 **
-        *************************************/
-        if(y.length == 2){
-            $("#textSerpro_x").html(x)
-        }else{
-            $("#textSerpro_x").html(x)
-        }
-        /************************************/
-
-        /************************************
-        **                                 **
-        **  Costo                          **
-        **  Por Pagar                      **
-        **                                 **
-        *************************************/
-        if(y.length == 2){
-            let z = y[1].split("$");
-            $("#textprecio_costo").html("$" + z[1])
-        }else{
-            let z = y[4].split("$");
-            $("#textprecio_costo").html("$" + z[1])
-        }
-        /************************************/
-
-        /************************************
-        **                                 **
-        **          Pago                   **
-        **      Por Pagar                  **
-        **                                 **
-        *************************************/
-        if(y.length == 2){
-            let z = y[1].split("$");
-            //$("#print_pago").html("$" + z[1])
-        }else{
-            let z = y[4].split("$");
-            //$("#print_pago").html("$" + z[1])
-        }
-        /************************************/
-
-        /************************************
-        **                                 **
-        **              Resta              **
-        **          Por Pagar              **
-        **                                 **
-        *************************************/
-            if(y.length == 2){
-
-                let z = y[1].split("$");
-
-                let costo = $("#textprecio_costo").html()
-                    costo_x = costo.split("$");
-
-                let pagado_x = $("#pagodo_m_" + y[0]).val();
-
-                let xxx = parseInt(costo_x[1]) - parseInt(pagado_x);
-
-                $("#text_precio_change_x").html("$" + xxx)
-                //alert(1)
-
-            }else{
-                
-                let z = y[4].split("$");
-                
-
-                let costo = $("#textprecio_costo").html()
-                    costo_x = costo.split("$");
-
-                let pagado_x = $("#pagodo_m_" + y[0]+ y[1]+ y[2]+ y[3]).val();
-
-                let xxx = parseInt(costo_x[1]) - parseInt(pagado_x);
-
-                $("#text_precio_change_x").html("$" + z[1])
-                //alert(2)
-            }
-        /************************************/
-    })
 
     /*
     precio_PorPagar
@@ -153,6 +230,7 @@ function checarBorrar(){
 
         text_precio_change_x  - precio_PorPagar
     */
+    //pago - <input>
     $("#precio_PorPagar").on("input",function(){
 
 
@@ -164,13 +242,10 @@ function checarBorrar(){
 
             let pago_y =  $("#precio_PorPagar").val();
                 pagoresta = parseInt(resta_y) - parseInt(pago_y)
-
+            console.log("###" + " --- "+ resta_y + "---" + pagoresta)
             if(pagoresta < 0){
-                
                 $("#precio_PorPagar").val("0")
                 $("#print_pago").html("$00.00")
-                
-
             }else{
                 $("#print_pago" ).html("$" + $("#precio_PorPagar").val())
                 $("#print_total").html("$" + $("#precio_PorPagar").val())
@@ -199,86 +274,120 @@ function checarBorrar(){
     /***********************************************/
 
 
-        /************************************
-        **                                 **
-        **              saldo              **
-        **          saldo a favor          **
-        **                                 **
-        *************************************/
-    $("#aplicarsaldoafavor").on("input",function(){
-
-        if($("#aplicarsaldoafavor").is(':checked') == true){
-            
-            $("#print_pago" ).html("$00.00")
-            $("#print_total").html("$00.00")
-            
-            $("#precio_PorPagar").val(0).attr("disabled",true)
-
-                let x = $("#cobros_serpro").find("option:selected").text();
-                let y = x.split(" ");
-
-                if(y.length == 2){
-                    var z = y[1].split("$");
-                }else{
-                    var z = y[4].split("$");
-                }
-
-                let resta   = $("#text_precio_change_x").html()
-                resta   = resta.split("$")
-                resta_y = resta[1]
-
-                let saldoafavor = $("#textprecio_saldoafavor").html()
-                saldoafavor   = saldoafavor.split("$")
-                saldoafavor_y = saldoafavor[1]
-
-                //-------------------------------------------------------------------------->
-                if(parseFloat(saldoafavor_y) > parseFloat(resta_y)){
-
-                    let total_y      =  parseFloat(saldoafavor_y) - parseFloat(resta_y);
-                    let totalResta_y =  -1 * (parseFloat(resta_y) - parseFloat(saldoafavor_y));
-                    
-                    $("#saldoafavorResto").html("$" + totalResta_y)
-
-                    $("#saldoAFavorRestate" ).val(total_y)
-                    $("#print_pago" ).html("$" + resta_y)
-                    $("#print_total").html("$" + resta_y)
-
-                //-------------------------------------------------------------------------->
-                }else{
-                //-------------------------------------------------------------------------->
-                /*
-                text_precio_change_x
-                */
-                    // saldo a favor
-                    let total_y      =  parseFloat(saldoafavor_y) - parseFloat(resta_y);
-                    
-                    if(total_y < 0 ){
-                        totalResta_y_bug = 0;
-                        let textprecio_saldoafavor   = $("#textprecio_saldoafavor").html();
-                            textprecio_saldoafavor   = textprecio_saldoafavor.split("$");
-                            resta_y_bug = textprecio_saldoafavor[1];
-                    }
-                    
-                    $("#saldoafavorResto").html("$" + totalResta_y_bug)
-
-
-                    $("#print_pago" ).html("$" + resta_y_bug)
-                    $("#print_total").html("$" + resta_y_bug)
-                //-------------------------------------------------------------------------->
-                }
-                
-
-            
-        
-        }else if($("#aplicarsaldoafavor").is(':checked') == false){
-        
-            $("#precio_PorPagar").val(0).attr("disabled",false)
-            location.reload();
-            //alert("saldo por pagar: false")
-        
-        }
-    })
-
 
 }
+
+    /**
+    * Function     inputClear
+    * @author      biohizard
+    * @description {}
+    * @param       {}
+    * @return      {}
+    **/
+    /************************************/
+    function inputClear(){
+        console.log("%cRun -> 1 inputClear : limpia los input","color:SkyBlue;")
+        $("#firstName").on('click', function() {
+            $(this).val("")
+            location.reload()
+        })
+    }
+    /************************************/
+
+    /**
+    * Function     conceptoCobro
+    * @author      biohizard
+    * @description {}
+    * @param       {y: select text}
+    * @return      {}
+    **/
+    /************************************/
+    function conceptoCobro(y,limpiarTxt){
+        console.log(y + " -- " + limpiarTxt)
+        if(limpiarTxt == "false"){
+            $("#textSerpro_x").html(y[0] + " $" + $("#pagodo_m_" + y[0] ).val())
+        }else if(limpiarTxt == "true"){
+            $("#textSerpro_x").html("$00.00")
+        }
+    }
+    /************************************/
+
+    /**
+    * Function     conceptoCobro
+    * @author      biohizard
+    * @description {}
+    * @param       {y: select text}
+    * @return      {}
+    **/
+    /************************************/
+    function conceptoCosto(y,limpiarTxt){
+        if(limpiarTxt == "false"){
+            let z = y[1].split("$");
+            $("#textprecio_costo").html("$" + z[1])
+        }else if(limpiarTxt == "true"){
+            $("#textprecio_costo").html("$00.00")
+        }
+    }
+    /************************************/
+
+    /**
+    * Function     conceptoPago
+    * @author      biohizard
+    * @description {}
+    * @param       {y: select text}
+    * @return      {}
+    **/
+    /************************************/
+    function conceptoPago(y,limpiarTxt){
+        if(limpiarTxt == "false"){
+        }else if(limpiarTxt == "true"){
+        }
+    }
+    /************************************/
+
+    /**
+    * Function     conceptoResta
+    * @author      biohizard
+    * @description {}
+    * @param       {y: select text}
+    * @return      {}
+    **/
+    /************************************/
+    function conceptoResta(y,limpiarTxt){
+        
+        if(limpiarTxt == "false"){
+            if(y[1]== 'agosto'){
+                
+                let z = y[1].split("$")
+                let costo = $("#textprecio_costo").html()
+                    costo_x = costo.split("$")
+                
+                if(parseInt($("#pagodo_m_" + y[0] + y[1]).val()) == 0){
+                    console.log("%%%agosto: 1")
+                    xxx = parseFloat($("#costo_m_" + y[0] + y[1]).val())
+                }else{
+                    console.log("%%%agosto: 2")
+                    xxx = parseInt($("#pagodo_m_" + y[0] + y[1]).val()) - parseInt(costo_x[1])
+                }
+            }else{
+                let z = y[1].split("$")
+                let costo = $("#textprecio_costo").html()
+                    costo_x = costo.split("$")
+                let pagado_x = $("#pagodo_m_" + y[0]).val()
+
+                if(parseInt($("#pagodo_m_" + y[0]).val()) == 0){
+                    xxx = parseFloat($("#costo_m_" + y[0]).val())
+                }else{
+                    xxx = parseInt(costo_x[1]) - parseInt($("#pagodo_m_" + y[0]).val())
+                }
+            }
+
+            $("#text_precio_change_x").html("$" + xxx)
+
+        }else if(limpiarTxt == "true"){
+            $("#text_precio_change_x").html("$00.00")
+        }
+    }
+    /************************************/
+
 /*########################################################################*/

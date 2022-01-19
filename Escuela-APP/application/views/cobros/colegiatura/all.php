@@ -398,7 +398,8 @@
       <li class="list-group-item">mes:                <input type="text" id="mes_actual" value="<?php echo Date("n"); ?>" disabled></li>
       <li class="list-group-item">colegiatura actual: <input type="text" id="col_actual" value="00.00" disabled></li>
     </ul>
-  </div>  
+  </div>
+
 </div>
 
 <style>
