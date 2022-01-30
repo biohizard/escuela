@@ -259,12 +259,25 @@
           <div>
             <span class="text-primary text-capitalize" id="text_precio_change_x">$00.00</span>
             <br>
-            <input type="hidden"  value="resta" id="precio_change_x" disable>
+            <input type="text"  value="resta" id="precio_change_x" disable>
           </div>
         </li>
 
+        <!-- interes -->
+        <li class="list-group-item d-flex justify-content-between lh-sm bg-danger" id="interes">
+          <div>
+            <h6    class="my-0 link-light">interes</h6>
+            <small class="     link-light">interes</small>
+          </div>
+          <div>
+            <span class="link-light" id="textprecio_interes">$00.00</span>
+
+          </div>
+
+        </li>
+
         <!-- saldo a favor -->
-        <li class="list-group-item d-flex justify-content-between lh-sm bg-success" id="saldoAfavoril">
+        <li class="list-group-item d-flex justify-content-between lh-sm bg-success" id="saldoAfavor">
           <div>
             <h6    class="my-0 link-light">saldo</h6>
             <small class="     link-light">saldo a favor</small>
@@ -284,7 +297,7 @@
           </div>
 
         </li>
-       
+
         <!-- pago-->
         <li class="list-group-item d-flex justify-content-between lh-sm d-none" id="configDpaShow">
           <div>
