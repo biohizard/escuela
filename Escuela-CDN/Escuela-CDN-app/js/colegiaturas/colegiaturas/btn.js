@@ -7,7 +7,7 @@ ____________________________
         \/                  \/ 
 ##########################################################################*/
 function colegiaturasBtn(){
-    console.log("%c Load Js BTN ","color:#FA2A00; font-size:24px")
+    console.log("%c Load Js BTN ","color:magenta; font-size:24px")
     generarCobro()
     imprimirTicket()
     

@@ -1,4 +1,4 @@
-console.log("%c Load Js ESCUELA ","color:#FA2A00; font-size:36px;text-decoration: underline")
+console.log("%c Load Js ESCUELA ","color:#ffffff; font-size:36px;text-decoration: underline")
 /*============================================
                 Error XHR jQ                 
 ==============================================*/
@@ -20,6 +20,7 @@ function xhrError(jqXHR, textStatus, errorThrown) {
                                 } else {
                                     fail_txt = "Uncaught Error [  Fail  ]. " + jqXHR.responseText;
                                         }
+    alert(fail_txt);
     console.log("App: Msg XHR (AEx000002 [" + fail_txt + "] ).");
 }
 /*==============================================

@@ -16,7 +16,7 @@ _________  ________  .____     ___________ ________.___   ____________________ _
     inputColegiatura change
     */
     $(function() {
-        console.log("%c Load Js COBROS ","color:#FA2A00; font-size:24px")
+        console.log("%c Load Js COBROS ","color:magenta; font-size:24px")
         colegiaturasBtn()
         colegiaturasTool()
         colegiaturasXhr()

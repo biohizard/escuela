@@ -17,7 +17,7 @@ if (local == true) {
     url_api  = hostweb + "Escuela-API/";
     url_cdn  = hostweb + "Escuela-CDN/Escuela-CDN-app/";
 }
-console.log("%c Run JS: " + txtServe, "color:green; text-decoration: underline");
+console.log("%c Run JS: " + txtServe, "color:cyan; text-decoration: underline");
 //--->
 function apiConecction() {
     //---->
@@ -48,7 +48,7 @@ function apiConecction() {
         //---->
 }
 //--->  
-console.log("%c Run APP: " + txtServe + " ", "color:green; text-decoration: underline");
+console.log("%c Run APP: " + txtServe + " ", "color:cyan; text-decoration: underline");
 //*********************************************************************************//
 //                                                                                 //
 //                                      REAL                                       //

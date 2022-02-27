@@ -7,7 +7,7 @@ ____  ______ _____________
       \_/     \/        \/
 ##########################################################################*/
 function colegiaturasXhr(){
-    console.log("%c Load Js XHR ","color:#FA2A00; font-size:24px")
+    console.log("%c Load Js XHR ","color:magenta; font-size:24px")
     loadingconfig()
 }
 /*########################################################################*/
@@ -48,7 +48,7 @@ function loadingconfig(){
 }
 
 function autoComplete(x){
-    console.log("%cXhr: Run-> autoComplete: busca los alumnos por ID ","color:SkyBlue;")
+    console.log("%cXhr: Run-> autoComplete: busca los alumnos por ID ","color:green;")
     $('#firstName').autocomplete({
       minLength:4,
       delay:1,
@@ -153,7 +153,7 @@ function loadingcolegiaturas(){
 }
 
 function loadingSelectAll(){
-    console.log("%cXhr: Run-> loadingSelectAll: carga la lista de servicios y productos","color:SkyBlue;")
+    console.log("%cXhr: Run-> loadingSelectAll: carga la lista de servicios y productos","color:green;")
     //--->
     let jqxhr = $.getJSON(urlDbSerproA + "?type=colegiatura&x=y", function(data) {})
         .done(function(data){
@@ -381,7 +381,7 @@ function lialDataColegiatura(mes,col,dinero,costo,num){
         var costo_x = "1400"
     }
 
-    if(dinero == costo_x){
+    if(dinero == costo_x || dinero >= costo_x){
         resultPagado = true;
         pago         = "Si Pagado " + mes;
         color        = "text-success"

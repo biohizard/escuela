@@ -259,7 +259,7 @@
           <div>
             <span class="text-primary text-capitalize" id="text_precio_change_x">$00.00</span>
             <br>
-            <input type="text"  value="resta" id="precio_change_x" disable>
+            <input type="text"  value="hidden" id="precio_change_x" disable>
           </div>
         </li>
 
@@ -349,6 +349,7 @@
         </li>
       </ul>
 
+      <input type="hidden"  value="typoMes" id="typoMes" disable>
       <button class="w-100 btn btn-primary btn-lg text-uppercase d-none" type="submit" id="btnSaveCobro"   >generar cobro</button>
       <button class="w-100 btn btn-primary btn-lg text-uppercase d-none" type="submit" id="btnSaveDeposito">registrar deposito</button>
     </div>
