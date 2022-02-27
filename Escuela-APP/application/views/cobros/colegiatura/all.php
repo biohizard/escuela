@@ -259,7 +259,7 @@
           <div>
             <span class="text-primary text-capitalize" id="text_precio_change_x">$00.00</span>
             <br>
-            <input type="text"  value="hidden" id="precio_change_x" disable>
+            <input type="hidden"  value="" id="precio_change_x" disable>
           </div>
         </li>
 
