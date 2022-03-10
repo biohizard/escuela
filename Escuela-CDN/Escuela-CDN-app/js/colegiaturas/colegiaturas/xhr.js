@@ -128,8 +128,8 @@ function loadingcolegiaturas(){
             $("#saldoAfavoril").removeClass("d-none")
            }else{
             $("#saldoAfavoril").addClass("d-none")
-           }
-        
+           }    
+
                 lialDataColegiatura("1ªagosto"  ,val.col_1agosto   ,val.dinero_1agosto   ,val.cos_1agosto   ,4)
                 lialDataColegiatura("septiembre",val.col_septiembre,val.dinero_septiembre,val.cos_septiembre,5)
                 lialDataColegiatura("octubre"   ,val.col_octubre   ,val.dinero_octubre   ,val.cos_octubre   ,6)
@@ -143,7 +143,6 @@ function loadingcolegiaturas(){
                 lialDataColegiatura("mayo"      ,val.col_mayo      ,val.dinero_mayo      ,val.cos_mayo      ,14)
                 lialDataColegiatura("junio"     ,val.col_junio     ,val.dinero_junio     ,val.cos_junio     ,15)
                 lialDataColegiatura("julio"     ,val.col_julio     ,val.dinero_julio     ,val.cos_julio     ,16)
-                
 
         })
         $("#cobros_serpro").attr("disabled",false)
@@ -245,8 +244,46 @@ function loadingFechas(){
     .always(function(data){})
 }
 function savePago(){
+    /*
+        "save_costo"           : ticket_costo           ,
+        "save_resta"           : ticket_resta           ,
+        "save_pago"            : ticket_pago            ,
+        "save_total"           : ticket_total[1]        ,
+        
+        save_costo: 1400.00
+        save_resta: 1610
+        save_pago: 1500
+        save_total: 1500
+        save_restafavorResto: 00.00
+        save_interes: true
+    */
 
-    //imprSelec('print_div')
+        let xCosto       = $("#cobros_serpro").find("option:selected").text();
+        let yCosto       = xCosto.split(" ");
+        let zCosto       = yCosto[1].split("$");
+        var ticket_costo = zCosto[1];
+        
+        let print_total_x = $("#print_total").html();
+        let print_total_y = print_total_x.split("$");
+        var ticket_pago   = print_total_y[1];
+
+        let total_x      = $("#print_total").html();
+            total_x      = total_x.split("$");
+        var ticket_total = total_x;
+
+    /*determina si usar resta o interes*/
+    if($("#textprecio_interes").text() == '$00.00'){
+        let resta_x      = $("#text_precio_change_x").html();
+            resta_x      = resta_x.split("$");
+        var ticket_resta = resta_x[1];
+        var ticket_interes = false;
+    }else{
+        let resta_x      = $("#textprecio_interes").html();
+            resta_x      = resta_x.split("$");
+        var ticket_resta = resta_x[1];
+        var ticket_interes = true;
+    }
+
     let ticket_fecha           = $("#configFecha").val();
     let ticket_idUsuario       = $("#cobroIdUsuario").val();
 
@@ -256,74 +293,53 @@ function savePago(){
 
     let ticket_concepto        = $("#cobros_serpro option:selected").html();
         ticket_concepto        = ticket_concepto.split(" ")
-        ticket_concepto1        = ticket_concepto[0]
+        ticket_concepto1       = ticket_concepto[0]
 
     let ticket_idadconcepto    = $("#cobros_serpro option:selected").val();
 
-    let x = $("#cobros_serpro").find("option:selected").text();let y = x.split(" ");let z = y[1].split("$");
-    let ticket_costo           = z[1];
-    
-    let resta_x = $("#text_precio_change_x").html(); resta_x = resta_x.split("$");
-    let restafavorResto_x = $("#saldoafavorResto").html(); restafavorResto_x = restafavorResto_x.split("$");
+    let restafavorResto_x      = $("#saldoafavorResto").html(); restafavorResto_x = restafavorResto_x.split("$");
 
-    
-    let ticket_resta           = resta_x[1];
-    
-    var print_total_x = $("#print_total").html();
-    var print_total_y = print_total_x.split("$");
-    let ticket_pago   = print_total_y[1];
-
-    
-    let total_x = $("#print_total").html(); total_x = total_x.split("$");
-    let ticket_total           = total_x;
-
-    //alert(ticket_fecha + "/-----/" + ticket_idUsuario + "/-----/" + ticket_idAlumno + "/-----/" + ticket_idAdvanceAlumno + "/-----/" + ticket_nombreAlumno + "/-----/" + ticket_concepto + "/-----/" + ticket_costo + "/-----/" + ticket_resta + "/-----/" + ticket_pago + "/-----/" + ticket_total)
-/*
-    FICHA DE INSCRIPCION (4)
-    DATOS DEL ALUMNO     (14)
-    PARA ALUMNOS DE 1ER GRADO (6)
-    DATOS DEL TUTOR (3)
-*/
-let settings = {
-    "url": urlDbColegiaturasPagosU + '?type=updatedata',
-    "method": "POST",
-    "timeout": 0,
-    "headers": {
-        /*"Authorization": "Basic cm9vdDphZG1pbg==",*/
-        "Content-Type": "application/x-www-form-urlencoded"
-    },
-    "data": {
-        "save_fecha"           : ticket_fecha           ,
-        "save_idUsuario"       : ticket_idUsuario       ,
-        "save_idAlumno"        : ticket_idAlumno        ,
-        "save_idAdvanceAlumno" : ticket_idAdvanceAlumno ,
-        "save_nombreAlumno"    : ticket_nombreAlumno    ,
-        "save_concepto"        : ticket_concepto1       ,
-        "save_idadconcepto"    : ticket_idadconcepto    ,
-        "save_costo"           : ticket_costo           ,
-        "save_resta"           : ticket_resta           ,
-        "save_pago"            : ticket_pago            ,
-        "save_total"           : ticket_total[1]        ,
-        "save_restafavorResto" : restafavorResto_x[1]
+    let settings = {
+        "url"    : urlDbColegiaturasPagosU + '?type=updatedata',
+        "method" : "POST",
+        "timeout": 0,
+        "headers": {
+            /*"Authorization": "Basic cm9vdDphZG1pbg==",*/
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "data"   : {
+            "save_fecha"           : ticket_fecha,
+            "save_idUsuario"       : ticket_idUsuario,
+            "save_idAlumno"        : ticket_idAlumno,
+            "save_idAdvanceAlumno" : ticket_idAdvanceAlumno,
+            "save_nombreAlumno"    : ticket_nombreAlumno,
+            "save_concepto"        : ticket_concepto1,
+            "save_idadconcepto"    : ticket_idadconcepto,
+            "save_costo"           : ticket_costo,
+            "save_resta"           : ticket_resta,
+            "save_pago"            : ticket_pago,
+            "save_total"           : ticket_total[1],
+            "save_restafavorResto" : restafavorResto_x[1],
+            "save_interes"         : ticket_interes
+        }
     }
-};
 
-let jqxhr1 = $.ajax(settings).done(function(response) {
-        console.log("Run: Cierres")
-    })
-    .done(function(data) {
-        //$.each(data, function(i, val) {})
-        //formClear()
-        $("#ModalPrint").modal("show")
-    })
-    .fail(function(data, jqXHR, textStatus, errorThrown) {
-        console.info("Run: all user loading error");
-        xhrError(jqXHR, textStatus, errorThrown);
-    })
-    .always(function(data) {
-        console.info("Run: all user always");
-    })
-            
+    let jqxhr1 = $.ajax(settings).done(function(response) {
+            console.log("Run: Cierres")
+        })
+        .done(function(data) {
+            //$.each(data, function(i, val) {})
+            //formClear()
+            $("#ModalPrint").modal("show")
+        })
+        .fail(function(data, jqXHR, textStatus, errorThrown) {
+            console.info("Run: all user loading error");
+            xhrError(jqXHR, textStatus, errorThrown);
+        })
+        .always(function(data) {
+            console.info("Run: all user always");
+        })
+
 }
 /*########################################################################*/
 
@@ -364,6 +380,7 @@ function tipo(x){
     $("#colHistorial,#colTicket").removeClass("d-none")
 }
 function lialDataColegiatura(mes,col,dinero,costo,num){
+    //alert(mes+"---"+col+"---"+dinero+"---"+costo+"---"+num);
 
     if(mes == "inscripcion"){
         var costo_x = "780"
@@ -380,28 +397,37 @@ function lialDataColegiatura(mes,col,dinero,costo,num){
     }else{
         var costo_x = "1400"
     }
-
-    if(dinero == costo_x || dinero >= costo_x){
+    dinero  = parseInt(dinero);
+    costo_x = parseInt(costo_x);
+    /*
+    pagodo_m_ -> precio de la col
+    costo_m_  -> pagado
+    */
+   
+    if(col == dinero && col >0){
+        console.log(dinero + " ### pagado " + mes + "###" + costo)
         resultPagado = true;
         pago         = "Si Pagado " + mes;
         color        = "text-success"
-    }else if(dinero == 0 ){
+    }else if(col == 0 ){
+        console.log(dinero + "### no pagado " + mes + "###" + costo)
         resultPagado = false;
         pago         = "No Pagado " + mes;
-        color        = "text-danger";        
-    }else{
-        resultPagado = true;
+        color        = "text-danger";
+    }else if(col > dinero){
+        console.log(dinero + "### parcial " + mes + "###" + costo)
+        resultPagado = false;
         pago         = "Pagado parcialmete " + mes;
         color        = "text-warning"
     }
-    console.log(mes + " --- " + dinero + " --- " + costo_x)
+    //console.log(mes + " --- " + dinero + " --- " + costo_x)
 
     let x = '<li class="list-group-item">' +
             ' ' + mes + ':     ' +
             '   <ul>'+
             '       <li><input type="text" id="historialval_m_' + mes + '"  value="'  + resultPagado + '" disabled></li>' + 
-            '       <li><input type="text" id="pagodo_m_'       + mes + '"   value="' + dinero       + '" disabled></li>' + 
-            '       <li><input type="text" id="costo_m_'        + mes + '"   value="' + costo_x     + '" disabled></li>' + 
+            '       <li><input type="text" id="pagodo_m_'       + mes + '"   value="' + col         + '" disabled></li>' + 
+            '       <li><input type="text" id="costo_m_'        + mes + '"   value="' + dinero     + '" disabled></li>' + 
             '       <li><input type="text" id="num_m_'          + num + '"   value="' + num      + '" disabled></li>' + 
             '   </ul>'+
             '</li>';
@@ -412,5 +438,6 @@ function lialDataColegiatura(mes,col,dinero,costo,num){
             + '         <span  class="' + color + ' text-capitalize" id="print_fecha' + mes + '"> ' + pago + '</span>'
             + '     </div>'
                 '</li>';
-        $("#historiaAlumno").append(y);
+
+                $("#historiaAlumno").append(y);
 }

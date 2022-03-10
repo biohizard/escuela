@@ -363,7 +363,7 @@
 
 
 
-<div class="row d-none">
+<div class="row d-nonexxxx">
   <div class="col-4">
     <ul class="list-group">
       

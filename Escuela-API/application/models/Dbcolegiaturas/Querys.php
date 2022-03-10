@@ -120,6 +120,9 @@
                 `colegiaturas_dinero`.colegiatura_5_mayo       AS dinero_mayo,
                 `colegiaturas_dinero`.colegiatura_6_junio      AS dinero_junio,
                 `colegiaturas_dinero`.colegiatura_7_julio      AS dinero_julio,
+
+                
+
                 `beca`.`update`                               AS beca_update,
                 `beca`.`cliclo`                               AS beca_ciclo,
                 `beca`.`beca`                                 AS beca_beca,

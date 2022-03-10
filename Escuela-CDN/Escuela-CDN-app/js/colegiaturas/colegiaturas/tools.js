@@ -41,7 +41,7 @@ _______________ __________  ____________________.___________    _______    _____
     * @param       {}
     * @return      {}
     **/
-    /************************************/   
+    /************************************/
     function inputAutoComplete(){
         autoComplete()
     }
@@ -66,7 +66,6 @@ _______________ __________  ____________________.___________    _______    _____
             $("#precio_PorPagar").attr("disabled",false)
             
 
-
             if(y.length == 2){
                 var z = y[1].split("$");
 
@@ -86,17 +85,22 @@ _______________ __________  ____________________.___________    _______    _____
             }
 
             let mesPagadoResult = mesPagado(selectMes);
-
-            if(mesPagadoResult  == "false"){
-            
-                if( mesPagadoResult == "true"){
+                console.log("mes pagado= "+mesPagadoResult + "----" + " Z1=" + z[1])
                 
-                }else if( mesPagadoResult == "false"){
-                    
+                if( mesPagadoResult == "false"){
+                    console.log("con Interes")
                     var limpiarTxt = "false";
     
                     conceptoCobro(selectMes,limpiarTxt)
-                    conceptoCosto(z[1],limpiarTxt)
+                    
+                    
+                    if($("#pagodo_m_" + y[0]).val() == "0.00"){
+                        conceptoCosto(z[1],limpiarTxt,true,selectMes)
+                    }else{
+                        conceptoCosto(z[1],limpiarTxt,false,selectMes)
+                    }
+                    //conceptoCosto(z[1],limpiarTxt)
+
                     conceptoPago(selectMes,limpiarTxt)
                     conceptoResta(selectMes,limpiarTxt)
                     
@@ -106,7 +110,7 @@ _______________ __________  ____________________.___________    _______    _____
 
                 }else{console.error("Error: Mes pagado")}
 
-            }else{}
+
         })
     }
     /************************************/
@@ -120,7 +124,7 @@ _______________ __________  ____________________.___________    _______    _____
         **/
         /************************************/
         function conceptoCobro(y,limpiarTxt){
-            console.log("conceptoCobro: y->" + y + " -- limpiarTxt-> " + limpiarTxt)
+            //console.log("conceptoCobro: y->" + y + " -- limpiarTxt-> " + limpiarTxt)
 
             if(limpiarTxt == 'false'){
 
@@ -142,14 +146,12 @@ _______________ __________  ____________________.___________    _______    _____
         * @return      {}
         **/
         /************************************/
-        function conceptoCosto(y,limpiarTxt){
-            console.log("conceptoCosto: y->" + y + " -- limpiarTxt-> " + limpiarTxt)
-            //conceptoCosto: y->1ªagosto -- limpiarTxt-> false
-
-            if(limpiarTxt == "false"){
+        function conceptoCosto(y,limpiarTxt,x,mes){
+            if(x == true){
                 $("#textprecio_costo").html("$" + y)
-            }else if(limpiarTxt == "true"){
-                $("#textprecio_costo").html("$00.00")
+            }else if(x == false){
+                alert(y + limpiarTxt + x)
+                $("#textprecio_costo").html($("#pagodo_m_" + mes).val())
             }
         }
         /************************************/
@@ -163,7 +165,7 @@ _______________ __________  ____________________.___________    _______    _____
         **/
         /************************************/
         function conceptoPago(y,limpiarTxt){
-            console.log("conceptoPago: y->" + y + " -- limpiarTxt-> " + limpiarTxt)
+            //console.log("conceptoPago: y->" + y + " -- limpiarTxt-> " + limpiarTxt)
             if(limpiarTxt == "false"){
             }else if(limpiarTxt == "true"){
             }
@@ -175,24 +177,106 @@ _______________ __________  ____________________.___________    _______    _____
         * @author      biohizard
         * @description {}
         * @param       {y: select text}
-        * @return      {}
+        * @return      {#text_precio_change_x & #textprecio_interes}
         **/
         /************************************/
         function conceptoResta(y,limpiarTxt){
-            console.log("cconceptoResta: y->" + y + " -- limpiarTxt-> " + limpiarTxt)
-
-            let costo = $("#textprecio_costo").html()
-            costo_x = costo.split("$")
+            //console.log("cconceptoResta: y->" + y + " -- limpiarTxt-> " + limpiarTxt)
+            //cconceptoResta: y->1ªagosto -- limpiarTxt-> false
             
-            
-            xxx = parseInt(costo_x[1]) -  parseInt($("#pagodo_m_" + y).val())
-            
-            $("#text_precio_change_x").html("$" + xxx)
-            $("#precio_change_x").val(xxx)
+            /*
+            if($("#pagodo_m_" + y).val() == 0){
+                //----------------------------------------->
+                let costo = $("#textprecio_costo").html()
+                costo_x = costo.split("$")
+                
+                xxx =  parseInt(costo_x[1]) -parseInt($("#pagodo_m_" + y).val());
+                
+                $("#text_precio_change_x").html("$" + xxx)
+                $("#precio_change_x").val(xxx)
+    
+                let interesHtml = (xxx*0.15) + parseInt($("#precio_change_x").val())
+                $("#textprecio_interes").html("$"+interesHtml)
+                //----------------------------------------->
+            }else{
+                //----------------------------------------->
 
-            let interesHtml = (xxx*0.15) + parseInt($("#precio_change_x").val())
-            $("#textprecio_interes").html("$"+interesHtml+".00")
+                if(parseFloat($("#pagodo_m_septiembre"+y).val()) == '0.00'){
+                    alert(1)
+                }else{
+                    alert(2)
+                }
+                let costo = $("#textprecio_costo").html()
+                costo_x = costo.split("$")
+                
+                xxx =  parseInt($("#pagodo_m_" + y).val()) - parseInt($("#costo_m_" + y).val());
+                
+                //resta
+                $("#text_precio_change_x").html("$" + xxx)
+                $("#precio_change_x").val(xxx)
+                
+                //interes
+                let interesHtml = (xxx*0.15) + parseInt($("#precio_change_x").val())
+                $("#textprecio_interes").html("$"+interesHtml)
+                //----------------------------------------->
+            }
+            */
+            
+            if(y == "1ªagosto" || y == "2ªagosto"){
+                var costo      = parseFloat($("#config_1agosto").val());
+            }else{
+                var costo      = parseFloat($("#config_costo").val());
+            }
 
+            let mesPago    = parseFloat($("#costo_m_" + y).val())
+
+            let restaValor = (costo - mesPago);
+
+            if($("#pagodo_m_" + y).val() == 0){
+                //alert(111)
+                $("#text_precio_change_x").html("$" + restaValor + ".00")
+                $("#precio_change_x").val(restaValor + ".00")
+
+                let interesHtml = (restaValor * 0.15) + restaValor
+                $("#textprecio_interes").html("$"+interesHtml)
+
+            }else{
+
+                if(y == "1ªagosto" || y == "2ªagosto"){
+                    var costo      = parseFloat($("#config_1agosto").val());
+                }else{
+                    var costo      = parseFloat($("#config_costo").val());
+                }
+
+                let costo_m   = $("#costo_m_" + y).val()
+                let costo_m_x = costo_m.split("$")
+
+                let restaValor = parseFloat(costo) - parseFloat(costo_m_x)
+                $("#text_precio_change_x").html("$" + restaValor + ".00")
+                $("#precio_change_x").val(restaValor + ".00")
+
+                let interesHtml = (restaValor * 0.15) + restaValor
+                $("#textprecio_interes").html("$"+interesHtml)
+                
+                alert(222 + " ----- "+ costo + " ----- " + costo_m_x)
+
+
+                /*
+                pagodo_m_septiembre
+                costo_m_septiembre
+
+                var costo_m      = parseFloat(costo_m_x);
+                var pago_m       = parseFloat($("#pagodo_m_" + y).val());
+                */
+                /*
+                $("#text_precio_change_x").html("$" + restaValor + ".00")
+                $("#precio_change_x").val(restaValor + ".00")
+
+                let interesHtml = (restaValor * 0.15) + restaValor
+                $("#textprecio_interes").html("$"+interesHtml)
+                */
+
+            }
         }
         /************************************/
 
@@ -210,7 +294,7 @@ function inputPago(){
         console.log("cinputPago")
         if($("#typoMes").val() == "normal"){
 
-
+            //alert("normal")
             $("#precio_PorPagar").attr("disabled",false)
 
             let resta   = $("#text_precio_change_x").html()
@@ -218,11 +302,14 @@ function inputPago(){
                 resta_y = resta[1]
     
             let pago_y =  $("#precio_PorPagar").val();
-                pagoresta = parseInt(resta_y) - parseInt(pago_y)
+                pagoresta = parseFloat(resta_y) - parseFloat(pago_y)
             
             if(pagoresta < 0){
+
                 $("#precio_PorPagar").val("0")
                 $("#print_pago").html("$00.00")
+                $("#print_total").html("$00.00")
+                
             }else{
                 $("#print_pago" ).html("$" + $("#precio_PorPagar").val())
                 $("#print_total").html("$" + $("#precio_PorPagar").val())
@@ -231,16 +318,18 @@ function inputPago(){
             
 
         }else{
+            //alert("no normal")
             let resta   = $("#textprecio_interes").html()
                 resta   = resta.split("$")
                 resta_y = resta[1]
     
                 let pago_y =  $("#precio_PorPagar").val();
-                pagoresta = parseInt(resta_y) - parseInt(pago_y)
+                pagoresta = parseFloat(resta_y) - parseFloat(pago_y)
 
                 if(pagoresta < 0){
-                    $("#precio_PorPagar").val("0")
-                    $("#print_pago").html("$00.00")
+                $("#precio_PorPagar").val("0")
+                $("#print_pago").html("$00.00")
+                $("#print_total").html("$00.00")
                 }else{
                     $("#print_pago" ).html("$" + $("#precio_PorPagar").val())
                     $("#print_total").html("$" + $("#precio_PorPagar").val())
@@ -269,7 +358,7 @@ function inputPago(){
     $("#text_precio_change_x").html("$" + xxx)
     */
 
-    })    
+    })
 }
 /************************************/
 
@@ -285,10 +374,11 @@ function inputPago(){
         $("#aplicarsaldoafavor").on("input",function(){
 
             if($("#aplicarsaldoafavor").is(':checked') == true){
-                
+            //-------------------------------------------------------------------------->
+
                 $("#print_pago" ).html("$00.00")
                 $("#print_total").html("$00.00")
-                
+
                 $("#precio_PorPagar").val(0).attr("disabled",true)
 
                     let x = $("#cobros_serpro").find("option:selected").text();
@@ -313,7 +403,7 @@ function inputPago(){
 
                         let total_y      =  parseFloat(saldoafavor_y) - parseFloat(resta_y);
                         let totalResta_y =  -1 * (parseFloat(resta_y) - parseFloat(saldoafavor_y));
-                        
+
                         $("#saldoafavorResto").html("$" + totalResta_y)
 
                         $("#saldoAFavorRestate" ).val(total_y)
@@ -328,7 +418,7 @@ function inputPago(){
                     */
                         // saldo a favor
                         let total_y      =  parseFloat(saldoafavor_y) - parseFloat(resta_y);
-                        
+
                         if(total_y <= 0 ){
                             totalResta_y_bug = 0;
                             let textprecio_saldoafavor   = $("#textprecio_saldoafavor").html();
@@ -342,15 +432,13 @@ function inputPago(){
                         $("#print_total").html("$" + resta_y_bug)
                     //-------------------------------------------------------------------------->
                     }
-                    
 
-                
-            
+            //-------------------------------------------------------------------------->
             }else if($("#aplicarsaldoafavor").is(':checked') == false){
                 $("#precio_PorPagar").val(0).attr("disabled",false)
                 location.reload()
             }
-            
+
         })
     }
     /************************************/
@@ -576,14 +664,22 @@ function rangoFechaB(){
     function mesPagado(selectMes){
 
         let inputMesPagado = $("#historialval_m_" + selectMes).val()
+        alert("#historialval_m_" + selectMes)
 
         if(inputMesPagado == "true"){
+
             alert("El mes de " + selectMes + " Ya fue pagado")
             $('#cobros_serpro option[value=null]').prop('selected', 'selected').change();
             var limpiarTxt = "true";
-            }else if(inputMesPagado == "false"){
-                var limpiarTxt = "false";
-                }else{var limpiarTxt = "error";}
+
+        }else if(inputMesPagado == "false"){
+
+            var limpiarTxt = "false";
+
+        }else{
+
+            var limpiarTxt = "error";
+        }
 
             return limpiarTxt;
     }
