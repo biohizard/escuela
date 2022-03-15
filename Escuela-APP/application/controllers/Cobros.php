@@ -87,7 +87,7 @@ class Cobros extends CI_Controller
         $data['sub_page_title']  = 'Dashboard';
         $data['sub_page_title2'] = 'admin';
         $data['css']             = 'cobros';
-        $data['js']              = 'colegiaturas/colegiaturas/colegiaturas,colegiaturas/colegiaturas/btn,colegiaturas/colegiaturas/xhr,colegiaturas/colegiaturas/tools';
+        $data['js']              = 'colegiaturas/colegiaturas/colegiaturas,colegiaturas/colegiaturas/btn,colegiaturas/colegiaturas/xhr,colegiaturas/colegiaturas/tools,colegiaturas/colegiaturas/onepaid';
 
         $data['singout']         = INDEX_PAGE . "user/logout?error=102&since=" . $_GET['since'] . "&sha1=" . $sha1;
 

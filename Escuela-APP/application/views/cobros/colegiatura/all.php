@@ -267,7 +267,7 @@
         <li class="list-group-item d-flex justify-content-between lh-sm bg-danger" id="interes">
           <div>
             <h6    class="my-0 link-light">interes</h6>
-            <small class="     link-light">interes</small>
+            <small class="     link-light">interes total</small>
           </div>
           <div>
             <span class="link-light" id="textprecio_interes">$00.00</span>
@@ -277,7 +277,7 @@
         </li>
 
         <!-- saldo a favor -->
-        <li class="list-group-item d-flex justify-content-between lh-sm bg-success" id="saldoAfavor">
+        <li class="list-group-item d-flex justify-content-between lh-sm bg-success  d-none" id="saldoAfavor">
           <div>
             <h6    class="my-0 link-light">saldo</h6>
             <small class="     link-light">saldo a favor</small>
@@ -310,21 +310,6 @@
             <input type="hidden"                         id="precio_change_dpa" disabled>
           </div>                
         </li>
-                      
-        <!-- total -->
-        <li class="list-group-item d-flex justify-content-between lh-sm">
-          <div>
-            <h6    class="my-0 text-capitalize">pago</h6>
-            <small class="text-muted text-capitalize">por pagar</small>
-          </div>
-          <div>
-            <span class="text-capitalize" id="print_pago">$00.00</span>
-          </div>
-        </li>
-        
-
-
-
 
         <li class="list-group-item d-flex justify-content-between bg-light d-none">
           <div class="text-success">
@@ -340,8 +325,33 @@
         <!-- total -->
         <li class="list-group-item d-flex justify-content-between">
           <div>
+            <h6    class="my-0 text-capitalize">sub-totaL</h6>
+            <small class="text-muted text-capitalize">resta + interes total</small>
+          </div>
+          <strong id="print_subtotal">$00.000</strong>
+          <input type="hidden"  value="resta" id="val_precio_total" disable>
+
+        </li>
+      </ul>
+
+
+      <ul class="list-group mb-3">
+        <!-- total -->
+        <li id="liInteresParcial" class="list-group-item d-flex justify-content-between bg-warning d-none">
+          <div>
+            <h6    class="my-0 text-capitalize">interes parcial</h6>
+            <small class="text-muted text-capitalize">.</small>
+          </div>
+          <strong id="print_interesparcial">$00.000</strong>
+          <input type="hidden"  value="resta" id="val_precio_total" disable>
+
+        </li>
+
+        <!-- total -->
+        <li class="list-group-item d-flex justify-content-between">
+          <div>
             <h6    class="my-0 text-capitalize">totaL</h6>
-            <small class="text-muted text-capitalize">Por pagar</small>
+            <small class="text-muted text-capitalize">.</small>
           </div>
           <strong id="print_total">$00.000</strong>
           <input type="hidden"  value="resta" id="val_precio_total" disable>
@@ -363,7 +373,7 @@
 
 
 
-<div class="row d-nonexxxx">
+<div class="row d-none">
   <div class="col-4">
     <ul class="list-group">
       

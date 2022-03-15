@@ -245,19 +245,28 @@ function loadingFechas(){
 }
 function savePago(){
     /*
-        "save_costo"           : ticket_costo           ,
-        "save_resta"           : ticket_resta           ,
-        "save_pago"            : ticket_pago            ,
-        "save_total"           : ticket_total[1]        ,
-        
-        save_costo: 1400.00
-        save_resta: 1610
-        save_pago: 1500
-        save_total: 1500
-        save_restafavorResto: 00.00
-        save_interes: true
+    save_fecha: 2022/03/14 00:22:48
+    save_idUsuario: AfN9M25VoJmSU8Ps9w2
+    save_idAlumno: 10
+    save_idAdvanceAlumno: fc2edfe26c1ac5976c26
+    save_nombreAlumno: jorge francisco rodriguez garibaldo
+    save_concepto: 1ª
+    save_idadconcepto: col1-usGq4VZo59EHgYX
+    save_resta: 105
+    save_pago: 805
+    save_total: 805
+    save_restafavorResto: 00.00
+    save_interes: true
     */
 
+    /*
+    costo
+    resta
+    interes
+    total
+    */
+   
+    /*
         let xCosto       = $("#cobros_serpro").find("option:selected").text();
         let yCosto       = xCosto.split(" ");
         let zCosto       = yCosto[1].split("$");
@@ -271,7 +280,6 @@ function savePago(){
             total_x      = total_x.split("$");
         var ticket_total = total_x;
 
-    /*determina si usar resta o interes*/
     if($("#textprecio_interes").text() == '$00.00'){
         let resta_x      = $("#text_precio_change_x").html();
             resta_x      = resta_x.split("$");
@@ -283,6 +291,21 @@ function savePago(){
         var ticket_resta = resta_x[1];
         var ticket_interes = true;
     }
+    */
+    let ticket_costo   = $("#textprecio_costo").html()
+        ticket_costo   = ticket_costo.split("$")
+    let ticket_resta   = $("#text_precio_change_x").html()
+        ticket_resta   = ticket_resta.split("$")
+    let ticket_interes = $("#textprecio_interes").html()
+        ticket_interes = ticket_interes.split("$")
+    let ticket_subtotal   = $("#print_subtotal").html()
+        ticket_subtotal   = ticket_subtotal.split("$")
+    let ticket_pago    = $("#precio_PorPagar").val()
+
+    let ticket_interesParcial =  $("#print_interesparcial").html()
+        ticket_interesParcial =  ticket_interesParcial.split("$")
+    let ticket_total          = $("#print_total").html()
+        ticket_total          = ticket_total.split("$")
 
     let ticket_fecha           = $("#configFecha").val();
     let ticket_idUsuario       = $("#cobroIdUsuario").val();
@@ -314,13 +337,15 @@ function savePago(){
             "save_idAdvanceAlumno" : ticket_idAdvanceAlumno,
             "save_nombreAlumno"    : ticket_nombreAlumno,
             "save_concepto"        : ticket_concepto1,
-            "save_idadconcepto"    : ticket_idadconcepto,
-            "save_costo"           : ticket_costo,
-            "save_resta"           : ticket_resta,
+            "save_idconcepto"      : ticket_idadconcepto,
+            "save_costo"           : ticket_costo[1],
+            "save_resta"           : ticket_resta[1],
+            "save_interes"         : ticket_interes[1],
+            "save_subtotal"        : ticket_subtotal[1],
             "save_pago"            : ticket_pago,
-            "save_total"           : ticket_total[1],
             "save_restafavorResto" : restafavorResto_x[1],
-            "save_interes"         : ticket_interes
+            "save_interesParcial"  :ticket_interesParcial[1],
+            "save_total"           :ticket_total[1]
         }
     }
 
