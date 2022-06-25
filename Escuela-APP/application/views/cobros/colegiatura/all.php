@@ -43,7 +43,7 @@
                         <tr>
                           <th scope="row" id="name_seguro">pagado / no pagado</th>
                           <td id="name_material">pagado / no pagado</td>
-                          <td id="name_inscripcion">pagado / no pagado</td>
+                          <td id="name_inscripcion"> / no pagado</td>
                         </tr>
                       </table>
                     </div>
@@ -277,7 +277,7 @@
         </li>
 
         <!-- saldo a favor -->
-        <li class="list-group-item d-flex justify-content-between lh-sm bg-success  d-none" id="saldoAfavor">
+        <li class="list-group-item d-flex justify-content-between lh-sm bg-success" id="saldoAfavor">
           <div>
             <h6    class="my-0 link-light">saldo</h6>
             <small class="     link-light">saldo a favor</small>

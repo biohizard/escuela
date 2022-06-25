@@ -147,10 +147,13 @@ _______________ __________  ____________________.___________    _______    _____
             $("#print_interesparcial").html("$00.00")
             $("#print_total").html("$00.00")
         })
-
+        
+        //precio_PorPagar
         $("#precio_PorPagar").on("input",function(){
 
             if($("#typoMes").val() == "normal"){
+            //--------------------------------> { Normal }
+                console.log("Normal")
 
                 let resta   = $("#text_precio_change_x").html()
                     resta   = resta.split("$")
@@ -172,11 +175,19 @@ _______________ __________  ____________________.___________    _______    _____
                             $("#print_interesparcial").html("$" + pagoInteresParcial)
                             $("#print_total").html("$" + pagoTotal.toFixed(2))
                     }
-                
-            }else{
-            //------------------------------>2 no normal
+            //--------------------------------> { Normal }
+            }else if($("#typoMes").val() == "interes"){
+            //--------------------------------> { Interes }
+                console.log("Interes")
                 //textprecio_interes
                 //print_subtotal
+                //pago       id="precio_PorPagar"
+                //subtotal   id="print_subtotal"
+
+                let subTotal   = $("#print_subtotal").html()
+                    subTotal   = subTotal.split("$")
+                    subTotal_y = subTotal[1]
+
                 let resta   = $("#text_precio_change_x").html()
                     resta   = resta.split("$")
                     resta_y = resta[1]
@@ -184,20 +195,61 @@ _______________ __________  ____________________.___________    _______    _____
                     let pago_y =  $(this).val();
                     pagoresta = parseFloat(resta_y) - parseFloat(pago_y)
 
-                    if(pagoresta < 0){
-                    $(this).val("0")
-                    $("#print_pago").html("$00.00")
+                    if($(this).val() > subTotal_y){
 
+                        $(this).val("")
+                        $("#print_interesparcial").html("$00.00")
+                        $("#print_total").html("$00.00")
+                        alert("El pago debe de ser menor o igual al Sub-TotaL")
                     }else{
-                        let pagoInput = $(this).val()
-                        let pagoInteresParcial = parseFloat(pagoInput) * 0.15;
-                        let pagoTotal          = parseFloat(pagoInput) * 1.15;
 
-                            $("#print_interesparcial").html("$" + pagoInteresParcial.toFixed(2))
-                            $("#print_total").html("$" + pagoTotal.toFixed(2))
+                        if(pagoresta < 0){
+                            /*alert(pagoresta + " A")
+                            console.log("Interes A")
+                            */
+                            /*
+                            print_interesparcial
+                            print_total
+                            resta     id="text_precio_change_x"
+                            subtotal  id="print_subtotal"
+                            pago      id="precio_PorPagar"
+
+                            if pago == subtotal
+
+                            */
+                            alert($("#precio_PorPagar").val() + "###" + clearPesitos($("#print_subtotal").html()))
+                            if( $("#precio_PorPagar").val() == clearPesitos($("#print_subtotal").html())){
+                                alert("igual")
+                            }else if( $("#precio_PorPagar").val() != clearPesitos($("#print_subtotal").html())){
+                                alert("diferente")
+                            }else{alert("error")}
+                            /*
+                            let pagoInput = $(this).val()
+                            let pagoInteresParcial = parseFloat(pagoInput) * 0.15;
+                            let pagoTotal          = parseFloat(pagoInput) * 1.15;
+
+                                $("#print_interesparcial").html("$" + pagoInteresParcial.toFixed(2))
+                                $("#print_total").html("$" + pagoTotal.toFixed(2))
+                                */
+
+                        }else{
+
+                            console.log("Interes B")
+
+                            let pagoInput = $(this).val()
+                            let pagoInteresParcial = parseFloat(pagoInput) * 0.15;
+                            let pagoTotal          = parseFloat(pagoInput) * 1.15;
+
+                                $("#print_interesparcial").html("$" + pagoInteresParcial.toFixed(2))
+                                $("#print_total").html("$" + pagoTotal.toFixed(2))
+
+                        }
+
                     }
-            //------------------------------>2 no normal
-            }
+                    
+            //--------------------------------> { Interes }
+            }else{console.log("Normal/Interes")}
+
         })
     }
     /************************************/
@@ -431,6 +483,12 @@ _______________ __________  ____________________.___________    _______    _____
     }
     /************************************/
 
+    function clearPesitos(x){
+        let resta   = x
+                    resta   = resta.split("$")
+                    resta_y = resta[1]
+                    return resta_y 
+    }
 
 
 /*########################################################################*/
